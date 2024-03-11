@@ -39,13 +39,14 @@ app.post("/search", async (req, res) => {
     const search = new searchQ({
         query: q,
     });
-    await search.save();
     console.log(search);
-    const apiKey = process.env.SEARCH_API_KEY; // Replace 'YOUR_API_KEY' with your actual API key
-    const cx = process.env.SEARCH_ID; // Replace 'YOUR_CX' with your actual custom search engine ID
-    const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}`;
+    const apiKey = process.env.SEARCH_API_KEY;
+    const cx = process.env.SEARCH_ID;
+    const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}&safe=active`;
     const searchResponse = await axios.get(apiUrl);
-    console.log("Search response:", searchResponse.data);
+    const result = searchResponse.data;
+    search.result = result;
+    await search.save();
     res.send(search);
 });
 

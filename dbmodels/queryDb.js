@@ -3,7 +3,10 @@ const Schema = mongoose.Schema;
 
 const searchSchema = new Schema({
     query: String,
-    result: Object,
+    result: {
+        query: String,
+        data: Object
+    },
 });
 
 

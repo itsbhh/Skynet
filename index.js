@@ -65,7 +65,7 @@ app.post("/search", async (req, res) => {
                     query: q,
                     response: text
                 })
-                console.log("AI DATA INITIALISED",aiData);
+                console.log("AI DATA INITIALISED", aiData);
                 await aiSays.save();
                 console.log(text);
             }
@@ -90,6 +90,26 @@ app.post("/search", async (req, res) => {
                 query: q
             }
         });
+        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
+        const prompt = q;
+
+        const result = await model.generateContent(prompt);
+        const response = await result.response;
+        const text = response.text();
+        const aiData = aiResponse.findOne({ response: text });
+        if (text == aiData) {
+            text = aiData;
+            console.log("AI DATA RETAINED");
+        }
+        else {
+            let aiSays = new aiResponse({
+                query: q,
+                response: text
+            })
+            console.log("AI DATA INITIALISED", aiData);
+            await aiSays.save();
+            console.log(text);
+        }
         console.log(search);
         const apiKey = process.env.SEARCH_API_KEY;
         const cx = process.env.SEARCH_ID;

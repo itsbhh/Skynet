@@ -7,6 +7,10 @@ const searchSchema = new Schema({
         query: String,
         data: Object
     },
+    file: {
+        url: String,
+        filename: String,
+    },
 });
 
 

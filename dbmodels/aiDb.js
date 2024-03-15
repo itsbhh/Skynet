@@ -4,6 +4,10 @@ const Schema = mongoose.Schema;
 const aiResponseSchema = new Schema({
     query: String,
     response: String,
+    file: {
+        url: String,
+        filename: String,
+    },
     
 });
 

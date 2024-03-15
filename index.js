@@ -1,15 +1,11 @@
 require('dotenv').config();
-const { GoogleGenerativeAI } = require("@google/generative-ai");
 const express = require("express");
 const app = express();
 const mongoose = require("mongoose");
 const path = require("path");
 const ejsMate = require("ejs-mate");
-const searchQ = require("./dbmodels/queryDb.js");
-const aiResponse = require("./dbmodels/aiDb.js");
 const bodyParser = require("body-parser");
 const ExpressError = require("./utils/ExpressError.js");
-const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -19,7 +15,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.engine('ejs', ejsMate);
 const searchRouter = require("./routes/search.js");
-
+const aiRouter=require('./routes/ai.js')
 
 app.listen(3000, () => {
     console.log("Server is working");
@@ -36,33 +32,9 @@ main().then(() => {
 });
 
 app.use("/home", searchRouter);
-
-//SKYNET AI ai route
-
-app.get("/ai", (req, res) => {
-    res.render("main/ai.ejs");
-});
+app.use("/ai", aiRouter);
 
 
-app.post("/ai", async (req, res) => {
-    // For text-only input, use the gemini-pro model
-    const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-
-    let { ai } = req.body;
-    ai = ai.toLowerCase();
-    const prompt = ai;
-
-    const result = await model.generateContent(prompt);
-    const response = await result.response;
-    const text = response.text();
-    const aiData = new aiResponse({
-        response: text,
-    });
-    console.log(aiData);
-    await aiData.save();
-    res.send(text);
-    console.log(text);
-});
 
 
 //BASIC ROUTES

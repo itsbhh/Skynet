@@ -3,6 +3,7 @@ const aiResponse = require('../dbmodels/aiDb.js');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const axios = require('axios');
+const model = genAI.getGenerativeModel({ model: "gemini-pro" });
 
 module.exports.index = (req, res) => {
     res.render('main/index.ejs');
@@ -22,7 +23,6 @@ module.exports.searchIndex = async (req, res) => {
         if (q == condition) {
             console.log("Condition 1.1 Triggered");
             //AI Code to be written in searchResult.ejs
-            const model = genAI.getGenerativeModel({ model: "gemini-pro" });
             const prompt = q;
             const result = await model.generateContent(prompt);
             const response = await result.response;
@@ -66,9 +66,7 @@ module.exports.searchIndex = async (req, res) => {
                 filename: filename
             }
         });
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
         const prompt = q;
-
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();

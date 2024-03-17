@@ -1,0 +1,463 @@
+/* Common styles */
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family: 'poopins', sans-serif;
+}
+
+body {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: url('/Croped.jpg') no-repeat center center/cover;
+    background-color: transparent;
+}
+
+.main {
+    display: flex;
+    width: 900px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(179, 178, 178);
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(253,253,253,0.2);
+    position: relative;
+    filter: drop-shadow(5px 5px 20px #aea9a9);
+}
+
+.main-2 {
+    width: 50%;
+    text-align: center;
+}
+
+.main-2 img {
+    align-items: center;
+    width: 93%;
+    height: 83%;
+    border-radius: 15px;
+    margin-top: 45px;
+}
+
+.log-in {
+    text-align: center;
+    margin-left: 60px;
+}
+
+.log-in header {
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.log-in form {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.log-in input[type="text"],
+.log-in input[type="password"] {
+    padding: 10px;
+    border: 2px solid white;
+    width: 100%;
+    border-radius: 35px;
+    outline: none;
+    background-color: transparent;
+    color: rgb(4, 4, 84);
+}
+
+.log-in .form-wrapper {
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.log-in label {
+    position: absolute;
+    left: 10px;
+    font-size: 15px;
+    color: rgb(4, 4, 84);
+    transition: .2s;
+}
+
+.log-in i {
+    position: absolute;
+    right: 10px;
+    color: rgb(4, 4, 84);
+    font-size: 10px !important;
+}
+
+.log-in .remember-box {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.log-in .remember-box .remember{
+    font-size: 17px;
+}
+
+.log-in .remember {
+    display: flex;
+    align-items: center;
+    gap: 5px;
+    color: black;
+}
+
+.log-in a {
+    color: rgb(4, 4, 84);
+}
+
+.log-in button {
+    font-size: 14px;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgb(0, 187, 255), rgb(5, 35, 183));
+}
+
+.log-in input:valid+label,
+.log-in input:focus+label {
+    background-color: rgb(12, 12, 91);
+    color: gray;
+    transform: translate(10px, -20px);
+    padding: 2px 5px;
+    font-size: 15px;
+    border-radius: 4px;
+}
+
+.log-in .new-account {
+    text-align: center;
+    color: black;
+}
+
+.log-in header::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    box-shadow: 15px 0 0 0 white;
+    border-top-right-radius: 50%;
+}
+
+.log-in header::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    box-shadow: -15px 0 0 0 white;
+    border-top-left-radius: 50%;
+}
+
+.log-in p {
+    text-align: center;
+    color: black;
+}
+
+.log-in .social-media svg {
+    margin-left: 2.3rem;
+    padding: 5px;
+    background-color: white;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    border-color: 4px solid black;
+}
+
+.log-in .social-media {
+    margin-right: 10px;
+}
+
+.log-in .h-line {
+    flex: 2px;
+    border: none;
+    height: 1px;
+    height: 2px;
+    background-color: black;
+}
+
+.log-in .hr-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: transparent;
+    }
+
+    .main {
+        border-color: rgb(2, 2, 2);
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: drop-shadow(5px 5px 20px #000000);
+    }
+
+    .log-in header {
+        background-color: white;
+    }
+
+    .log-in input[type="text"],
+    .log-in input[type="password"] {
+        color: rgb(4, 4, 103);
+        background-color: transparent;
+    }
+
+    .log-in .form-wrapper {
+        background-color: white;
+    }
+
+    .log-in label {
+        color: rgb(4, 4, 84);
+    }
+
+    .log-in i {
+        color: rgb(6, 6, 7);
+    }
+
+    .log-in .remember {
+        color: white;
+    }
+
+    .log-in a {
+        color: rgb(16, 128, 255);
+    }
+
+    .log-in button {
+        background-image: linear-gradient(to right, rgb(20, 14, 200), rgb(89, 27, 150));
+    }
+
+    .log-in p {
+        color: white;
+    }
+    .log-in .new-account{
+        color: white;
+    }
+    .log-in .h-line{
+       background-color:  white;
+    }
+}
+
+
+
+/* signup */
+.main-sign-up {
+    display: flex;
+    width: 900px;
+    padding: 20px 20px;
+    border-radius: 10px;
+    border: 2px solid rgb(179,178,178);
+    backdrop-filter: blur(0.2rem);
+    background-color: rgba(253,253,253,0.2);
+    position: relative;
+    filter: drop-shadow(5px 5px 20px #b0acac);
+}
+
+.main-2-sign-up {
+    margin-left: 20px;
+    width: 50%;
+    text-align: center;
+    display: flex;
+}
+
+.main-2-sign-up img {
+    align-items: center;
+    width: 93%;
+    height: 83%;
+    border-radius: 15px;
+    margin-top: 47px; /* Adjust as necessary */
+}
+
+.sign-up {
+    text-align: center;
+    margin-left: 45px;
+}
+
+.column {
+    display: flex;
+    column-gap: 10px;
+    
+}
+
+.sign-up header {
+    font-size: 20px;
+    position: absolute;
+    top: 0;
+    left: 50%;
+    transform: translateX(-50%);
+    padding: 20px 20px;
+    background-color: white;
+    border-radius: 0 0 10px 10px;
+}
+
+.sign-up form {
+    margin-top: 80px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+}
+
+.sign-up input[type="text"],
+.sign-up input[type="password"] {
+    padding: 10px;
+    border: 2px solid white;
+    width: 100%;
+    border-radius: 35px;
+    outline: none;
+    background-color: transparent;
+    color: rgb(4, 4, 84);
+}
+
+.sign-up .form-wrapper {
+    margin-right: 10px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    background-color: white;
+    border-radius: 30px 30px 30px 30px;
+}
+
+.sign-up input {
+    font-size: 15px;
+    color: rgb(4, 4, 84);
+}
+
+.sign-up a {
+    color: rgb(4, 4, 84);
+}
+
+.sign-up button {
+    margin-right: 10px;
+    font-size: 14px;
+    color: white;
+    border: none;
+    padding: 10px;
+    border-radius: 25px;
+    cursor: pointer;
+    background-image: linear-gradient(to right, rgb(0, 187, 255), rgb(5, 35, 183));
+}
+
+.sign-up .new-account {
+    text-align: center;
+    color: black;
+}
+
+.sign-up p {
+    text-align: center;
+    color: black;
+}
+
+.sign-up .social-media svg {
+    margin-left: 2.3rem;
+    padding: 5px;
+    background-color: white;
+    border-radius: 50px;
+    height: 40px;
+    width: 40px;
+    border-color: 4px solid black;
+}
+
+.sign-up .social-media {
+    margin-right: 30px;
+}
+
+.sign-up .h-line {
+    flex: 2px;
+    border: none;
+    height: 1px;
+    background-color: black;
+}
+
+.sign-up .hr-container {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.sign-up header::before {
+    position: absolute;
+    content: "";
+    top: 0;
+    left: -30px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    box-shadow: 15px 0 0 0 white;
+    border-top-right-radius: 50%;
+}
+
+.sign-up header::after {
+    position: absolute;
+    content: "";
+    top: 0;
+    right: -30px;
+    width: 30px;
+    height: 30px;
+    background-color: transparent;
+    box-shadow: -15px 0 0 0 white;
+    border-top-left-radius: 50%;
+}
+
+/* Dark mode styles */
+@media (prefers-color-scheme: dark) {
+    body {
+        background-color: #333;
+    }
+
+    .main-sign-up {
+        border: 2px solid rgb(1, 1, 1);
+        background-color: rgba(0, 0, 0, 0.5);
+        filter: drop-shadow(5px 5px 20px #000000);
+    }
+
+    .sign-up header {
+        color: black;
+    }
+
+    .sign-up input[type="text"],
+    .sign-up input[type="password"] {
+        color: rgb(4, 4, 104);
+    }
+
+    .sign-up .form-wrapper {
+        background-color: white;
+    }
+
+    .sign-up a {
+        color: rgb(16, 128, 255);
+    }
+
+    .sign-up button {
+        background-image: linear-gradient(to right, rgb(20,14,200), rgb(89,27,150));
+    }
+
+    .sign-up .new-account {
+        color: white;
+    }
+
+    .sign-up p {
+        color: white;
+    }
+
+    .sign-up .h-line {
+        background-color: white;
+    }
+}

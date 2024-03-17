@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="/css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha512-DTOQO9RWCH3ppGqcWaEA1BIZOC6xxalwEsw9c2QQeAIftl+Vegovlnee1c9QX4TctnWMn13TZye+giMm8e2LwA==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body background="/assets/Croped.jpg">
+<div class="main">
+    <div class="main-2">
+        <img src="/assets/skynet1 (1).webp">
+    </div>
+    <div class="log-in">
+    <header>
+        <h4>Login</h4>
+    </header>
+    <form>
+        <div class="form-wrapper">
+            <input id="input" type="text" required>
+            <label for="input">Username</label>
+            <i class="material-icon fa-solid fa-user"></i>
+        </div>
+        <div class="form-wrapper">
+            <input id="password" type="password" required>
+            <label for="password">Password</label>
+            <i class="material-icon fa-solid fa-lock "></i>
+        </div>
+        <div class="remember-box">
+            <div class="remember">
+                <input type="checkbox">Remember me
+            </div>
+            <a href="#">Forgot Password ?</a>
+        </div>
+         <button>Login</button>
+        <div class="hr-container">
+            <hr class="h-line"> &nbsp;&nbsp;
+         <div class="new-account">
+            Don't have account ? <a href="#">Sign Up</a>
+         </div>
+         &nbsp;&nbsp;<hr class="h-line">
+        </div>
+           <p class="p">Sign in with</p>
+        <div class="social-media">    
+            <svg xmlns="http://www.w3.org/2000/svg"  id="google" ><path fill="#ea4335" fill-rule="evenodd" d="M15.686 1023.358A13.458 13.458 0 0 0 8 1025.626c-5.347 3.573-7.435 10.458-4.974 16.4 2.46 5.942 8.803 9.33 15.111 8.076 6.308-1.255 10.871-6.815 10.871-13.246h-.006v-1.5h-12v4h7.82a9.627 9.627 0 0 1-7.437 6.961 9.628 9.628 0 0 1-10.795-5.77 9.628 9.628 0 0 1 3.553-11.712 9.626 9.626 0 0 1 12.18 1.2l2.73-2.728a13.487 13.487 0 0 0-9.367-3.949z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" transform="translate(0 -1020.362)"></path><path fill="#34a853" fill-rule="evenodd" d="m6.305 1039.765-3.205 2.418c2.508 5.842 8.786 9.163 15.037 7.92a13.46 13.46 0 0 0 7.29-4.112l-3.02-2.416a9.628 9.628 0 0 1-16.102-3.81z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" transform="translate(0 -1020.362)"></path><path fill="#fbbc05" fill-rule="evenodd" style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" d="M4.496 1029.034c-2.624 3.703-3.288 8.605-1.47 12.992.041.1.128.299.128.299 1.354-.782 2.354-1.468 3.306-2.116a9.625 9.625 0 0 1 1.068-8.79c-2.02-1.562-2.02-1.562-3.032-2.385z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" transform="translate(0 -1020.362)"></path><path fill="#4788f4" fill-rule="evenodd" d="M17.002 1035.357v4h7.82a9.609 9.609 0 0 1-2.416 4.218l3.022 2.416a13.481 13.481 0 0 0 3.58-9.134h-.006v-1.5h-12z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" transform="translate(0 -1020.362)"></path><path fill="none" style="line-height:normal;text-indent:0;text-align:start;text-decoration-line:none;text-decoration-style:solid;text-decoration-color:#000;text-transform:none;block-progression:tb;white-space:normal;isolation:auto;mix-blend-mode:normal;solid-color:#000;solid-opacity:1" d="M15.686 1023.358A13.458 13.458 0 0 0 8 1025.626c-5.347 3.573-7.435 10.458-4.974 16.4 2.46 5.942 8.803 9.33 15.111 8.076 6.308-1.255 10.871-6.815 10.871-13.246h-.006v-1.5h-12v4h7.82a9.627 9.627 0 0 1-7.437 6.961 9.628 9.628 0 0 1-10.795-5.77 9.628 9.628 0 0 1 3.553-11.712 9.626 9.626 0 0 1 12.18 1.2l2.73-2.728a13.487 13.487 0 0 0-9.367-3.949z" color="#000" font-family="sans-serif" font-weight="400" overflow="visible" transform="translate(0 -1020.362)"></path><path fill="none" d="m4.497 8.572 3.03 2.468m14.884 12.12 2.99 2.435M6.384 19.563 3.04 22.068"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"   viewBox="0 0 128 128" id="apple" ><path d="M97.905 67.885c.174 18.8 16.494 25.057 16.674 25.137-.138.44-2.607 8.916-8.597 17.669-5.178 7.568-10.553 15.108-19.018 15.266-8.318.152-10.993-4.934-20.504-4.934-9.508 0-12.479 4.776-20.354 5.086-8.172.31-14.395-8.185-19.616-15.724-10.668-15.424-18.821-43.585-7.874-62.594 5.438-9.44 15.158-15.417 25.707-15.571 8.024-.153 15.598 5.398 20.503 5.398 4.902 0 14.106-6.676 23.782-5.696 4.051.169 15.421 1.636 22.722 12.324-.587.365-13.566 7.921-13.425 23.639m-15.633-46.166c4.338-5.251 7.258-12.563 6.462-19.836-6.254.251-13.816 4.167-18.301 9.416-4.02 4.647-7.54 12.087-6.591 19.216 6.971.54 14.091-3.542 18.43-8.796"></path></svg>
+            <svg xmlns="http://www.w3.org/2000/svg"  fill="none" viewBox="0 0 512 512" id="twitter" ><g clip-path="url(#clip0_84_15698)"><rect width="512" height="512" fill="#fff" rx="60"></rect><path fill="#000" d="M355.904 100H408.832L293.2 232.16L429.232 412H322.72L239.296 302.928L143.84 412H90.8805L214.56 270.64L84.0645 100H193.28L268.688 199.696L355.904 100ZM337.328 380.32H366.656L177.344 130.016H145.872L337.328 380.32Z"></path></g><defs><clipPath id="clip0_84_15698"><rect width="512" height="512" fill="#fff"></rect></clipPath></defs></svg>         
+            <svg xmlns="http://www.w3.org/2000/svg"  viewBox="88.428 12.828 107.543 207.085" id="facebook" ><path fill="#3c5a9a" d="M158.232 219.912v-94.461h31.707l4.747-36.813h-36.454V65.134c0-10.658 2.96-17.922 18.245-17.922l19.494-.009V14.278c-3.373-.447-14.944-1.449-28.406-1.449-28.106 0-47.348 17.155-47.348 48.661v27.149H88.428v36.813h31.788v94.461l38.016-.001z"></path></svg>
+        </div>
+        </form>
+    </div>
+    </div>
+    <!-- JavaScript for toggling between light and dark modes -->
+<script src="/js/script.js"></script>
+</body>
+</html>

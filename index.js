@@ -55,7 +55,9 @@ app.get("/privacy", (req, res) => {
     res.render("basic/privacy.ejs");
 });
 
-app.get("")
+app.get("/login", (req,res)=>{
+    res.render("user/login.ejs");
+})
 
 
 

@@ -19,9 +19,9 @@ module.exports.answer = async (req, res) => {
     // For text-only input, use the gemini-pro model
     let { input } = req.body.ai;
     input = input.toLowerCase();
-    let url = req.file.path;
-    let filename = req.file.filename
-    if (filename) {
+    if (req.file) {
+        let url = req.file.path;
+        let filename = req.file.filename;
         const pdfPath = path.join(__dirname, '..', 'uploads', filename);
         const data = await fs.readFile(pdfPath);
         const pdfData = await pdfParse(data);
@@ -38,27 +38,22 @@ module.exports.answer = async (req, res) => {
         const text = response.text();
         console.log(aiData);
         await aiData.save();
-        res.send(text);
         console.log(text);
-
+        res.send(text);
 
     } else {
         const aiData = new aiResponse({
-            file: {
-                url: url,
-                filename: filename
-            }
+            query: input,
         });
         const prompt = input;
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
+        aiData.response = text;
         console.log(aiData);
         await aiData.save();
-        res.send(text);
         console.log(text);
-
+        res.send(text);
     }
-
-
 };
+

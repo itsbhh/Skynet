@@ -57,8 +57,11 @@ app.get("/privacy", (req, res) => {
 
 app.get("/login", (req,res)=>{
     res.render("user/login.ejs");
-})
+});
 
+app.get("/signup", (req,res)=>{
+    res.render("user/signup.ejs");
+});
 
 
 //ERROR Routes

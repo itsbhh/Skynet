@@ -1,5 +1,5 @@
 const searchQ = require('../dbmodels/queryDb.js');
-const aiResponse = require('../dbmodels/aiDb.js');
+const { AIData } = require('../dbmodels/aiDb.js');
 const { GoogleGenerativeAI } = require("@google/generative-ai");
 const genAI = new GoogleGenerativeAI(process.env.API_KEY);
 const axios = require('axios');
@@ -11,9 +11,13 @@ module.exports.index = (req, res) => {
 
 module.exports.searchIndex = async (req, res) => {
     let { q } = req.body.search;
-    let url = req.file.path;
-    let filename = req.file.filename;
-    console.log(url, filename);
+    if (req.file) {
+        let url = req.file.path;
+        let filename = req.file.filename;
+        console.log(url, filename);
+    }
+
+
     q = q.toLowerCase();
     let see = await searchQ.findOne({ "result.query": q }); // Use findOne instead of find
     console.log(see);
@@ -27,13 +31,13 @@ module.exports.searchIndex = async (req, res) => {
             const result = await model.generateContent(prompt);
             const response = await result.response;
             const text = response.text();
-            const aiData = aiResponse.findOne({ response: text });
+            const aiData = AIData.findOne({ response: text });
             if (text == aiData) {
                 text = aiData;
                 console.log("AI DATA RETAINED");
             }
             else {
-                let aiSays = new aiResponse({
+                let aiSays = new AIData({
                     query: q,
                     response: text
                 })
@@ -61,22 +65,18 @@ module.exports.searchIndex = async (req, res) => {
             result: {
                 query: q
             },
-            file: {
-                url: url,
-                filename: filename
-            }
         });
         const prompt = q;
         const result = await model.generateContent(prompt);
         const response = await result.response;
         const text = response.text();
-        const aiData = aiResponse.findOne({ response: text });
+        const aiData = AIData.findOne({ response: text });
         if (text == aiData) {
             text = aiData;
             console.log("AI DATA RETAINED");
         }
         else {
-            let aiSays = new aiResponse({
+            let aiSays = new AIData({
                 query: q,
                 response: text
             })

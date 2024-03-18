@@ -1,46 +1,52 @@
-body{
+body {
     font-family: sans-serif;
-   /* Base background */
-   background: radial-gradient(ellipse at 20px 120px, #434747, #0d0e0e);
+    /* Base background */
+    background: radial-gradient(ellipse at center 50px 100px, #434747 0%, #000000 100%);
 
-/* Pseudo-element for rotation */
-&::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background: linear-gradient(45deg, #434747, #0d0e0e);
-  z-index: -1;
-} 
-padding: 0;
+    /* Pseudo-element for rotation */
+    &::before {
+        content: "";
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: radial-gradient(circle at 300px 30vh, #434747 0%, #000000 100%);
+        z-index: -1;
+    }
+
+    padding: 0;
 }
-.navbar{
+
+.navbar {
     background-color: rgb(0, 0, 0);
     position: relative;
     float: right;
     width: 100%;
     align-items: end;
     padding: 0 !important;
-    overflow: hidden; 
+    overflow: hidden;
 }
-.navb{
-   display: flex;
-   border: 2px solid;
-   position: fixed;
-   top: 0%;
-   width: 100%;
-   border: none;
-   justify-content: flex-end;
+
+.navb {
+    display: flex;
+    border: 2px solid;
+    position: fixed;
+    top: 0%;
+    width: 100%;
+    border: none;
+    justify-content: flex-end;
 }
-.navbar-brand{
+
+.navbar-brand {
     filter: invert(100%);
 }
-.navbar-brand img{
+
+.navbar-brand img {
     margin-top: -4px;
 }
-.btn{
+
+.btn {
     height: 30px;
     width: 70px;
     font-size: 10px;
@@ -50,17 +56,23 @@ padding: 0;
     align-items: center;
     display: flex;
 }
+
 .btn:hover {
     color: aqua !important;
 }
-.navbar-brand, .btn, .menu{
+
+.navbar-brand,
+.btn,
+.menu {
     margin: 0px 10px;
 }
 
-body .container{
+body .container {
     align-items: center;
+    margin-top: 110px;
 }
-.search-body .search{
+
+.search-body .search {
     width: max-content;
     display: flex;
     align-items: center;
@@ -69,54 +81,64 @@ body .container{
     background: rgb(255, 255, 255);
     width: 800px;
     transition: box-shadow 0.25s;
-    text-align: center; 
+    text-align: center;
 }
-.search-body{
+
+.search-body {
     margin-top: 20px;
     width: 800px;
     margin-left: -20px;
 }
-.search-body .search:focus-within{
-    box-shadow: 0 0 2px rgba(0,0,0,0.75);
+
+.search-body .search:focus-within {
+    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
-.search-body .search-input{
+
+.search-body .search-input {
     font-size: 16px;
     font-family: sans-serif;
     color: #000000;
-    margin:10px;
+    margin: 10px;
     outline: none;
     border: none;
     background: transparent;
     flex: 1;
 }
-.search-body .search-input::placeholder, .search-icon {
-    color: rgba(0,0,0,0.5);
+
+.search-body .search-input::placeholder,
+.search-icon {
+    color: rgba(0, 0, 0, 0.5);
 }
+
 .search-body .search .search-2 {
     column-gap: 10px;
 }
+
 .imga img {
     height: 80px !important;
     width: 80px !important;
     border-radius: 50px;
 }
-.imga{
-  height: 80px !important;
-  width: 80px !important;
-  align-items: center !important;
-  justify-content: center !important;
-  position:  relative !important ;
-  margin-left: 2px;
-  border-radius: 50px;
+
+.imga {
+    height: 80px !important;
+    width: 80px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin-left: 2px;
+    border-radius: 50px;
 }
-.container{
+
+.container {
     justify-content: center;
     align-items: center;
     margin-top: 10%;
-    text-align: center ;
-    padding: 0 ;
+    text-align: center;
+    padding: 0;
     height: 50%;
 }
+
 .show-img {
     height: 20vh;
     border-radius: 30px !important;
@@ -126,7 +148,8 @@ body .container{
     filter: invert(100%);
     object-fit: cover;
 }
-.search-body{
+
+.search-body {
     display: flex;
     height: 80px;
     width: 50%;
@@ -137,79 +160,126 @@ body .container{
 /* FOOTER */
 
 footer {
-    position: fixed; /* Fixed position */
-    left: 0; /* Align to the left */
-    bottom: 0; /* Align to the bottom */
-    width: 100%; /* Take up full width */
-    background: radial-gradient(ellipse at 20px 120px, #434747, #0d0e0e);
-    color: white; /* White text color */
-    text-align: center; /* Centered text */
-    padding: 5px 0; /* Keep existing padding around the content */
+    position: fixed;
+    /* Fixed position */
+    left: 0;
+    /* Align to the left */
+    bottom: 0;
+    /* Align to the bottom */
+    width: 100%;
+    /* Take up full width */
+    background: radial-gradient(ellipse at center 50px 100px, #434747 0%, #000000 100%);
+    color: white;
+    /* White text color */
+    text-align: center;
+    /* Centered text */
+    padding: 5px 0;
+    /* Keep existing padding around the content */
 }
+
 .footer-container {
-    max-width: 1200px; /* Max width of the footer container */
-    margin: auto; /* Center the container */
-    position: relative; /* Add relative positioning */
-    height: 80px;
-} 
-.branding-container {
-    display: flex; /* Use flexbox for layout */
-    align-items: center; /* Center SKYNET vertically */
-    justify-content: center; /* Center horizontally */
-    position: absolute; /* Position the container */
-    width: 115%; /* Take up full width */
-    left: 50%; /* Align the container to the middle horizontally */
-    transform: translate(-50%); /* Center both horizontally and vertically */
-    padding: 0 20px; /* Add padding to keep space between lines and text */
+    max-width: 1200px;
+    /* Max width of the footer container */
+    margin: auto;
+    /* Center the container */
+    position: relative;
+    /* Add relative positioning */
+    height: 90px;
 }
-    .branding-text h3{
-        background: linear-gradient(to right, #4D54FF,#3ACB74); /* Gradient color */
-        background-clip: text;
-        color: transparent; /* Make the text color transparent to show the gradient */
-        display: inline; ;
-        font-family: sans-serif;
-    }
-    .horizontal-line {
-        flex: 1; /* Flex grow to available space */
-        border: none; /* No border */
-        height: 2px; /* Increased line thickness */
-        background-color: white; 
-        color: white;
-        position: relative;
-    }
-    .branding-text{
-        text-align: center;
-    }  
-    .skynet, .made-in {
-    margin: 0;
-    }
-    .made-in{
-        font-size: 12px ;
-    }
-    .bharat { 
-    background: linear-gradient(to right, #FFA500, #FFFFFF, #008000); /* Gradient color from orange to white to green */
+
+.branding-container {
+    display: flex;
+    /* Use flexbox for layout */
+    align-items: center;
+    /* Center SKYNET vertically */
+    justify-content: center;
+    /* Center horizontally */
+    position: absolute;
+    /* Position the container */
+    width: 115%;
+    /* Take up full width */
+    left: 50%;
+    /* Align the container to the middle horizontally */
+    transform: translate(-50%);
+    /* Center both horizontally and vertically */
+    padding: 0 20px;
+    /* Add padding to keep space between lines and text */
+}
+
+.branding-text h3 {
+    background: linear-gradient(to right, #4D54FF, #3ACB74);
+    /* Gradient color */
     background-clip: text;
-    color: transparent; /* Make the text color transparent to show the gradient */
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
+    display: inline;
+    ;
+    font-family: sans-serif;
+}
+
+.horizontal-line {
+    flex: 1;
+    /* Flex grow to available space */
+    border: none;
+    /* No border */
+    height: 2px;
+    /* Increased line thickness */
+    background-color: white;
+    color: white;
+    position: relative;
+}
+
+.branding-text {
+    text-align: center;
+}
+
+.skynet,
+.made-in {
+    margin: 0;
+}
+
+.made-in {
+    font-size: 12px;
+}
+
+.bharat {
+    background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
+    /* Gradient color from orange to white to green */
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
     display: inline;
     font-size: 12px;
-    }  
-    .footer-links {
-        list-style: none; /* Remove default list styling */
-        padding: 55px 0; /* Add padding to the top and bottom */
-        display: flex; /* Align links in a row */
-        justify-content: center; /* Center links horizontally */
-        flex-wrap: wrap; /* Allow wrapping if needed */
-        font-size: 15px; /* Font size for links */
-    } 
-    .footer-links li {
-    margin: 0 20px; /* Space between the links */
-    }  
-    .footer-links a {
-    color: white; /* White link color */
-    text-decoration: none; /* No underline on links */
-    }  
-    .footer-links a:hover {
-    text-decoration: underline; /* Underline on hover */
-    }
-   
+}
 
+.footer-links {
+    list-style: none;
+    /* Remove default list styling */
+    padding: 60px 0;
+    /* Add padding to the top and bottom */
+    display: flex;
+    /* Align links in a row */
+    justify-content: center;
+    /* Center links horizontally */
+    flex-wrap: wrap;
+    /* Allow wrapping if needed */
+    font-size: 15px;
+    /* Font size for links */
+}
+
+.footer-links li {
+    margin: 0 20px;
+    /* Space between the links */
+}
+
+.footer-links a {
+    color: white;
+    /* White link color */
+    text-decoration: none;
+    /* No underline on links */
+}
+
+.footer-links a:hover {
+    text-decoration: underline;
+    /* Underline on hover */
+}

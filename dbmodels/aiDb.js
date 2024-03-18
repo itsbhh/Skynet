@@ -8,9 +8,22 @@ const aiResponseSchema = new Schema({
         url: String,
         filename: String,
     },
-    
+
+});
+
+
+const chatHistory = new Schema({
+    history: [
+        {
+            role: String,
+            parts: String
+        }
+    ]
 });
 
 const AIData = mongoose.model('airesponse', aiResponseSchema);
-
-module.exports = AIData;
+const history = mongoose.model('chatHistory', chatHistory);
+module.exports = {
+    AIData,
+    history
+};

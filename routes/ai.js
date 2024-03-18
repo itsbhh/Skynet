@@ -19,10 +19,10 @@ const storage = multer.diskStorage({
 
 // File filter for PDF files
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'application/pdf') {
+    if (file.mimetype === 'application/pdf' || file.mimetype.startsWith('image/')) {
         cb(null, true);
     } else {
-        cb(new Error('Only PDF files are allowed'), false);
+        cb(new Error('File format incorrect'), false);
     }
 };
 const upload = multer({ storage: storage, fileFilter: fileFilter });
@@ -30,7 +30,7 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 router.route('/')
     .get(wrapAsync(aiController.index))
-    .post(upload.single('pdfFile'), wrapAsync(aiController.answer));
+    .post(upload.single('file'), wrapAsync(aiController.answer));
 
 
 module.exports = router;

@@ -1,0 +1,24 @@
+<% if (chatHs) { %>
+    <% chatHs.history.forEach(message => { %>
+        <div>
+            <p><%= message.role === 'user' ? 'User' : 'Skynet' %>: <%= message.parts %></p>
+        </div>
+    <% }) %>
+<% } %>
+
+<form id="newChatForm" method="POST" action="/ai" enctype="multipart/form-data">
+    <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
+    <input name="ai[input]">
+    <input type="file" name="file">
+    <button type="submit">Submit</button>
+</form>
+
+<button id="newChatButton">Start New Chat</button>
+
+<script>
+    const newChatButton = document.getElementById('newChatButton');
+    newChatButton.addEventListener('click', () => {
+        document.getElementById('newChatForm').reset();
+        document.querySelector('input[name="_id"]').value = '';
+    });
+</script>

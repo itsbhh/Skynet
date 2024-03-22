@@ -1,24 +1,35 @@
-<% if (chatHs) { %>
-    <% chatHs.history.forEach(message => { %>
+<% if (chatHs && chatHs.history && chatHs.history.length>= 2) { %>
+    <% for (let i=0; i < chatHs.history[0].parts.length; i++) { %>
         <div>
-            <p><%= message.role === 'user' ? 'User' : 'Skynet' %>: <%= message.parts %></p>
+            <p>User: <%= chatHs.history[0].parts[i].text %>
+            </p>
+            <% if (chatHs.history[1].parts[i].text
+                !=='Hello! I am Skynet, a multi-modal AI language model developed by Twoward Technology' ) { %>
+                <% i=i+1; %>
+                    <p>Skynet: <%= chatHs.history[1].parts[i].text %>
+                    </p>
+                    <% }else{ %>
+                        <% %>
+                            <p>Skynet: <%=chatHs.history[1].parts[i+1].text%>
+                            </p>
+                            <% } %>
         </div>
-    <% }) %>
-<% } %>
+        <% } %>
+            <% } %>
 
-<form id="newChatForm" method="POST" action="/ai" enctype="multipart/form-data">
-    <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
-    <input name="ai[input]">
-    <input type="file" name="file">
-    <button type="submit">Submit</button>
-</form>
+                <form id="newChatForm" method="POST" action="/ai" enctype="multipart/form-data">
+                    <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
+                    <input name="ai[input]">
+                    <input type="file" name="file">
+                    <button type="submit">Submit</button>
+                </form>
 
-<button id="newChatButton">Start New Chat</button>
+                <button id="newChatButton">Start New Chat</button>
 
-<script>
-    const newChatButton = document.getElementById('newChatButton');
-    newChatButton.addEventListener('click', () => {
-        document.getElementById('newChatForm').reset();
-        document.querySelector('input[name="_id"]').value = '';
-    });
-</script>
+                <script>
+                    const newChatButton = document.getElementById('newChatButton');
+                    newChatButton.addEventListener('click', () => {
+                        document.getElementById('newChatForm').reset();
+                        document.querySelector('input[name="_id"]').value = '';
+                    });
+                </script>

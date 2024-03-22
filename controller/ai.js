@@ -8,7 +8,8 @@ const pdfParse = require('pdf-parse');
 const fs = require('fs').promises;
 const fd = require('fs');
 const path = require('path');
-const mime = require('mime-types')
+const mime = require('mime-types');
+const { run } = require('./AI Function/chatbot.js');
 
 
 function fileToGenerativePart(path, mimeType) {
@@ -117,38 +118,10 @@ module.exports.answer = async (req, res) => {
             return res.status(400).send("Unsupported file type");
         }
     } else {
-        let chatHs;
-        if (_id) {
-            // Check if there's an existing chat history for the given _id
-            chatHs = await history.findById(_id);
-        }
-
-        if (!chatHs) {
-            // If no chat history found, create a new one
-            chatHs = new history({
-                history: [
-                    {
-                        role: 'user',
-                        parts: input
-                    }
-                ]
-            });
-        } else {
-            // If chat history found, append to it
-            chatHs.history.push({ role: 'user', parts: input });
-        }
-        const model = genAI.getGenerativeModel({ model: "gemini-pro" });
-        const prompt = input;
-        const result = await model.generateContentStream(prompt);
-        let text = '';
-        for await (const chunk of result.stream) {
-            const chunkText = chunk.text();
-            console.log(chunkText);
-            text += chunkText;
-        }
-        chatHs.history.push({ role: 'model', parts: text });
-        await chatHs.save();
-        console.log(chatHs);
-        res.render('aiChat.ejs', { text, input, chatHs});
+        const response = await run(input, _id);
+        const text = response.text;
+        const chatHs = response.chatHs;
+        const chatHsD = response.chatHsD;
+        res.render("aiChat.ejs", {text , input, chatHs, chatHsD});
     }
 };

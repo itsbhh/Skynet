@@ -15,19 +15,27 @@
         </nav>
         <div class="container">
             <img class="card-img-top show-img" src="/assets/logo2.png">
+            <form method="post" action="/home/search" enctype="multipart/form-data">
             <div class="search-body">
                 <div class="search">
+                    
                     <span class="search-icon material-symbols-outlined">search</span>
-                    <input class="search-input" type="search" placeholder="Search">
+                    <input class="search-input" type="search" name="search[q]" placeholder="Search" autocomplete="off">
                     <div class="search-2">
                         <span class=" mic material-symbols-outlined"> mic </span>
                         <span class="img material-symbols-outlined"> center_focus_weak</span>
                     </div>
                 </div>
+
+
                 &nbsp; &nbsp; &nbsp; &nbsp; <div class="imga">
-                    <img src="/assets/AI.png">
+                    <a href="/ai">
+                        <img src="/assets/AI.png" alt="ai">
+                        </a>
                 </div>
             </div>
+           
+        </form>
         </div>
         <footer id="footer">
             <div class="footer-container">

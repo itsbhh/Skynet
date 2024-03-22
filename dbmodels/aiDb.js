@@ -16,14 +16,16 @@ const chatHistory = new Schema({
     history: [
         {
             role: String,
-            parts: String
+            parts: [{ text: String, _id: false }]
         }
     ]
 });
+
+
 
 const AIData = mongoose.model('airesponse', aiResponseSchema);
 const history = mongoose.model('chatHistory', chatHistory);
 module.exports = {
     AIData,
-    history
+    history,
 };

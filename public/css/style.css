@@ -1,23 +1,20 @@
 body {
     font-family: sans-serif;
     /* Base background */
-    background: radial-gradient(ellipse at center 50px 100px, #434747 0%, #000000 100%);
-
-    /* Pseudo-element for rotation */
-    &::before {
-        content: "";
-        position: absolute;
-        top: 0;
-        left: 0;
-        width: 100%;
-        height: 100%;
-        background: radial-gradient(circle at 300px 30vh, #434747 0%, #000000 100%);
-        z-index: -1;
-    }
-
+    background: radial-gradient(ellipse 400px 700px at 350px 50vh, #434747 0%, #000000 100%);
     padding: 0;
 }
 
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(ellipse 600px 1000px at 450px 50vh, #434747 0%, #000000 100%);
+    z-index: -1;
+}
 .navbar {
     background-color: rgb(0, 0, 0);
     position: relative;
@@ -100,6 +97,7 @@ body .container {
     color: #000000;
     margin: 10px;
     outline: none;
+    padding: 10px;
     border: none;
     background: transparent;
     flex: 1;
@@ -115,14 +113,14 @@ body .container {
 }
 
 .imga img {
-    height: 80px !important;
-    width: 80px !important;
+    height: 60px !important;
+    width: 60px !important;
     border-radius: 50px;
 }
 
 .imga {
-    height: 80px !important;
-    width: 80px !important;
+    height: 60px !important;
+    width: 60px !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
@@ -151,10 +149,31 @@ body .container {
 
 .search-body {
     display: flex;
-    height: 80px;
+    height: 60px;
     width: 50%;
     position: relative;
     margin-left: 28.5%;
+}
+
+
+.image-button {
+    display: inline-block;
+    border-radius: 70px;
+    background: transparent;
+}
+
+.image-button img {
+    display: block;
+    width: 200px;
+    /* Adjust width as needed */
+    height: auto;
+    /* Maintain aspect ratio */
+}
+
+/* Optionally, you can add styles to customize the button further */
+.image-button:hover img {
+    opacity: 0.8;
+    /* Example: Reduce opacity on hover */
 }
 
 /* FOOTER */
@@ -162,13 +181,13 @@ body .container {
 footer {
     position: fixed;
     /* Fixed position */
+    background-color: (ellipse 100px 400px at 12px 20vh, #434747 0%, #000000 100%);
     left: 0;
     /* Align to the left */
     bottom: 0;
     /* Align to the bottom */
     width: 100%;
     /* Take up full width */
-    background: radial-gradient(ellipse at center 50px 100px, #434747 0%, #000000 100%);
     color: white;
     /* White text color */
     text-align: center;

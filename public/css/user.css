@@ -11,7 +11,7 @@ body {
     align-items: center;
     justify-content: center;
     min-height: 100vh;
-    background: url('../assets/Croped.jpg') no-repeat center center/cover;
+    background: url('../assets/lightbg.jpg') no-repeat center center/cover ;
     background-color: transparent;
 }
 
@@ -203,6 +203,7 @@ body {
 /* Dark mode styles */
 @media (prefers-color-scheme: dark) {
     body {
+        background: url('../assets/Croped.jpg') no-repeat center center/cover;
         background-color: transparent;
     }
 

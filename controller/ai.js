@@ -10,6 +10,7 @@ const fd = require('fs');
 const path = require('path');
 const mime = require('mime-types');
 const { run } = require('./AI Function/chatbot.js');
+const { analyzeExcel, getUserInput } = require("./AI Function/dataAnalysis.js");
 
 
 function fileToGenerativePart(path, mimeType) {
@@ -67,6 +68,7 @@ module.exports.answer = async (req, res) => {
     if (req.file) {
         const fileExtension = path.extname(req.file.originalname).toLowerCase();
         const mimeType = mime.lookup(fileExtension);
+        console.log(mimeType);
 
         if (mimeType && mimeType.startsWith('image')) {
             // Handle image file
@@ -114,6 +116,16 @@ module.exports.answer = async (req, res) => {
             await aiData.save();
             console.log(text);
             return res.send(formatText(text));
+        } else if (mimeType && (mimeType === 'application/vnd.ms-excel' || mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
+            const { tables, columns } = await getUserInput();
+            const analysisResult = await analyzeExcel(req.file.path, tables, columns);
+
+            // Generate graphs from analysisResult (using Chart.js or any other charting library)
+            const labels = Object.keys(analysisResult);
+            const values = Object.values(analysisResult);
+
+            // Respond with analysis result and graphs
+            return res.json({ analysisResult, labels, values });
         } else {
             return res.status(400).send("Unsupported file type");
         }
@@ -121,7 +133,6 @@ module.exports.answer = async (req, res) => {
         const response = await run(input, _id);
         const text = response.text;
         const chatHs = response.chatHs;
-        const chatHsD = response.chatHsD;
-        res.render("aiChat.ejs", {text , input, chatHs, chatHsD});
+        res.render("aiChat.ejs", { text, input, chatHs, formatText });
     }
 };

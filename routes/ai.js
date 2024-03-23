@@ -19,7 +19,9 @@ const storage = multer.diskStorage({
 
 // File filter for PDF files
 const fileFilter = (req, file, cb) => {
-    if (file.mimetype === 'application/pdf' || file.mimetype.startsWith('image/')) {
+    const allowedMimeTypes = ['application/pdf', 'application/vnd.ms-excel', 'image/jpeg', 'image/png', 'image/gif']; // Add image MIME types here
+    const fileExtension = path.extname(file.originalname).toLowerCase();
+    if (allowedMimeTypes.includes(file.mimetype) || fileExtension === '.xlsx') {
         cb(null, true);
     } else {
         cb(new Error('File format incorrect'), false);

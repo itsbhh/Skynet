@@ -317,7 +317,7 @@ body {
 }
 
 .sign-up input[type="text"],
-.sign-up input[type="password"] {
+.sign-up input[type="password"], .sign-up input[type="date"] {
     padding: 10px;
     border: 2px solid white;
     width: 100%;
@@ -334,6 +334,9 @@ body {
     align-items: center;
     background-color: white;
     border-radius: 30px 30px 30px 30px;
+}
+.sign-up input[type="date"]{
+    color: #939292 !important;
 }
 
 .sign-up input {

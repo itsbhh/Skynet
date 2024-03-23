@@ -302,3 +302,95 @@ footer {
     text-decoration: underline;
     /* Underline on hover */
 }
+
+
+/* navbar and footer  */
+
+/* Adjust the size and spacing of the navbar brand area */
+.container-fluid {
+    display: inline-block; /* Ensures the brand area only takes up necessary space */
+    margin-right: 5px; /* Reduces space to the right of the brand */
+    padding: 0; /* Removes padding */
+    line-height: 1; /* Aligns the logo with the text vertically */
+  }
+  
+  /* Adjust the size of the logo image if necessary */
+  .container-fluid img {
+    height: 5%; /* Maintains aspect ratio */
+    width: 15%; /* Adjust width as needed, or use 'auto' for natural size */
+    vertical-align: middle; /* Aligns the logo with the text */
+  }
+  
+  /* Ensure the navbar items are aligned as in the image */
+  .navbar {
+    display: flex;
+    align-items: center; /* Aligns items vertically */
+    justify-content: space-between; /* Distributes space between and around content items */
+  }
+  
+  /* Style for the navigation links */
+  .nav-link {
+    text-decoration: none;
+    color: rgb(68, 66, 66);
+    font-size: 30px;
+    margin-right: 60px; /* Adjust the margin as needed */
+    justify-content: space-between !important;
+  }
+  
+  /* Style for the globe icon */
+  .navbar-text img {
+    margin-left: 20px; /* Adjust the margin as needed */
+    vertical-align: middle; /* Aligns the icon with the text */
+  }
+  .container-fluid i {
+    margin-right: 20px;
+  }
+  .navbar-nav{
+    margin-left: -10%;
+  }
+  .navbar-text img {
+    margin-left: 80%;
+  }
+  
+  /* Additional styles from the FOOTER file */
+  
+  * {
+    padding: 0;
+    margin: 0;
+  }
+  
+  .pt5 {
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    left: 0;
+  }
+  
+  .mt-3 a {
+    text-decoration: none;
+    color: black;
+    font-weight: 500;
+    font-size: large;
+  }
+  
+  .col-md-3 p {
+    color: rgb(93, 93, 93);
+    margin-left: 6% !important;
+  }
+  
+  .col-md-3 img {
+    margin-top: -8%;
+    margin-left: 6% !important;
+  }
+  
+  .col-xl-2 {
+    margin-top: 3% !important;
+  }
+  
+  .col-md-3 h5 {
+    font-weight: 600;
+    font-size: 22px;
+  }
+  
+  /* Additional customizations can be added below this line */
+  

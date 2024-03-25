@@ -45,8 +45,8 @@ body::before {
 
 .btn {
     height: 30px;
-    width: 70px;
-    font-size: 10px;
+    width: 80px;
+    font-size: 8px;
     border-radius: 50px !important;
     color: rgb(255, 255, 255);
     justify-content: center;

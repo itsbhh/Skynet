@@ -1,0 +1,45 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+.heading{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+}
+.card{
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    border: none;
+    padding-top: 15px;
+}
+.btn-dark{
+    width: 100px !important;
+    height: 35px !important;
+    display: inline !important;
+    border-radius: 15px !important;
+}
+.btn-light{
+    border-radius: 15px !important;
+}
+.btn-light:hover{
+    background-color: rgb(255, 252, 252) !important;
+}
+.p-3{
+    width: 100%;
+}
+h5{
+    font-size: x-large;
+    padding-top: 50px;
+}
+.card-text{
+    padding-top: 20px;
+    color: black;
+}
+h3{
+    padding-top: 60px;
+}
+.card-title{
+    color: black;
+}

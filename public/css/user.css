@@ -318,7 +318,7 @@ body {
 }
 
 .sign-up input[type="text"],
-.sign-up input[type="password"], .sign-up input[type="date"] {
+.sign-up input[type="password"], .sign-up input[type="date"], .sign-up input[type="email"] {
     padding: 10px;
     border: 2px solid white;
     width: 100%;

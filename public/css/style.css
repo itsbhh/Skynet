@@ -55,7 +55,7 @@ body::before {
 }
 
 .btn:hover {
-    color: aqua !important;
+    color: rgb(40, 41, 41) !important;
 }
 
 .navbar-brand,
@@ -187,7 +187,7 @@ button {
   }
 .custom-btn{
     position: fixed;
-    margin-top: 15%;
+    margin-top: 12%;
     margin-left: 87%;
 }
   

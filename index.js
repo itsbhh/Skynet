@@ -95,7 +95,7 @@ app.post("/feedback", async (req, res) => {
 });
 
 app.get("/privacy", (req, res) => {
-    res.render("basic/privacy.ejs");
+    res.render("includes/privacy.ejs");
 });
 
 

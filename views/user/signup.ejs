@@ -15,21 +15,21 @@
     </header>
     <form  action="/user/signup" method="post">
         <div class="form-wrapper">
-            <input id="input"  type="text" placeholder="Fullname" required>  
+            <input id="input"  type="text" placeholder="Fullname" name="fullname" required>  
         </div>
         <div class="column">
             <div class="form-wrapper">
-                <input id="input" type="text" placeholder="Username" required>
+                <input id="input" type="text" placeholder="Username" name="username" required>
             </div>
             <div class="form-wrapper">
-                <input id="input" type="date" placeholder="DOB" required>               
+                <input id="input" type="date" placeholder="DOB" name='dob' required>               
             </div>
         </div>
         <div class="form-wrapper">
-            <input id="input"  type="email" placeholder="Email" required>           
+            <input id="input"  type="email" placeholder="Email" name="email" required>           
         </div>
         <div class="form-wrapper">
-            <input id="input" type="password" placeholder="Password" required>   
+            <input id="input" type="password" placeholder="Password" name="password" required>   
         </div>
          <button>Sign up</button>
         <div class="hr-container">

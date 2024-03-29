@@ -2,49 +2,29 @@
     <% for (let i = 0; i < chatHs.history[0].parts.length; i++) { %>
         <div>
             <p>User: <%= chatHs.history[0].parts[i].text %></p>
-            <% if (chatHs.history[1].parts[i].text !== 'Hello! I am Skynet, a multi-modal AI language model developed by Twoward Technology') { %>
-                <% i = i + 1; %>
+            <% if (chatHs.history[1].parts[i].text == 'Hello! I am Skynet, a multi-modal AI language model developed by Twoward Technology') { %>
+                <% i = i+1; %>
+                <% console.log("con1 trig"); %>
                 <p>Skynet: <%= formatText(chatHs.history[1].parts[i].text) %></p>
+                <% i = i-1;%>
             <% } else { %>
-                <% i = i + 1; %>
+                <% i = i+1; %>
+                <% console.log("con2 trig"); %>
                 <p>Skynet: <%= formatText(chatHs.history[1].parts[i].text) %></p>
+                <% i = i-1;%>
             <% } %>
         </div>
     <% } %>
 <% } %>
 
-<% if (file && file.mimetype && (file.mimetype === 'application/vnd.ms-excel' || file.mimetype === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) { %>
-    <form id="newChatForm" method="POST" action="/ai" enctype="multipart/form-data">
-        <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
-        <input name="ai[input]">
-        <input type="file" name="file">
-        <button type="submit">Submit</button>
-        <!-- Add buttons for choosing tables and columns -->
-        <label for="tables">Choose tables:</label>
-        <select id="tables" name="tables">
-            <!-- Populate options dynamically based on the Excel file content -->
-            <% Object.keys(fileData).forEach(table => { %>
-                <option value="<%= table %>"><%= table %></option>
-            <% }); %>
-        </select>
-        <label for="columns">Choose columns:</label>
-        <select id="columns" name="columns">
-            <!-- Populate options dynamically based on the selected table -->
-            <% if (selectedTable) { %>
-                <% Object.keys(fileData[selectedTable]).forEach(column => { %>
-                    <option value="<%= column %>"><%= column %></option>
-                <% }); %>
-            <% } %>
-        </select>
-    </form>
-<% } else { %>
+
     <form id="newChatForm" method="POST" action="/ai" enctype="multipart/form-data">
         <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
         <input name="ai[input]">
         <input type="file" name="file">
         <button type="submit">Submit</button>
     </form>
-<% } %>
+
 
 <button id="newChatButton">Start New Chat</button>
 
@@ -55,4 +35,3 @@
         document.querySelector('input[name="_id"]').value = '';
     });
 </script>
-2

@@ -6,6 +6,19 @@ const path = require("path");
 const ejsMate = require("ejs-mate");
 const bodyParser = require("body-parser");
 const ExpressError = require("./utils/ExpressError.js");
+const passport = require("passport");
+const localStartegy = require("passport-local");
+const flash = require("connect-flash");
+const session = require("express-session");
+const user = require("./dbmodels/user.js");
+
+
+const searchRouter = require("./routes/search.js");
+const aiRouter = require('./routes/ai.js');
+const userRouter = require('./routes/user.js');
+
+
+
 
 app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
@@ -14,11 +27,39 @@ app.use(express.urlencoded({ extended: true }));
 app.use(bodyParser.urlencoded({ extended: true }));
 app.use(bodyParser.json());
 app.engine('ejs', ejsMate);
-const searchRouter = require("./routes/search.js");
-const aiRouter=require('./routes/ai.js')
+
+
+const sessionOption = {
+    secret: process.env.SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+        expiers: Date.now() + 7 * 24 * 60 * 60 * 1000,
+        maxAge: 7 * 24 * 60 * 60 * 1000,
+        httpOnly: true,
+    },
+};
+
 
 app.listen(3000, () => {
     console.log("Server is working");
+});
+
+
+app.use(session(sessionOption));
+app.use(flash());
+
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(new localStartegy(user.authenticate()));
+passport.serializeUser(user.serializeUser());
+passport.deserializeUser(user.deserializeUser());
+
+app.use((req, res, next) => {
+    res.locals.success = req.flash("success");
+    res.locals.error = req.flash("error");
+    res.locals.currUser = req.user;
+    next();
 });
 
 async function main() {
@@ -33,9 +74,11 @@ main().then(() => {
 
 app.use("/home", searchRouter);
 app.use("/ai", aiRouter);
+app.use('/user', userRouter);
 
-
-
+app.get("/chart", (req, res) => {
+    res.render('chart.ejs');
+})
 
 //BASIC ROUTES
 
@@ -53,14 +96,6 @@ app.post("/feedback", async (req, res) => {
 
 app.get("/privacy", (req, res) => {
     res.render("basic/privacy.ejs");
-});
-
-app.get("/login", (req,res)=>{
-    res.render("user/login.ejs");
-});
-
-app.get("/signup", (req,res)=>{
-    res.render("user/signup.ejs");
 });
 
 

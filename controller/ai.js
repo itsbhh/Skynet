@@ -117,15 +117,21 @@ module.exports.answer = async (req, res) => {
             console.log(text);
             return res.send(formatText(text));
         } else if (mimeType && (mimeType === 'application/vnd.ms-excel' || mimeType === 'application/vnd.openxmlformats-officedocument.spreadsheetml.sheet')) {
-            const { tables, columns } = await getUserInput();
-            const analysisResult = await analyzeExcel(req.file.path, tables, columns);
+            const analysisResult = await analyzeExcel(req.file.path);
 
-            // Generate graphs from analysisResult (using Chart.js or any other charting library)
-            const labels = Object.keys(analysisResult);
-            const values = Object.values(analysisResult);
+            const labels = analysisResult.labels;
+            const values = analysisResult.values;
+
+            const processedData = analysisResult.values.map(obj => {
+                return Object.entries(obj).flatMap(([value, frequency]) => {
+                    // Repeat each numerical value according to its frequency
+                    return Array.from({ length: frequency }, () => parseFloat(value));
+                });
+            });
 
             // Respond with analysis result and graphs
-            return res.json({ analysisResult, labels, values });
+            res.render("sample.ejs", { processedData, analysisResult }); // Pass processedData to the template
+
         } else {
             return res.status(400).send("Unsupported file type");
         }
@@ -133,6 +139,6 @@ module.exports.answer = async (req, res) => {
         const response = await run(input, _id);
         const text = response.text;
         const chatHs = response.chatHs;
-        res.render("aiChat.ejs", { text, input, chatHs, formatText });
+        res.render("aiChat.ejs", { text, input, chatHs, formatText, mime });
     }
 };

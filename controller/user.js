@@ -36,7 +36,7 @@ module.exports.loginReq = async (req, res) => {
     req.flash("success", `Welcome to Skynet ${req.user.username}`);
     let redirectUrl = res.locals.redirectUrl || "/home";
     console.log(redirectUrl);
-    res.redirect(redirectUrl);
+    res.redirect('/home');
 };
 
 

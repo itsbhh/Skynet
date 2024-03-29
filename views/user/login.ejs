@@ -16,10 +16,10 @@
     <header>
         <h4>Sign in</h4>
     </header>
-    <form>
+    <form method="post" action="/user">
         <div class="form-wrapper">
             <input id="input" type="text" required>
-            <label for="input">Username</label>
+            <label for="input">Username/Email</label>
             <i class="material-icon fa-solid fa-user"></i>
         </div>
         <div class="form-wrapper">
@@ -37,7 +37,7 @@
         <div class="hr-container">
             <hr class="h-line"> &nbsp;&nbsp;
          <div class="new-account">
-            Don't have account ? <a href="/signup">Sign Up</a>
+            Don't have account ? <a href="/user/signup">Sign Up</a>
          </div>
          &nbsp;&nbsp;<hr class="h-line">
         </div>

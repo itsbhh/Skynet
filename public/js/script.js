@@ -21,3 +21,19 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
         document.body.classList.remove('dark-mode');
     }
 });
+
+
+let drop = document.querySelector('.dropdown-arrow');
+let closeIcon = document.querySelector('.close-icon');
+
+drop.addEventListener('click', () => { 
+    let menu = document.querySelector('.theme-options');
+    menu.style.display = (menu.style.display == 'block') ? 'none' : 'block';
+    drop.style.transform = (menu.style.display == 'none') ? 'rotate(0deg)' : 'rotate(180deg)';
+    drop.style.marginTop = '-8px';
+});
+
+closeIcon.addEventListener('click', () => {
+    let menu = document.querySelector('.menu');
+    menu.style.display = 'none';
+});

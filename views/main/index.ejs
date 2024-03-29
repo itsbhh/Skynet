@@ -9,12 +9,53 @@
                 <a class="navbar-brand" href="#">
                     <img src="/assets/language.png" alt="" width="50" height="49">
                 </a>
-                <a href="/login" style="text-decoration: none;">
+                <a href="/user/login" style="text-decoration: none;">
                     <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
 
                 </a>
-                <i class=" menu mt-4 fa-solid fa-bars fa-2xl" style="color: #ffffff;"></i>
+                <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="dropx()" style="color: #ffffff;"></i>
 
+                <!-- on click it will appear -->
+
+
+            </div>
+            <div class="menu-drop">
+                <i class="fa-solid fa-xmark close-icon"></i>
+                <div class="menu-item">
+                    <i class="fa-solid fa-circle-user fa-sm icon"></i>
+                    <span>Account</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-gear fa-sm icon" style="color: #ffffff;"></i>
+                    <span>Settings</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-lock fa-sm icon"></i>
+                    <span>Safe search</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-regular fa-clock fa-sm icon"></i>
+                    <span>Search History</span>
+                </div>
+                <div class="menu-item">
+                    <i class="fa-solid fa-circle-half-stroke fa-sm icon"></i>
+                    <span>Theme</span>
+                    <i class="bi bi-chevron-down dropdown-arrow"></i>
+                </div>
+                <div class="theme-options" id="theme-options">
+                    <div class="radio-option">
+                        <input type="radio" id="light" name="theme" value="light">
+                        <label for="light">Light</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="dark" name="theme" value="dark" checked>
+                        <label for="dark">Dark</label>
+                    </div>
+                    <div class="radio-option">
+                        <input type="radio" id="system" name="theme" value="system">
+                        <label for="system">System Default</label>
+                    </div>
+                </div>
             </div>
         </nav>
         <div class="container">
@@ -45,7 +86,7 @@
         <div class="custom-btn">
             <button class="custom-button">
                 <i class="fa-solid fa-pen" style="color: #000000;"></i>&nbsp; Customize
-              </button>
+            </button>
         </div>
         <footer id="footer">
             <div class="footer-container">
@@ -74,4 +115,14 @@
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
             integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
             crossorigin="anonymous"></script>
+
+        <script>
+            function dropx() {
+                let menux = document.querySelector('.menu');
+                menux.addEventListener('click', () => {
+                    let menuy = document.querySelector('.menu-drop');
+                    menuy.style.display = 'block';
+                })
+            }
+        </script>
     </body>

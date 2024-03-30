@@ -55,7 +55,7 @@ body::before {
 }
 
 .btn:hover {
-    color: rgb(40, 41, 41) !important;
+    color: rgb(218, 223, 223) !important;
 }
 
 .navbar-brand,
@@ -298,6 +298,7 @@ footer {
 
 .made-in {
     font-size: 12px;
+    color: white;
 }
 
 .bharat {

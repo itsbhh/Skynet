@@ -1,0 +1,242 @@
+@import url("https://fonts.googleapis.com/css?family=Open+Sans|Sacramento");
+html {
+  font-size: 14.5px;
+}
+
+body {
+  font-family: "Open Sans", sans-serif;
+  line-height: 1.45em;
+  background-color: #ffffff;
+  color: #404646;
+  margin: 0;
+  padding: 0;
+}
+.main-container {
+  margin-top: 10px;
+  height: 50%;
+  background-color: rgb(227, 227, 227);
+  border-radius: 20px;
+}
+
+.grid-container {
+  margin-top: 48px;
+  display: grid;
+  grid-gap: 1.1312rem;
+  grid-template-columns: repeat(auto-fit, 12.8rem);
+  grid-auto-rows: 12.8rem;
+  grid-auto-flow: dense;
+  justify-content: center;
+  max-width: 75em;
+}
+
+.card {
+  grid-row: auto/span 1;
+  grid-column: auto/span 1;
+  background-color: rgb(247, 247, 247);
+  border-radius: 20px;
+  box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
+  margin-top: 35px;
+}
+.card__image {
+  height: 100%;
+  max-height: 100%;
+  width: 100%;
+  display: flex;
+}
+.card__image img {
+  height: 100%;
+  border-radius: 20px;
+  min-height: 100%;
+  max-height: 100%;
+  width: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+.card--2x {
+  grid-row: auto/span 2;
+  grid-column: auto/span 2;
+}
+.search-heading{
+  display: flex;
+  color: black;
+  margin-top: 30px;
+  margin-left: -30px;
+}
+.demo a{
+  color: rgb(48, 48, 48);
+}
+.demo img{
+  margin-left: 88%;
+  margin-top: -15%;
+  border-radius: 15px;
+}
+.page-link{
+  display: flex;
+  margin-left: 25%;
+}
+.page-link li{
+  list-style-type: none;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 10%;
+}
+.page-link li:hover{
+  text-decoration: 4px underline !important;
+  cursor: pointer;
+}
+
+.chat-container {
+  position: relative;
+  width: 350px;
+  background-color: white;
+  border-radius: 25px;
+  overflow: hidden;
+  border:1px solid rgb(125, 125, 125);
+  margin-top: 10%;
+  margin-bottom: 20%;
+  margin-left: 10%;
+  box-shadow: 0 2px 10px rgba(15, 15, 15, 0.4);
+}
+#Layer_1{
+  background-color: none;
+  filter: invert(10%);
+}
+
+.chat-header {
+  padding: 15px;
+  text-align: left;
+  font-size: 14px;
+  color: #333333;
+  font-weight: bold;
+  background-color: #ffffff;
+  position: relative;
+}
+
+.chat-header i {
+  color: black;
+  position: absolute;
+  top: 0;
+  right: 0;
+  transform: translate(50%, -50%);
+}
+
+.chat-body {
+  padding: 15px;
+  background-color: #ffffff;
+  height: 400px;
+}
+
+.chat-body i {
+  margin-right: 5px;
+}
+
+.chat-body p {
+  color: #999999;
+  margin-top: -5px;
+}
+
+.chat-footer {
+  padding: 15px !important;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 40px;
+  font-size: 12px;
+  width: 100%;
+}
+.chat-footer i{
+  margin-left: 50%;
+}
+
+.input-group {
+  flex-grow: 2;
+  margin-right: 10px;
+  display: flex;
+  align-items: center;
+  position: relative;
+}
+.text-space{
+  background-color: #eceaea;
+  width:100%;
+  height:100%;
+  resize: none;
+  border: none;
+}
+.text-space:focus{
+  outline: none !important;
+}
+.fa-sync-alt{
+  margin-left: 95% !important;
+  margin-top: -27% !important;
+}
+
+.footer{
+  margin-left: 10px;
+  padding: 1px;
+  margin-top: -15%;
+}
+
+.send-btn {
+  background-color: transparent;
+  padding: 10px 10px ;
+  border: none;
+  border-radius: 25px;
+  margin-left: 40%;
+}
+
+.chat-container hr {
+  margin:auto ;
+  border: none;
+  border-top: 2px solid #727272;
+  display: none;
+}
+.footer i{
+  margin-left: 10px;
+}
+.aifooter{
+  margin-bottom: 5%;
+  margin-left: 5%;
+  margin-right: 5%;
+  border-radius: 28px;
+  background-color: #eceaea;
+}
+ .icon{
+  margin-bottom :-10px;
+  width: 30px;
+  height: 30px;
+  display: inline-block;
+  background-image: url('/assets/language.png');
+  background-size: cover;
+  background-position: center;
+  filter: invert(5%);
+}
+.related{
+  margin-top: -65px !important;
+  margin-left: 80px;
+}
+.form-control{
+  width: 65%;
+  border-radius: 20px;
+  margin-left: 80px;
+  margin-top: 10px;
+  box-shadow: 0 2px 10px rgb(180, 180, 180);
+}
+.More{
+  margin-left: 85%;
+  margin-top: -20% !important;
+  text-decoration: none;
+  color: #434242;
+}
+.ai{
+  float: right;
+  border-radius: 50%;
+  margin-top: -10%;
+  margin-right: -10%;
+}
+.bi-search{
+  margin-left: 74%;
+  margin-top: -15%;
+}
+.search-box{
+  margin-top: -1%;
+}

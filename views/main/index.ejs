@@ -1,6 +1,6 @@
 <% layout("/layouts/boilerplate") %>
 
-    <body>
+    <body class="dark-mode">
         <nav class="navbar bg-body-tertiary ">
             <div class="navb">
                 <a class="navbar-brand" href="#">
@@ -118,11 +118,18 @@
 
         <script>
             function dropx() {
-                let menux = document.querySelector('.menu');
-                menux.addEventListener('click', () => {
-                    let menuy = document.querySelector('.menu-drop');
-                    menuy.style.display = 'block';
-                })
+                let menuy = document.querySelector('.menu-drop');
+                // Toggle the visibility of the dropdown menu
+                menuy.classList.toggle('show');
             }
+
+            // Close the dropdown menu when clicking outside of it
+            document.addEventListener('click', function (event) {
+                let menuy = document.querySelector('.menu-drop');
+                if (!event.target.matches('.menu') && !event.target.matches('.menu-drop') && menuy.style.display === 'block') {
+                    menuy.style.display = 'none';
+                }
+            });
+
         </script>
     </body>

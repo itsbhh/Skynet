@@ -1,4 +1,4 @@
-// JavaScript for toggling between light and dark modes based on system preference
+// JavaScript for toggling between light and dark modes
 
 // Function to set the initial mode based on system preference
 function setInitialMode() {
@@ -22,6 +22,14 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
     }
 });
 
+// Function to toggle mode manually
+function toggleMode() {
+    document.body.classList.toggle('light-mode');
+}
+
+// Event listener for manual mode toggle
+const toggleButton = document.querySelector('.custom-button');
+toggleButton.addEventListener('click', toggleMode);
 
 let drop = document.querySelector('.dropdown-arrow');
 let closeIcon = document.querySelector('.close-icon');

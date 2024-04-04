@@ -82,6 +82,10 @@ app.get("/chart", (req, res) => {
 
 //BASIC ROUTES
 
+app.get('/test', (req,res)=>{
+    res.render('main/searchresult.ejs');
+})
+
 app.get("/about", (req, res) => {
     res.render("basic/about.ejs");
 });

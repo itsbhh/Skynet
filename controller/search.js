@@ -16,8 +16,6 @@ module.exports.searchIndex = async (req, res) => {
         let filename = req.file.filename;
         console.log(url, filename);
     }
-
-
     q = q.toLowerCase();
     let see = await searchQ.findOne({ "result.query": q }); // Use findOne instead of find
     console.log(see);
@@ -28,23 +26,18 @@ module.exports.searchIndex = async (req, res) => {
             console.log("Condition 1.1 Triggered");
             //AI Code to be written in searchResult.ejs
             const prompt = q;
-            const result = await model.generateContent(prompt);
-            const response = await result.response;
-            const text = response.text();
-            const aiData = AIData.findOne({ response: text });
-            if (text == aiData) {
-                text = aiData;
-                console.log("AI DATA RETAINED");
+            const result = await model.generateContentStream(prompt);
+            let text = '';
+            for await (const chunk of result.stream) {
+                const chunkText = chunk.text();
+                console.log(chunkText);
+                text += chunkText;
             }
-            else {
-                let aiSays = new AIData({
-                    query: q,
-                    response: text
-                })
-                console.log("AI DATA INITIALISED", aiData);
-                await aiSays.save();
-                console.log(text);
-            }
+            let aiSays = new AIData({
+                query: q,
+                response: text
+            });
+            await aiSays.save();
             res.send(see);
             // Update the database with fresh data from API for future searches
             const apiKey = process.env.SEARCH_API_KEY;
@@ -67,23 +60,18 @@ module.exports.searchIndex = async (req, res) => {
             },
         });
         const prompt = q;
-        const result = await model.generateContent(prompt);
-        const response = await result.response;
-        const text = response.text();
-        const aiData = AIData.findOne({ response: text });
-        if (text == aiData) {
-            text = aiData;
-            console.log("AI DATA RETAINED");
-        }
-        else {
-            let aiSays = new AIData({
-                query: q,
-                response: text
-            })
-            console.log("AI DATA INITIALISED", aiData);
-            await aiSays.save();
-            console.log(text);
-        }
+        const result = await model.generateContentStream(prompt);
+        let text = '';
+            for await (const chunk of result.stream) {
+                const chunkText = chunk.text();
+                console.log(chunkText);
+                text += chunkText;
+            }
+        let aiSays = new AIData({
+            query: q,
+            response: text
+        });
+        await aiSays.save();
         console.log(search);
         const apiKey = process.env.SEARCH_API_KEY;
         const cx = process.env.SEARCH_ID;
@@ -93,7 +81,7 @@ module.exports.searchIndex = async (req, res) => {
         search.result.data = ros;
         await search.save();
         console.log("Condition 2 Triggered");
-        res.send(search);
+        res.render('main/searchresult.ejs', { search, text, aiSays });
     }
 
 };

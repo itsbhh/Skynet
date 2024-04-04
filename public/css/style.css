@@ -1,450 +1,418 @@
 body {
-    font-family: sans-serif;
-    /* Base background */
-    background: radial-gradient(ellipse 400px 700px at 350px 50vh, #434747 0%, #000000 100%);
-    padding: 0;
+  font-family: sans-serif;
+  padding: 0;
+  background: radial-gradient(ellipse 400px 700px at 350px 50vh, #434747 0%, #000000 100%);
 }
 
 body::before {
-    content: "";
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: radial-gradient(ellipse 600px 1000px at 450px 50vh, #434747 0%, #000000 100%);
-    z-index: -1;
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: radial-gradient(ellipse 600px 1000px at 450px 50vh, #434747 0%, #000000 100%);
+  z-index: -1;
 }
+
 .navbar {
-    background-color: rgb(0, 0, 0);
-    position: relative;
-    float: right;
-    width: 100%;
-    align-items: end;
-    padding: 0 !important;
-    overflow: hidden;
+  background-color: rgb(0, 0, 0);
+  position: relative;
+  float: right;
+  width: 100%;
+  align-items: end;
+  padding: 0 !important;
+  overflow: hidden;
 }
 
 .navb {
-    display: flex;
-    border: 2px solid;
-    position: fixed;
-    top: 0%;
-    width: 100%;
-    border: none;
-    justify-content: flex-end;
+  display: flex;
+  border: 2px solid;
+  position: fixed;
+  top: 0%;
+  width: 100%;
+  border: none;
+  justify-content: flex-end;
 }
 
 .navbar-brand {
-    filter: invert(100%);
+  filter: invert(100%);
 }
 
 .navbar-brand img {
-    margin-top: -4px;
+  margin-top: -4px;
 }
 
 .btn {
-    height: 30px;
-    width: 80px;
-    font-size: 8px;
-    border-radius: 50px !important;
-    color: rgb(255, 255, 255);
-    justify-content: center;
-    align-items: center;
-    display: flex;
+  height: 30px;
+  width: 80px;
+  font-size: 8px;
+  border-radius: 50px !important;
+  color: rgb(255, 255, 255);
+  justify-content: center;
+  align-items: center;
+  display: flex;
 }
 
 .btn:hover {
-    color: rgb(218, 223, 223) !important;
+  color: rgb(218, 223, 223) !important;
 }
 
 .navbar-brand,
 .btn,
 .menu {
-    margin: 0px 10px;
+  margin: 0px 10px;
 }
 
 body .container {
-    align-items: center;
-    margin-top: 110px;
+  align-items: center;
+  margin-top: 110px;
 }
 
 .search-body .search {
-    width: max-content;
-    display: flex;
-    align-items: center;
-    padding: 14px;
-    border-radius: 40px;
-    background: rgb(255, 255, 255);
-    width: 800px;
-    transition: box-shadow 0.25s;
-    text-align: center;
+  width: max-content;
+  display: flex;
+  align-items: center;
+  padding: 14px;
+  border-radius: 40px;
+  background: rgb(255, 255, 255);
+  width: 800px;
+  transition: box-shadow 0.25s;
+  text-align: center;
 }
 
 .search-body {
-    margin-top: 20px;
-    width: 800px;
-    margin-left: -20px;
+  margin-top: 20px;
+  width: 800px;
+  margin-left: -20px;
 }
 
 .search-body .search:focus-within {
-    box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
+  box-shadow: 0 0 2px rgba(0, 0, 0, 0.75);
 }
 
 .search-body .search-input {
-    font-size: 16px;
-    font-family: sans-serif;
-    color: #000000;
-    margin: 10px;
-    outline: none;
-    padding: 10px;
-    border: none;
-    background: transparent;
-    flex: 1;
+  font-size: 16px;
+  font-family: sans-serif;
+  color: #000000;
+  margin: 10px;
+  outline: none;
+  padding: 10px;
+  border: none;
+  background: transparent;
+  flex: 1;
 }
 
 .search-body .search-input::placeholder,
 .search-icon {
-    color: rgba(0, 0, 0, 0.5);
+  color: rgba(0, 0, 0, 0.5);
 }
 
 .search-body .search .search-2 {
-    column-gap: 10px;
+  column-gap: 10px;
 }
 
 .imga img {
-    height: 60px !important;
-    width: 60px !important;
-    border-radius: 50px;
+  height: 60px !important;
+  width: 60px !important;
+  border-radius: 50px;
 }
 
 .imga {
-    height: 60px !important;
-    width: 60px !important;
-    align-items: center !important;
-    justify-content: center !important;
-    position: relative !important;
-    margin-left: 2px;
-    border-radius: 50px;
+  height: 60px !important;
+  width: 60px !important;
+  align-items: center !important;
+  justify-content: center !important;
+  position: relative !important;
+  margin-left: 2px;
+  border-radius: 50px;
 }
 
 .container {
-    justify-content: center;
-    align-items: center;
-    margin-top: 10%;
-    text-align: center;
-    padding: 0;
-    height: 50%;
+  justify-content: center;
+  align-items: center;
+  margin-top: 10%;
+  text-align: center;
+  padding: 0;
+  height: 50%;
 }
 
 .show-img {
-    height: 20vh;
-    border-radius: 30px !important;
-    width: 500px !important;
-    margin-bottom: 20px;
-    margin-top: 30px;
-    filter: invert(100%);
-    object-fit: cover;
+  height: 20vh;
+  border-radius: 30px !important;
+  width: 500px !important;
+  margin-bottom: 20px;
+  margin-top: 30px;
+  filter: invert(100%);
+  object-fit: cover;
 }
 
 .search-body {
-    display: flex;
-    height: 60px;
-    width: 50%;
-    position: relative;
-    margin-left: 28.5%;
+  display: flex;
+  height: 60px;
+  width: 50%;
+  position: relative;
+  margin-left: 28.5%;
 }
 
-
 .image-button {
-    display: inline-block;
-    border-radius: 70px;
-    background: transparent;
+  display: inline-block;
+  border-radius: 70px;
+  background: transparent;
 }
 
 .image-button img {
-    display: block;
-    width: 200px;
-    /* Adjust width as needed */
-    height: auto;
-    /* Maintain aspect ratio */
+  display: block;
+  width: 200px;
+  /* Adjust width as needed */
+  height: auto;
+  /* Maintain aspect ratio */
 }
 
 /* Optionally, you can add styles to customize the button further */
 .image-button:hover img {
-    opacity: 0.8;
-    /* Example: Reduce opacity on hover */
+  opacity: 0.8;
+  /* Example: Reduce opacity on hover */
 }
 
-/* CUSTOMISE BUTTON */
+/* CUSTOMIZE BUTTON */
 button {
-    background: none;
-    border: none;
-    padding: 0;
-    margin: 0;
-    cursor: pointer;
-    font-family: inherit;
-  }
-.custom-btn{
-    position: fixed;
-    margin-top: 12%;
-    margin-left: 87%;
+  background: none;
+  border: none;
+  padding: 0;
+  margin: 0;
+  cursor: pointer;
+  font-family: inherit;
 }
-  
-  /* Style for the custom button */
-  .custom-button {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    padding: 10px 20px;
-    border: 1px solid #ccc;
-    border-radius: 50px;
-    background-color: rgb(255, 255, 255);
-    color: #333;
-    font-size: 14px;
-    font-weight: bold;
-    transition: background-color 0.3s ease;
-  }
-  
-  .custom-button:hover {
-    background-color: #e0e0e0;
-  }
-  
-  /* Style for the icon */
-  .icon {
-    margin-left: -5px !important;
-  }
+
+.custom-btn {
+  position: fixed;
+  margin-top: 12%;
+  margin-left: 87%;
+}
+
+/* Style for the custom button */
+.custom-button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 20px;
+  border: 1px solid #ccc;
+  border-radius: 50px;
+  background-color: rgb(255, 255, 255);
+  color: #333;
+  font-size: 14px;
+  font-weight: bold;
+  transition: background-color 0.3s ease;
+}
+
+.custom-button:hover {
+  background-color: #e0e0e0;
+}
+
+/* Style for the icon */
+.icon {
+  margin-left: -5px !important;
+}
 
 /* FOOTER */
 
 footer {
-    position: fixed;
-    /* Fixed position */
-    background-color: (ellipse 100px 400px at 12px 20vh, #434747 0%, #000000 100%);
-    left: 0;
-    /* Align to the left */
-    bottom: 0;
-    /* Align to the bottom */
-    width: 100%;
-    /* Take up full width */
-    color: white;
-    /* White text color */
-    text-align: center;
-    /* Centered text */
-    padding: 5px 0;
-    /* Keep existing padding around the content */
+  position: fixed;
+  /* Fixed position */
+  background-color: (ellipse 100px 400px at 12px 20vh, #434747 0%, #000000 100%);
+  left: 0;
+  /* Align to the left */
+  bottom: 0;
+  /* Align to the bottom */
+  width: 100%;
+  /* Take up full width */
+  color: white;
+  /* White text color */
+  text-align: center;
+  /* Centered text */
+  padding: 5px 0;
+  /* Keep existing padding around the content */
 }
 
 .footer-container {
-    max-width: 1200px;
-    /* Max width of the footer container */
-    margin: auto;
-    /* Center the container */
-    position: relative;
-    /* Add relative positioning */
-    height: 90px;
+  max-width: 1200px;
+  /* Max width of the footer container */
+  margin: auto;
+  /* Center the container */
+  position: relative;
+  /* Add relative positioning */
+  height: 90px;
 }
 
 .branding-container {
-    display: flex;
-    /* Use flexbox for layout */
-    align-items: center;
-    /* Center SKYNET vertically */
-    justify-content: center;
-    /* Center horizontally */
-    position: absolute;
-    /* Position the container */
-    width: 115%;
-    /* Take up full width */
-    left: 50%;
-    /* Align the container to the middle horizontally */
-    transform: translate(-50%);
-    /* Center both horizontally and vertically */
-    padding: 0 20px;
-    /* Add padding to keep space between lines and text */
+  display: flex;
+  /* Use flexbox for layout */
+  align-items: center;
+  /* Center SKYNET vertically */
+  justify-content: center;
+  /* Center horizontally */
+  position: absolute;
+  /* Position the container */
+  width: 115%;
+  /* Take up full width */
+  left: 50%;
+  /* Align the container to the middle horizontally */
+  transform: translate(-50%);
+  /* Center both horizontally and vertically */
+  padding: 0 20px;
+  /* Add padding to keep space between lines and text */
 }
 
 .branding-text h3 {
-    background: linear-gradient(to right, #4D54FF, #3ACB74);
-    /* Gradient color */
-    background-clip: text;
-    color: transparent;
-    /* Make the text color transparent to show the gradient */
-    display: inline;
-    ;
-    font-family: sans-serif;
+  background: linear-gradient(to right, #4D54FF, #3ACB74);
+  /* Gradient color */
+  background-clip: text;
+  color: transparent;
+  /* Make the text color transparent to show the gradient */
+  display: inline;
+  ;
+  font-family: sans-serif;
 }
 
 .horizontal-line {
-    flex: 1;
-    /* Flex grow to available space */
-    border: none;
-    /* No border */
-    height: 2px;
-    /* Increased line thickness */
-    background-color: white;
-    color: white;
-    position: relative;
+  flex: 1;
+  /* Flex grow to available space */
+  border: none;
+  /* No border */
+  height: 2px;
+  /* Increased line thickness */
+  background-color: white;
+  color: white;
+  position: relative;
 }
 
 .branding-text {
-    text-align: center;
+  text-align: center;
 }
 
 .skynet,
 .made-in {
-    margin: 0;
+  margin: 0;
 }
 
 .made-in {
-    font-size: 12px;
-    color: white;
+  font-size: 12px;
+  color: white;
 }
 
 .bharat {
-    background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
-    /* Gradient color from orange to white to green */
-    background-clip: text;
-    color: transparent;
-    /* Make the text color transparent to show the gradient */
-    display: inline;
-    font-size: 12px;
+  background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
+  /* Gradient color from orange to white to green */
+  background-clip: text;
+  color: transparent;
+  /* Make the text color transparent to show the gradient */
+  display: inline;
+  font-size: 12px;
 }
 
 .footer-links {
-    list-style: none;
-    /* Remove default list styling */
-    padding: 60px 0;
-    /* Add padding to the top and bottom */
-    display: flex;
-    /* Align links in a row */
-    justify-content: center;
-    /* Center links horizontally */
-    flex-wrap: wrap;
-    /* Allow wrapping if needed */
-    font-size: 15px;
-    /* Font size for links */
+  list-style: none;
+  /* Remove default list styling */
+  padding: 60px 0;
+  /* Add padding to the top and bottom */
+  display: flex;
+  /* Align links in a row */
+  justify-content: center;
+  /* Center links horizontally */
+  flex-wrap: wrap;
+  /* Allow wrapping if needed */
+  font-size: 15px;
+  /* Font size for links */
 }
 
 .footer-links li {
-    margin: 0 20px;
-    /* Space between the links */
+  margin: 0 20px;
+  /* Space between the links */
 }
 
 .footer-links a {
-    color: white;
-    /* White link color */
-    text-decoration: none;
-    /* No underline on links */
+  color: white;
+  /* White link color */
+  text-decoration: none;
+  /* No underline on links */
 }
 
 .footer-links a:hover {
-    text-decoration: underline;
-    /* Underline on hover */
+  text-decoration: underline;
+  /* Underline on hover */
 }
 
-
-/* navbar and footer  */
+/* navbar and footer */
 
 /* Adjust the size and spacing of the navbar brand area */
 .container-fluid {
-    display: inline-block; /* Ensures the brand area only takes up necessary space */
-    margin-right: 5px; /* Reduces space to the right of the brand */
-    padding: 0; /* Removes padding */
-    line-height: 1; /* Aligns the logo with the text vertically */
-  }
-  
-  /* Adjust the size of the logo image if necessary */
-  .container-fluid img {
-    height: 5%; /* Maintains aspect ratio */
-    width: 15%; /* Adjust width as needed, or use 'auto' for natural size */
-    vertical-align: middle; /* Aligns the logo with the text */
-  }
-  
-  /* Ensure the navbar items are aligned as in the image */
-  .navbar {
-    display: flex;
-    align-items: center; /* Aligns items vertically */
-    justify-content: space-between; /* Distributes space between and around content items */
-  }
-  
-  /* Style for the navigation links */
-  .nav-link {
-    text-decoration: none;
-    color: rgb(68, 66, 66);
-    font-size: 30px;
-    margin-right: 60px; /* Adjust the margin as needed */
-    justify-content: space-between !important;
-  }
-  
-  /* Style for the globe icon */
-  .navbar-text img {
-    margin-left: 20px; /* Adjust the margin as needed */
-    vertical-align: middle; /* Aligns the icon with the text */
-  }
-  .container-fluid i {
-    margin-right: 20px;
-  }
-  .navbar-nav{
-    margin-left: -10%;
-  }
-  .navbar-text img {
-    margin-left: 80%;
-  }
-  
-  /* Additional styles from the FOOTER file */
-  
-  * {
-    padding: 0;
-    margin: 0;
-  }
-  
-  .pt5 {
-    width: 100%;
-    position: fixed;
-    bottom: 0;
-    left: 0;
-  }
-  
-  .mt-3 a {
-    text-decoration: none;
-    color: black;
-    font-weight: 500;
-    font-size: large;
-  }
-  
-  .col-md-3 p {
-    color: rgb(93, 93, 93);
-    margin-left: 6% !important;
-  }
-  
-  .col-md-3 img {
-    margin-top: -8%;
-    margin-left: 6% !important;
-  }
-  
-  .col-xl-2 {
-    margin-top: 3% !important;
-  }
-  
-  .col-md-3 h5 {
-    font-weight: 600;
-    font-size: 22px;
-  }
+  display: inline-block; /* Ensures the brand area only takes up necessary space */
+  margin-right: 5px; /* Reduces space to the right of the brand */
+  padding: 0; /* Removes padding */
+  line-height: 1; /* Aligns the logo with the text vertically */
+}
 
+/* Adjust the size of the logo image if necessary */
+.container-fluid img {
+  height: 5%; /* Maintains aspect ratio */
+  width: 15%; /* Adjust width as needed, or use 'auto' for natural size */
+  vertical-align: middle; /* Aligns the logo with the text */
+}
+
+/* Ensure the navbar items are aligned as in the image */
+.navbar {
+  display: flex;
+  align-items: center; /* Aligns items vertically */
+  justify-content: space-between; /* Distributes space between and around content items */
+}
+
+/* Style for the navigation links */
+.nav-link {
+  text-decoration: none;
+  color: rgb(68, 66, 66);
+  font-size: 30px;
+  margin-right: 60px; /* Adjust the margin as needed */
+  justify-content: space-between !important;
+}
+
+/* Style for the globe icon */
+.navbar-text img {
+  margin-left: 20px; /* Adjust the margin as needed */
+  vertical-align: middle; /* Aligns the icon with the text */
+}
+
+.container-fluid i {
+  margin-right: 20px;
+}
+
+.navbar-nav {
+  margin-left: -10%;
+}
+
+.navbar-text img {
+  margin-left: 80%;
+}
 
 /* dropdown items */
 
-.menu-drop{
+.menu-drop {
   display: none;
+  position: absolute;
+  top: 0;
+  right: -240px; /* Off-screen initially */
   background: #222;
-  border-radius: 40px;
-  padding: 30px;
+  border-radius: 10px;
+  padding: 10px;
   width: 240px;
-  height: 350px;
+  height: 100%;
   box-sizing: border-box;
-  position: relative;
-  z-index: 200;
+  transition: right 0.3s ease; /* Add transition for smooth animation */
+  z-index: 1000;
+}
+
+.menu-drop.show {
+  right: 0; /* Slide in from the right */
 }
 .menu-item {
   display: flex;
@@ -519,4 +487,81 @@ footer {
   top: 30px;
   right: 20px;
   color: #fff;
+}
+
+/* pop-up welcome */
+
+.popup {
+  position: fixed !important;
+  top: 50% !important;
+  left: 50% !important;
+  transform: translate(-50%, -50%) !important;
+  z-index: 1000 !important;
+  display: none !important;
+  width: 400px !important; /* Adjust width as needed */
+  height: 400px !important; /* Adjust height as needed */
+  padding: 20px !important; /* Adjust padding as needed */
+  background-color: #fff !important;
+  border: 1px solid #ccc !important;
+  border-radius: 10px !important; /* Adjust border-radius for squaring or rounding corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; /* Optional: Add shadow for depth effect */
+}
+
+.popup.show {
+  display: block !important;
+}
+
+/* LIGHT MODE */
+
+.light-mode body {
+  background: white;
+}
+
+.light-mode body::before {
+  background: white;
+}
+
+.light-mode .navbar {
+  background-color: rgb(255, 255, 255);
+}
+
+.light-mode .navbar-brand {
+  filter: invert(0%);
+}
+
+.light-mode .btn {
+  color: rgb(0, 0, 0);
+}
+
+.light-mode .search-body .search {
+  background: rgb(217, 217, 217, 1);
+}
+
+.light-mode .custom-button {
+  background-color: rgb(217, 217, 217, 1);
+}
+
+.light-mode footer {
+  background: linear-gradient(180deg, rgb(218, 219, 219) 17.84%, rgb(125, 125, 125));
+}
+
+.light-mode .branding-text h3 {
+  background: linear-gradient(to right, #7C6BE5, #DD1B55);
+}
+
+.light-mode .bharat {
+  background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
+}
+
+.light-mode .footer-links a {
+  color: white;
+}
+
+.light-mode .horizontal-line {
+  background-color: white;
+}
+
+.light-mode .popup {
+  background-color: #fff;
+  border: 1px solid #ccc;
 }

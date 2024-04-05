@@ -13,9 +13,11 @@ body {
 }
 .main-container {
   margin-top: 10px;
-  height: 50%;
+  height: 53%;
   background-color: rgb(227, 227, 227);
-  border-radius: 20px;
+  border-radius: 20px !important;
+  width: 110% !important;
+  margin-left: -5%;
 }
 
 .grid-container {
@@ -33,7 +35,7 @@ body {
   grid-row: auto/span 1;
   grid-column: auto/span 1;
   background-color: rgb(247, 247, 247);
-  border-radius: 20px;
+  border-radius: 20px !important;
   box-shadow: 1px 3px 3px rgba(0, 10, 20, 0.06);
   margin-top: 35px;
 }
@@ -45,7 +47,7 @@ body {
 }
 .card__image img {
   height: 100%;
-  border-radius: 20px;
+  border-radius: 20px !important;
   min-height: 100%;
   max-height: 100%;
   width: 100%;
@@ -66,19 +68,20 @@ body {
   color: rgb(48, 48, 48);
 }
 .demo img{
-  margin-left: 88%;
+  margin-left: 95%;
   margin-top: -15%;
   border-radius: 15px;
 }
 .page-link{
-  display: flex;
+  display: flex !important;
   margin-left: 25%;
+  margin-top: -5%;
 }
 .page-link li{
   list-style-type: none;
   font-size: 20px;
   margin-left: 50px;
-  margin-top: 10%;
+  margin-top: 5%;
 }
 .page-link li:hover{
   text-decoration: 4px underline !important;
@@ -142,7 +145,7 @@ body {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  margin-bottom: 40px;
+  margin-bottom: 40px; 
   font-size: 12px;
   width: 100%;
 }
@@ -167,13 +170,12 @@ body {
 .text-space:focus{
   outline: none !important;
 }
-.fa-sync-alt{
+.expand{
   margin-left: 95% !important;
-  margin-top: -27% !important;
+  margin-top: -14% !important;
 }
 
 .footer{
-  margin-left: 10px;
   padding: 1px;
   margin-top: -15%;
 }
@@ -193,7 +195,7 @@ body {
   display: none;
 }
 .footer i{
-  margin-left: 10px;
+  margin-left: 13px !important;
 }
 .aifooter{
   margin-bottom: 5%;
@@ -217,14 +219,21 @@ body {
   margin-left: 80px;
 }
 .form-control{
-  width: 65%;
-  border-radius: 20px;
+  width: 65% !important;
+  border-radius: 20px !important;
   margin-left: 80px;
   margin-top: 10px;
   box-shadow: 0 2px 10px rgb(180, 180, 180);
+  height: 40px !important;
+}
+.sug{
+  transition: transform 0.3s ease-in-out;
+}
+.sug:hover{
+  transform: scale(1.2);
 }
 .More{
-  margin-left: 85%;
+  margin-left: 95%;
   margin-top: -20% !important;
   text-decoration: none;
   color: #434242;
@@ -236,9 +245,37 @@ body {
   margin-right: -10%;
 }
 .bi-search{
-  margin-left: 74%;
-  margin-top: -15%;
+  margin-left: 95%;
+  margin-top: -17%;
 }
 .search-box{
   margin-top: -1%;
+}
+
+
+
+/* FOOTER */
+
+.pt5{
+  width: 100%;
+  bottom: 0;
+  left: 0;
+  cursor: pointer;
+}
+.mt-3 a{
+  text-decoration: none;
+  color: black;
+  font-weight: 500;
+  font-size: 15px;
+}
+.col-md-3 p{
+  color: rgb(93, 93, 93);
+  margin-left: 6% !important;
+}
+.col-md-3 img{
+  margin-top: -8%;
+  margin-left: 6% !important;
+}
+.f-link{
+  margin-top: 20% !important;
 }

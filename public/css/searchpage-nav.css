@@ -6,15 +6,19 @@
     margin-left: -70px;
 }
 .d-flex{
-    width: 50% !important;
-    margin-left: -25%;
+    width: 85% !important;
+    margin-left: -30%;
+    margin-top: -10px;
 }
 .fa-magnifying-glass{
-    margin-left: -43px;
-    margin-top: 17px;
+    margin-top: 30px;
+    margin-left: -5%;
+}
+.mag-glass{
+    margin-left: -5%;
 }
 .fa-camera{
-    margin-left: -20% !important;
+    margin-left: -45% !important;
 }
 .fa-microphone{
     margin-left: -20% !important;
@@ -29,7 +33,7 @@
     margin-right: -2% !important;
 }
 .navbar-nav{
-    margin-left: 10%;
+    margin-left: 15%;
 }
 .link{
     margin-left: 22% !important;

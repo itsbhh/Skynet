@@ -13,13 +13,14 @@
                     <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
 
                 </a>
-                <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="dropx()" style="color: #ffffff;"></i>
+                <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="toggleMenu()" style="color: #ffffff;"></i>
+
 
                 <!-- on click it will appear -->
 
 
             </div>
-            <div class="menu-drop">
+            <div class="menu-drop" id="menuDropdown">
                 <i class="fa-solid fa-xmark close-icon"></i>
                 <div class="menu-item">
                     <i class="fa-solid fa-circle-user fa-sm icon"></i>
@@ -85,8 +86,10 @@
         </div>
         <div class="custom-btn">
             <button class="custom-button">
-                <i class="fa-solid fa-pen" style="color: #000000;"></i>&nbsp; Customize
+              <i class="fa-solid fa-pen" style="color: #000000;"></i>&nbsp; Customize
             </button>
+          </div>
+        </div>
         </div>
         <footer id="footer">
             <div class="footer-container">
@@ -112,24 +115,27 @@
                 </ul>
             </div>
         </footer>
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-            integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-            crossorigin="anonymous"></script>
-
         <script>
-            function dropx() {
-                let menuy = document.querySelector('.menu-drop');
-                // Toggle the visibility of the dropdown menu
-                menuy.classList.toggle('show');
+            function toggleMenu() {
+                console.log('Toggle menu clicked');
+                let menuDropdown = document.getElementById('menuDropdown');
+                if (menuDropdown) {
+                    console.log('Menu dropdown found');
+                    if (menuDropdown.style.display == "block") {
+                        menuDropdown.style.display = 'none';
+                    }
+                    else {
+                        menuDropdown.style.display = "block"
+                    }
+                } else {
+                    console.error('Error: Menu dropdown element not found.');
+                }
             }
 
-            // Close the dropdown menu when clicking outside of it
-            document.addEventListener('click', function (event) {
-                let menuy = document.querySelector('.menu-drop');
-                if (!event.target.matches('.menu') && !event.target.matches('.menu-drop') && menuy.style.display === 'block') {
-                    menuy.style.display = 'none';
-                }
-            });
-
         </script>
+        
+        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+        integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
+        crossorigin="anonymous"></script>
+
     </body>

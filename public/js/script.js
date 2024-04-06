@@ -34,14 +34,35 @@ toggleButton.addEventListener('click', toggleMode);
 let drop = document.querySelector('.dropdown-arrow');
 let closeIcon = document.querySelector('.close-icon');
 
-drop.addEventListener('click', () => { 
+drop.addEventListener('click', () => {
     let menu = document.querySelector('.theme-options');
     menu.style.display = (menu.style.display == 'block') ? 'none' : 'block';
     drop.style.transform = (menu.style.display == 'none') ? 'rotate(0deg)' : 'rotate(180deg)';
-    drop.style.marginTop = '-8px';
+    drop.style.marginTop = '-10px';
+
 });
 
 closeIcon.addEventListener('click', () => {
-    let menu = document.querySelector('.menu');
+    console.log("clicked");
+    let menu = document.querySelector('.menu-drop');
     menu.style.display = 'none';
+
 });
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownArrow = document.querySelector('.dropdown-arrow');
+    const menu = document.querySelector('.menu-drop');
+    let isOpen = false;
+
+    dropdownArrow.addEventListener('click', function () {
+        if (!isOpen) {
+            menu.style.height = '340px'; // Change the height as needed
+            isOpen = true;
+        } else {
+            menu.style.height = '265px'; // Reset to default height
+            isOpen = false;
+        }
+    });
+});
+
+
+

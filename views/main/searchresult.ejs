@@ -1,6 +1,7 @@
 <% layout("/layouts/boilerplate2") %>
 
   <body>
+    <input type="hidden" class="api" id="api" value="<%= process.env.API_KEY %>">
     <%- include('../includes/searchpage-nav.ejs') %>
       <div class="container">
         <div class="row">
@@ -96,7 +97,7 @@
                 </div>
                 <div class="generate">
                   <p style="margin-left: 25px;">Generating...</p>
-                  <div class="AI"></div>
+                  <div class="ai-res"></div>
                 </div>
               </div>
               <br>
@@ -252,16 +253,4 @@
         </div>
       </div>
       <%- include('../includes/footer.ejs') %>
-        <script>
-          function decodeEntities(encodedString) {
-            var textArea = document.createElement('textarea');
-            textArea.innerHTML = encodedString;
-            return textArea.value;
-          }
-
-          const aires = document.querySelector('.AI');
-          aires.innerHTML = decodeEntities('<%= text %>');
-
-        </script>
-
   </body>

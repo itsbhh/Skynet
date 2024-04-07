@@ -175,6 +175,10 @@ body {
   margin-top: -14% !important;
 }
 
+.ai-res p{
+  color: black;
+}
+
 .footer{
   padding: 1px;
   margin-top: -15%;
@@ -252,8 +256,6 @@ body {
   margin-top: -1%;
 }
 
-
-
 /* FOOTER */
 
 .pt5{
@@ -278,4 +280,20 @@ body {
 }
 .f-link{
   margin-top: 20% !important;
+}
+/* Typing animation */
+.typing-animation::after {
+  content: '|'; /* Display cursor */
+  animation: blink 0.7s infinite alternate;
+}
+.api{
+  display: none;
+}
+@keyframes blink {
+  from {
+    opacity: 0; /* Invisible cursor */
+  }
+  to {
+    opacity: 1; /* Visible cursor */
+  }
 }

@@ -2,10 +2,10 @@
 
 // Function to set the initial mode based on system preference
 function setInitialMode() {
-    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-        document.body.classList.add('dark-mode');
+    if (window.matchMedia && window.matchMedia('(prefers-color-scheme: light)').matches) {
+        document.body.classList.add('light-mode');
     } else {
-        document.body.classList.remove('dark-mode');
+        document.body.classList.remove('light-mode');
     }
 }
 
@@ -22,10 +22,6 @@ window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e)
     }
 });
 
-// Function to toggle mode manually
-function toggleMode() {
-    document.body.classList.toggle('light-mode');
-}
 
 // Event listener for manual mode toggle
 const toggleButton = document.querySelector('.custom-button');

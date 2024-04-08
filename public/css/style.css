@@ -111,27 +111,24 @@ body .container {
 .search-body .search .search-2 {
   column-gap: 10px;
 }
-.search-2{
+
+.search-2 {
   position: absolute;
   left: 76%;
-  right:0;
+  right: 0;
   transform: translateX(-50%);
-}
-
-.imga img {
-  height: 60px !important;
-  width: 60px !important;
-  border-radius: 50px;
 }
 
 .imga {
   height: 60px !important;
-  width: 60px !important;
+  width: 80px !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
   margin-left: 2px;
   border-radius: 50px;
+  background: url('../assets/AI.png') no-repeat center center/cover;
+  background-color: transparent;
 }
 
 .container {
@@ -193,9 +190,10 @@ body .container {
 
 .custom-btn {
   position: fixed;
-  bottom: 90px;
+  bottom: 110px;
   right: 10px;
-  transform: translateX(-20%); /* Center the button horizontally */
+  transform: translateX(-20%);
+  /* Center the button horizontally */
 }
 
 
@@ -356,24 +354,33 @@ footer {
 
 /* Adjust the size and spacing of the navbar brand area */
 .container-fluid {
-  display: inline-block; /* Ensures the brand area only takes up necessary space */
-  margin-right: 5px; /* Reduces space to the right of the brand */
-  padding: 0; /* Removes padding */
-  line-height: 1; /* Aligns the logo with the text vertically */
+  display: inline-block;
+  /* Ensures the brand area only takes up necessary space */
+  margin-right: 5px;
+  /* Reduces space to the right of the brand */
+  padding: 0;
+  /* Removes padding */
+  line-height: 1;
+  /* Aligns the logo with the text vertically */
 }
 
 /* Adjust the size of the logo image if necessary */
 .container-fluid img {
-  height: 5%; /* Maintains aspect ratio */
-  width: 15%; /* Adjust width as needed, or use 'auto' for natural size */
-  vertical-align: middle; /* Aligns the logo with the text */
+  height: 5%;
+  /* Maintains aspect ratio */
+  width: 15%;
+  /* Adjust width as needed, or use 'auto' for natural size */
+  vertical-align: middle;
+  /* Aligns the logo with the text */
 }
 
 /* Ensure the navbar items are aligned as in the image */
 .navbar {
   display: flex;
-  align-items: center; /* Aligns items vertically */
-  justify-content: space-between; /* Distributes space between and around content items */
+  align-items: center;
+  /* Aligns items vertically */
+  justify-content: space-between;
+  /* Distributes space between and around content items */
 }
 
 /* Style for the navigation links */
@@ -381,14 +388,17 @@ footer {
   text-decoration: none;
   color: rgb(68, 66, 66);
   font-size: 30px;
-  margin-right: 60px; /* Adjust the margin as needed */
+  margin-right: 60px;
+  /* Adjust the margin as needed */
   justify-content: space-between !important;
 }
 
 /* Style for the globe icon */
 .navbar-text img {
-  margin-left: 20px; /* Adjust the margin as needed */
-  vertical-align: middle; /* Aligns the icon with the text */
+  margin-left: 20px;
+  /* Adjust the margin as needed */
+  vertical-align: middle;
+  /* Aligns the icon with the text */
 }
 
 .container-fluid i {
@@ -406,15 +416,18 @@ footer {
 /* dropdown items */
 
 .menu-drop {
-  display: none; /* Hide by default */
+  display: none;
+  /* Hide by default */
   position: fixed;
-  top: 50px; /* Adjust as needed */
+  top: 50px;
+  /* Adjust as needed */
   right: 15px;
   background-color: #141414;
   border: 1px solid #ccc;
   border-radius: 40px;
   padding: 10px;
-  z-index: 1000; /* Ensure it's on top */
+  z-index: 1000;
+  /* Ensure it's on top */
   color: white;
   height: 265px;
   width: 200px;
@@ -430,7 +443,8 @@ footer {
   margin-left: 10px;
   font-size: 15px;
   padding-right: 30px;
-  position: relative; /* Added for relative positioning */
+  position: relative;
+  /* Added for relative positioning */
 }
 
 .icon {
@@ -444,7 +458,7 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   margin-right: 20px;
-  vertical-align: middle; 
+  vertical-align: middle;
 
 }
 
@@ -482,6 +496,7 @@ footer {
   height: 8px;
   border-radius: 50%;
 }
+
 .theme-options .radio-option input[type='radio']:checked {
   background-color: #4297d8;
 }
@@ -502,7 +517,8 @@ footer {
   color: #fff;
   z-index: 1000;
 }
-.close-icon:hover{
+
+.close-icon:hover {
   cursor: pointer;
 }
 
@@ -515,70 +531,107 @@ footer {
   transform: translate(-50%, -50%) !important;
   z-index: 1000 !important;
   display: none !important;
-  width: 400px !important; /* Adjust width as needed */
-  height: 400px !important; /* Adjust height as needed */
-  padding: 20px !important; /* Adjust padding as needed */
+  width: 400px !important;
+  /* Adjust width as needed */
+  height: 400px !important;
+  /* Adjust height as needed */
+  padding: 20px !important;
+  /* Adjust padding as needed */
   background-color: #fff !important;
   border: 1px solid #ccc !important;
-  border-radius: 10px !important; /* Adjust border-radius for squaring or rounding corners */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important; /* Optional: Add shadow for depth effect */
+  border-radius: 10px !important;
+  /* Adjust border-radius for squaring or rounding corners */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+  /* Optional: Add shadow for depth effect */
 }
 
 .popup.show {
   display: block !important;
 }
 
-/* LIGHT MODE */
+@media (prefers-color-scheme: light) {
 
-.light-mode body {
-  background: white;
-}
+  body {
+    background: white;
+  }
 
-.light-mode body::before {
-  background: white;
-}
+  body::before {
+    background: white;
+  }
 
-.light-mode .navbar {
-  background-color: rgb(255, 255, 255);
-}
+  .navbar {
+    background-color: rgb(255, 255, 255);
+  }
 
-.light-mode .navbar-brand {
-  filter: invert(0%);
-}
+  .navbar-brand {
+    filter: invert(0%);
+  }
 
-.light-mode .btn {
-  color: rgb(0, 0, 0);
-}
+  .btn {
+    color: rgb(0, 0, 0);
+  }
 
-.light-mode .search-body .search {
-  background: rgb(217, 217, 217, 1);
-}
+  .search-body .search {
+    background: rgb(217, 217, 217, 1);
+  }
 
-.light-mode .custom-button {
-  background-color: rgb(217, 217, 217, 1);
-}
+  .custom-button {
+    background-color: rgb(217, 217, 217, 1);
+  }
 
-.light-mode footer {
-  background: linear-gradient(180deg, rgb(218, 219, 219) 17.84%, rgb(125, 125, 125));
-}
+  .imga {
+    height: 60px !important;
+    width: 80px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin-left: 2px;
+    border-radius: 50px;
+    background: url('../assets/AI2.png') no-repeat center center/cover;
+    background-color: transparent;
+  }
 
-.light-mode .branding-text h3 {
-  background: linear-gradient(to right, #7C6BE5, #DD1B55);
-}
+  footer {
+    background: linear-gradient(180deg, rgb(218, 219, 219) 17.84%, rgb(125, 125, 125));
+  }
 
-.light-mode .bharat {
-  background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
-}
+  .menu {
+    filter: invert(100%);
+  }
 
-.light-mode .footer-links a {
-  color: white;
-}
+  .branding-text h3 {
+    background: linear-gradient(to right, #7C6BE5, #DD1B55);
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
+    display: inline;
+    ;
+    font-family: sans-serif;
+  }
 
-.light-mode .horizontal-line {
-  background-color: white;
-}
+  .bharat {
+    background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
+    display: inline;
+    font-size: 12px;
+  }
 
-.light-mode .popup {
-  background-color: #fff;
-  border: 1px solid #ccc;
+  .footer-links a {
+    color: white;
+  }
+
+  .horizontal-line {
+    background-color: white;
+  }
+
+  .show-img {
+    filter: invert(0);
+  }
+
+  .popup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
 }

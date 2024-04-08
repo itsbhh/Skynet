@@ -95,7 +95,7 @@
                     <%=q%>
                   </p>
                 </div>
-                <div class="generate">
+                <div class="generate" style="display: none;">
                   <p style="margin-left: 25px;">Generating...</p>
                   <div class="ai-res"></div>
                 </div>
@@ -106,10 +106,11 @@
                   <div class="input-group">
                     <textarea class="text-space" name="message" placeholder="SKYNET AI response..." required></textarea>
                     <div class="expand">
-                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180%" viewBox="0 0 512 512"
-                        enable-background="new 0 0 512 512" xml:space="preserve">
-                        <path fill="#000000" opacity="1.000000" stroke="none" d="
+                      <a href="/ai">
+                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180%" viewBox="0 0 512 512"
+                          enable-background="new 0 0 512 512" xml:space="preserve">
+                          <path fill="#000000" opacity="1.000000" stroke="none" d="
     M1.229891,407.399658 
         C1.000000,307.312439 1.000000,207.624878 1.000000,107.468658 
         C3.111715,94.417763 8.892592,83.805786 18.226786,75.142952 
@@ -124,7 +125,7 @@
         C34.317318,455.432892 11.240449,439.269958 2.735975,415.169830 
         C1.897492,412.793732 2.118373,410.216492 1.229891,407.399658 
     z" />
-                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M513.000000,108.531342 
         C510.665497,103.494308 509.587708,97.575417 506.746979,92.188385 
         C497.949982,75.505981 484.288239,65.448120 466.164215,60.931053 
@@ -138,7 +139,7 @@
         C512.971619,0.890785 513.058167,1.997037 513.052185,4.625337 
         C512.973755,39.104313 513.000000,73.583527 513.000000,108.531342 
     z" />
-                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M1.000000,407.468658 
         C4.034878,411.354706 4.529537,416.735107 6.957812,421.393860 
         C15.675733,438.119568 29.330160,448.295532 47.378475,453.019714 
@@ -152,7 +153,7 @@
         C1.034186,513.108887 0.941209,512.008545 0.947406,509.376160 
         C1.027013,475.563354 1.000000,441.750305 1.000000,407.468658 
     z" />
-                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M235.000000,414.000000 
         C178.177216,414.000000 121.854340,414.050446 65.531731,413.951965 
         C55.777531,413.934906 47.259731,411.009155 43.057037,401.113983 
@@ -168,7 +169,7 @@
         C456.101532,413.459106 452.046204,414.005768 447.959320,414.005341 
         C377.139557,413.997955 306.319763,414.000000 235.000000,414.000000 
     z" />
-                        <path fill="#000000" opacity="1.000000" stroke="none" d="
+                          <path fill="#000000" opacity="1.000000" stroke="none" d="
     M379.991028,181.000000 
         C364.661438,180.999985 349.829498,180.896042 335.001099,181.080811 
         C331.726257,181.121597 330.856171,180.244415 330.919922,176.987381 
@@ -184,7 +185,7 @@
         C393.109802,181.726089 392.253601,180.611237 388.982483,180.941406 
         C386.178223,181.224442 383.322754,181.000000 379.991028,181.000000 
     z" />
-                        <path fill="#000000" opacity="1.000000" stroke="none" d="
+                          <path fill="#000000" opacity="1.000000" stroke="none" d="
     M109.000000,373.000000 
         C100.501480,372.999969 92.500015,372.876007 84.506035,373.066620 
         C81.673767,373.134125 80.928429,372.313110 80.937164,369.492981 
@@ -200,57 +201,118 @@
         C182.149124,372.281830 181.234131,373.098145 177.986862,373.077423 
         C155.158676,372.931427 132.329117,373.000000 109.000000,373.000000 
     z" />
-                      </svg>
+                        </svg>
+                      </a>
                     </div>
                   </div>
                 </div>
                 <hr>
                 <div class="footer">
-                  <i class="fas fa-microphone" style="color: black;"></i>
-                  <i class="fas fa-camera" style="color: black;"></i>
-                  <i class="fas fa-paperclip" style="color: black;"></i>
-                  <i class="icon"></i>
-                  <button class="send-btn"><i class="fas fa-paper-plane " style="color: black;"></i></button>
+                  <i class="fas fa-microphone" style="color: black;" onclick="startMicrophoneInput()"></i>
+                  <i class="fas fa-paperclip" style="color: black;">
+                    <input type="file" onchange="handleFileUpload(event)" style="display: none;" class="file-input" />
+                </i>
+                  <button class="send-btn" onclick="submitMessage()"><i class="fas fa-paper-plane"
+                      style="color: black;"></i></button>
                 </div>
               </div>
             </div>
             <div class="search-related">
               <h5 class="related">Searches related to your search</h5>
               <div class="search-link">
-                 <div class="form-search">
+                <div class="form-search">
                   <div class="search-box">
-                    <div class="sug form-control me-2" >What is facebook?
+                    <div class="sug form-control me-2">What is facebook?
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-search" viewBox="0 0 16 16">
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                    </div> 
-                  </div>
-                  <div class="search-box">               
-                    <div class="sug form-control me-2" >Who invented facebook? 
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-search" viewBox="0 0 16 16">
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
-                    </div>       
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                      </svg>
+                    </div>
                   </div>
                   <div class="search-box">
-                    <div class="sug form-control me-2" >When was facebook invented?
+                    <div class="sug form-control me-2">Who invented facebook?
                       <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                      class="bi bi-search" viewBox="0 0 16 16">
-                      <path
-                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                    </svg>
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                      </svg>
                     </div>
-                     <a class="More" href="#">More..</a>
+                  </div>
+                  <div class="search-box">
+                    <div class="sug form-control me-2">When was facebook invented?
+                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                        class="bi bi-search" viewBox="0 0 16 16">
+                        <path
+                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                      </svg>
                     </div>
-                    </div>
+                    <a class="More" href="#">More..</a>
+                  </div>
+                </div>
               </div>
             </div>
           </div>
         </div>
       </div>
       <%- include('../includes/footer.ejs') %>
+
+      <script>
+        function startMicrophoneInput() {
+            navigator.mediaDevices.getUserMedia({ audio: true })
+                .then(function (stream) {
+                    console.log('Microphone access granted');
+                    // You can do something with the microphone stream if needed
+                })
+                .catch(function (err) {
+                    console.error('Error accessing microphone:', err);
+                });
+        }
+    
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                console.log('Uploaded file:', file);
+                // Handle the file upload here (e.g., send it to a server, process it, etc.)
+            }
+        }
+    
+        function submitMessage() {
+            var message = document.querySelector('.text-space').value.trim();
+            if (message !== '') {
+                console.log('Submitted message:', message);
+                // Perform your submission logic here, for example:
+                // You can replace the console.log above with your actual submission code.
+            }
+        }
+    
+        function generateOutput() {
+            document.querySelector('.generate').style.display = 'block';
+            setTimeout(function () {
+                document.querySelector('.generate').style.display = 'none';
+                console.log('Generated output displayed');
+                // Your code for displaying the generated output here
+            }, 2000);
+        }
+    
+        generateOutput();
+    
+        // Event listener for the Enter key press in the textarea
+        document.querySelector('.text-space').addEventListener('keypress', function (e) {
+            if (e.key === 'Enter') {
+                e.preventDefault(); // Prevent default form submission
+                submitMessage();
+            }
+        });
+    
+        // Event listener for the paperclip icon to trigger file input click
+        document.querySelector('.fa-paperclip').addEventListener('click', function () {
+            document.querySelector('.file-input').click();
+        });
+    
+        // Event listener for the file input change
+        document.querySelector('.file-input').addEventListener('change', function (event) {
+            handleFileUpload(event);
+        });
+    </script>
   </body>

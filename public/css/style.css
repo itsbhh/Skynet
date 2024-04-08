@@ -119,20 +119,16 @@ body .container {
   transform: translateX(-50%);
 }
 
-.imga img {
-  height: 60px !important;
-  width: 60px !important;
-  border-radius: 50px;
-}
-
 .imga {
   height: 60px !important;
-  width: 60px !important;
+  width: 80px !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
   margin-left: 2px;
   border-radius: 50px;
+  background: url('../assets/AI.png') no-repeat center center/cover;
+  background-color: transparent;
 }
 
 .container {
@@ -194,7 +190,7 @@ body .container {
 
 .custom-btn {
   position: fixed;
-  bottom: 90px;
+  bottom: 110px;
   right: 10px;
   transform: translateX(-20%);
   /* Center the button horizontally */
@@ -469,8 +465,6 @@ footer {
   margin-right: 20px;
   vertical-align: middle;
 
-}
-
 .menu-item span:hover {
   cursor: pointer;
 }
@@ -579,57 +573,90 @@ footer {
   display: block !important;
 }
 
-/* LIGHT MODE */
 
-.light-mode body {
-  background: white;
-}
+@media (prefers-color-scheme: light) {
 
-.light-mode body::before {
-  background: white;
-}
+  body {
+    background: white;
+  }
 
-.light-mode .navbar {
-  background-color: rgb(255, 255, 255);
-}
+  body::before {
+    background: white;
+  }
 
-.light-mode .navbar-brand {
-  filter: invert(0%);
-}
+  .navbar {
+    background-color: rgb(255, 255, 255);
+  }
 
-.light-mode .btn {
-  color: rgb(0, 0, 0);
-}
+  .navbar-brand {
+    filter: invert(0%);
+  }
 
-.light-mode .search-body .search {
-  background: rgb(217, 217, 217, 1);
-}
+  .btn {
+    color: rgb(0, 0, 0);
+  }
 
-.light-mode .custom-button {
-  background-color: rgb(217, 217, 217, 1);
-}
+  .search-body .search {
+    background: rgb(217, 217, 217, 1);
+  }
 
-.light-mode footer {
-  background: linear-gradient(180deg, rgb(218, 219, 219) 17.84%, rgb(125, 125, 125));
-}
+  .custom-button {
+    background-color: rgb(217, 217, 217, 1);
+  }
 
-.light-mode .branding-text h3 {
-  background: linear-gradient(to right, #7C6BE5, #DD1B55);
-}
+  .imga {
+    height: 60px !important;
+    width: 80px !important;
+    align-items: center !important;
+    justify-content: center !important;
+    position: relative !important;
+    margin-left: 2px;
+    border-radius: 50px;
+    background: url('../assets/AI2.png') no-repeat center center/cover;
+    background-color: transparent;
+  }
 
-.light-mode .bharat {
-  background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
-}
+  footer {
+    background: linear-gradient(180deg, rgb(218, 219, 219) 17.84%, rgb(125, 125, 125));
+  }
 
-.light-mode .footer-links a {
-  color: white;
-}
+  .menu {
+    filter: invert(100%);
+  }
 
-.light-mode .horizontal-line {
-  background-color: white;
-}
+  .branding-text h3 {
+    background: linear-gradient(to right, #7C6BE5, #DD1B55);
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
+    display: inline;
+    ;
+    font-family: sans-serif;
+  }
 
-.light-mode .popup {
-  background-color: #fff;
-  border: 1px solid #ccc;
+  .bharat {
+    background: linear-gradient(to right, #FFA500, #FFFFFF, #008000);
+    background-clip: text;
+    color: transparent;
+    /* Make the text color transparent to show the gradient */
+    display: inline;
+    font-size: 12px;
+  }
+
+  .footer-links a {
+    color: white;
+  }
+
+  .horizontal-line {
+    background-color: white;
+  }
+
+  .show-img {
+    filter: invert(0);
+  }
+
+  .popup {
+    background-color: #fff;
+    border: 1px solid #ccc;
+  }
 }

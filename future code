@@ -1,0 +1,6 @@
+
+            <!-- <% if (see && see.result && see.result.data && see.result.data.items && see.result.data.items.length > 0) { %>
+              <% see.result.data.items.forEach(function(sees) { %>
+                <% if (sees.pagemap && sees.pagemap.hcard) { %><% } %>
+                <% }); %>
+              <% } %> -->

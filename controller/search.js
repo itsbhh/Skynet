@@ -25,8 +25,8 @@ module.exports.searchIndex = async (req, res) => {
             console.log("Condition 1.1 Triggered");
             //AI Code to be written in searchResult.ejs
             const prompt = q;
-            res.send(see);
-            // res.render('main/searchresult.ejs', { see, q });
+            // res.send(see);
+            res.render('main/searchresult.ejs', { see, q });
             // Update the database with fresh data from API for future searches
             const apiKey = process.env.SEARCH_API_KEY;
             const cx = process.env.SEARCH_ID;
@@ -56,8 +56,7 @@ module.exports.searchIndex = async (req, res) => {
         see.result.data = ros;
         await see.save();
         console.log("Condition 2 Triggered");
-        res.send(see);
-        // res.render('main/searchresult.ejs', { see, q });
+        res.render('main/searchresult.ejs', { see, q });
     }
 
 };

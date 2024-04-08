@@ -121,7 +121,7 @@ body .container {
 
 .imga {
   height: 60px !important;
-  width: 80px !important;
+  width: 60px !important;
   align-items: center !important;
   justify-content: center !important;
   position: relative !important;
@@ -278,7 +278,6 @@ footer {
   color: transparent;
   /* Make the text color transparent to show the gradient */
   display: inline;
-  ;
   font-family: sans-serif;
 }
 
@@ -464,7 +463,7 @@ footer {
   transform: translateY(-50%);
   margin-right: 20px;
   vertical-align: middle;
-
+}
 .menu-item span:hover {
   cursor: pointer;
 }
@@ -606,7 +605,7 @@ footer {
 
   .imga {
     height: 60px !important;
-    width: 80px !important;
+    width: 60px !important;
     align-items: center !important;
     justify-content: center !important;
     position: relative !important;
@@ -630,7 +629,6 @@ footer {
     color: transparent;
     /* Make the text color transparent to show the gradient */
     display: inline;
-    ;
     font-family: sans-serif;
   }
 

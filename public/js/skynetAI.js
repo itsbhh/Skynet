@@ -1,43 +1,28 @@
 document.addEventListener('DOMContentLoaded', function () {
-    console.log("Document loaded");
-
     let imageContainer = document.querySelector('.image-container');
     let dropdownContent = document.querySelector('.dropdown-content');
     let pinnedIcon = document.querySelector('.pinned-icon');
     let image = document.querySelector('.image-container img');
 
     if (imageContainer && dropdownContent && pinnedIcon) {
-        console.log("All elements found");
-
         imageContainer.addEventListener('click', function (event) {
-            console.log("Image clicked");
-
-            // Toggle dropdown visibility using CSS classes
             dropdownContent.classList.toggle('show-dropdown');
             pinnedIcon.classList.toggle('pinned-icon-open');
-
-            // Toggle fading effect only on the image
             image.classList.toggle('fade-out-image');
 
-            // Hide image when dropdown is open
             if (dropdownContent.classList.contains('show-dropdown')) {
                 image.style.display = 'none';
             } else {
-                // Show image when dropdown is closed
                 image.style.display = 'block';
             }
         });
 
         let closeIcon = document.querySelector('.fa-times');
         closeIcon.addEventListener('click', () => {
-            console.log("Close icon clicked");
-
             let menu = document.querySelector('show-dropdown');
             menu.style.display = 'none';
             pinnedIcon.classList.remove('pinned-icon-open');
             image.classList.remove('fade-out-image');
-
-            // Show image when dropdown is closed
             image.style.display = 'block';
         });
 
@@ -45,26 +30,24 @@ document.addEventListener('DOMContentLoaded', function () {
         console.log("One or more elements not found");
     }
 });
+
 document.addEventListener('DOMContentLoaded', function () {
-    // Function to set the initial mode based on system preference
     function setInitialMode() {
         const moonIcon = document.querySelector('.moon-icon');
         const lightModeIcon = moonIcon.querySelector('.light-mode-icon');
         const darkModeIcon = moonIcon.querySelector('.dark-mode-icon');
 
         if (window.matchMedia && window.matchMedia('(prefers-color-scheme: dark)').matches) {
-            lightModeIcon.style.display = 'none'; // Hide light mode icon in dark mode
-            darkModeIcon.style.display = 'inline-block'; // Display dark mode icon in dark mode
+            lightModeIcon.style.display = 'none';
+            darkModeIcon.style.display = 'inline-block';
         } else {
-            lightModeIcon.style.display = 'inline-block'; // Display light mode icon in light mode
-            darkModeIcon.style.display = 'none'; // Hide dark mode icon in light mode
+            lightModeIcon.style.display = 'inline-block';
+            darkModeIcon.style.display = 'none';
         }
     }
 
-    // Call the function to set initial mode
     setInitialMode();
 
-    // Listen for changes in system preference and update mode accordingly
     window.matchMedia('(prefers-color-scheme: dark)').addEventListener('change', (e) => {
         const darkModeEnabled = e.matches;
         const moonIcon = document.querySelector('.moon-icon');
@@ -72,21 +55,21 @@ document.addEventListener('DOMContentLoaded', function () {
         const darkModeIcon = moonIcon.querySelector('.dark-mode-icon');
 
         if (darkModeEnabled) {
-            lightModeIcon.style.display = 'none'; // Hide light mode icon in dark mode
-            darkModeIcon.style.display = 'inline-block'; // Display dark mode icon in dark mode
+            lightModeIcon.style.display = 'none';
+            darkModeIcon.style.display = 'inline-block';
         } else {
-            lightModeIcon.style.display = 'inline-block'; // Display light mode icon in light mode
-            darkModeIcon.style.display = 'none'; // Hide dark mode icon in light mode
+            lightModeIcon.style.display = 'inline-block';
+            darkModeIcon.style.display = 'none';
         }
     });
 
-    // Toggle dark mode manually
     const moonIcon = document.querySelector('.moon-icon');
     moonIcon.addEventListener('click', function () {
         document.body.classList.toggle('dark-mode');
-        setInitialMode(); // Update the mode icons after manual toggle
+        setInitialMode();
     });
 });
+
 function toggleDropdown(id, icon) {
     const dropdownContent = document.getElementById(id);
     const angleIcon = icon.querySelector('.angle-icon');
@@ -99,6 +82,7 @@ function toggleDropdown(id, icon) {
         angleIcon.style.transform = 'rotate(0deg)';
     }
 }
+
 document.addEventListener('DOMContentLoaded', function () {
     const dropdownText = document.querySelector('.dropdown-text');
     const angleUpIcon = dropdownText.querySelector('.fa-angle-up');
@@ -112,15 +96,16 @@ document.addEventListener('DOMContentLoaded', function () {
             dropdownContent.style.display = 'block';
             dropdownIcon.style.transform = 'rotate(180deg)';
             angleUpIcon.style.transform = 'rotate(180deg)';
-            usernameContainer.style.marginRight = '30px'; // Shift username text
+            usernameContainer.style.marginRight = '30px';
         } else {
             dropdownContent.style.display = 'none';
             dropdownIcon.style.transform = 'rotate(0deg)';
             angleUpIcon.style.transform = 'rotate(0deg)';
-            usernameContainer.style.marginRight = '0'; // Shift username text back
+            usernameContainer.style.marginRight = '0';
         }
     });
 });
+
 function toggleDropdown(id, icon) {
     const dropdownContent = document.getElementById(id);
     const angleIcon = icon.querySelector('.angle-icon');
@@ -143,14 +128,94 @@ document.addEventListener('DOMContentLoaded', function () {
     dropdownText.addEventListener('click', function () {
         dropdownContent.classList.toggle('show-dropdown');
         angleDownIcon.classList.toggle('rotate');
-
-        // Adjust username text margin
         usernameContainer.classList.toggle('show-dropdown');
     });
 
-    // Close dropdown on initial load
     dropdownContent.classList.remove('show-dropdown');
     angleDownIcon.classList.remove('rotate');
 });
 
+function getCurrentTime() {
+    const now = new Date();
+    const hours = now.getHours();
+    const minutes = now.getMinutes();
+    const amOrPm = hours >= 12 ? 'PM' : 'AM';
+    const formattedHours = hours % 12 || 12;
+    const formattedMinutes = minutes < 10 ? `0${minutes}` : minutes;
+    return `${formattedHours}:${formattedMinutes} ${amOrPm}`;
+}
 
+document.querySelector('.fa-microphone').addEventListener('click', function () {
+    startMicrophoneInput();
+});
+
+document.querySelector('.fa-paperclip').addEventListener('click', function () {
+    document.querySelector('.file-input').click();
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const paperclipIcon = document.querySelector('.fa-paperclip');
+    const fileInput = document.querySelector('.file-input');
+
+    if (paperclipIcon && fileInput) {
+        paperclipIcon.addEventListener('click', function () {
+            fileInput.click();
+        });
+
+        fileInput.addEventListener('change', function (event) {
+            handleFileUpload(event);
+        });
+    } else {
+        console.error('Paperclip icon or file input element not found');
+    }
+});
+
+document.querySelector('.file-input').addEventListener('change', function (event) {
+    handleFileUpload(event);
+});
+
+document.querySelector('.fa-a').addEventListener('click', function () {
+    const textarea = document.querySelector('.text-space');
+    const currentValue = textarea.value;
+    const selectionStart = textarea.selectionStart;
+    const selectionEnd = textarea.selectionEnd;
+    const before = currentValue.substring(0, selectionStart);
+    const selected = currentValue.substring(selectionStart, selectionEnd);
+    const after = currentValue.substring(selectionEnd);
+    textarea.value = `${before}<strong>${selected}</strong>${after}`;
+});
+
+document.querySelector('.fa-link').addEventListener('click', function () {
+    const link = prompt('Enter the URL:');
+    if (link) {
+        const textarea = document.querySelector('.text-space');
+        const currentValue = textarea.value;
+        textarea.value = `${currentValue}<a href="${link}" target="_blank">${link}</a>`;
+    }
+});
+
+document.querySelector('.send-btn').addEventListener('click', function () {
+    submitMessage();
+});
+
+function startMicrophoneInput() {
+    console.log('Microphone input started');
+}
+
+function handleFileUpload(event) {
+    const file = event.target.files[0];
+    if (file) {
+        console.log('Uploaded file:', file);
+    }
+}
+
+function submitMessage() {
+    var message = document.querySelector('.text-space').value.trim();
+    if (message !== '') {
+        console.log('Submitted message:', message);
+    }
+}
+
+const timestampElement = document.querySelector('.timestamp');
+if (timestampElement) {
+    timestampElement.textContent = getCurrentTime();
+}

@@ -431,6 +431,11 @@ footer {
   color: white;
   height: 265px;
   width: 200px;
+  transition: opacity 5s ease 5s;
+
+}
+.menu-drop{
+  animation: fadeIn 200ms;
 }
 
 
@@ -460,9 +465,21 @@ footer {
   margin-right: 20px;
   vertical-align: middle;
 
+.menu-item span:hover {
+  cursor: pointer;
 }
 
+.radio-option:hover {
+  cursor: pointer;
+}
 
+.dropdown-arrow:hover {
+  cursor: pointer;
+}
+
+.fa-bars:hover {
+  cursor: pointer;
+}
 
 .theme-options {
   display: none;
@@ -508,6 +525,9 @@ footer {
   font-size: 12px;
 }
 
+.dropdown-arrow {
+  transition: transform 0.3s ease-in-out;
+}
 
 /* Added style for cut mark icon */
 .fa-xmark {
@@ -520,6 +540,10 @@ footer {
 
 .close-icon:hover {
   cursor: pointer;
+}
+
+.close-icon {
+  transition: transform 0.3s ease-in-out;
 }
 
 /* pop-up welcome */
@@ -548,6 +572,7 @@ footer {
 .popup.show {
   display: block !important;
 }
+
 
 @media (prefers-color-scheme: light) {
 

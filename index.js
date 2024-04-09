@@ -83,7 +83,7 @@ app.get("/chart", (req, res) => {
 //BASIC ROUTES
 
 app.get('/test', (req,res)=>{
-    res.render('main/searchresult.ejs');
+    res.render('main/skynetAI.ejs');
 })
 
 app.get("/about", (req, res) => {

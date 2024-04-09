@@ -30,10 +30,10 @@ module.exports.searchIndex = async (req, res) => {
             // Update the database with fresh data from API for future searches
             const apiKey = process.env.SEARCH_API_KEY;
             const cx = process.env.SEARCH_ID;
-            const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}&safe=active`;
+            const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}&safe=active&suggest=true`;
             const searchResponse = await axios.get(apiUrl);
             const ros = searchResponse.data;
-
+            console.log(see);
             // Update existing document with new data
             see.result.data = ros;
             await see.save();
@@ -50,7 +50,7 @@ module.exports.searchIndex = async (req, res) => {
         console.log(see);
         const apiKey = process.env.SEARCH_API_KEY;
         const cx = process.env.SEARCH_ID;
-        const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}&safe=active`;
+        const apiUrl = `https://www.googleapis.com/customsearch/v1?key=${apiKey}&cx=${cx}&q=${encodeURIComponent(q)}&safe=active&suggest=true`;
         const searchResponse = await axios.get(apiUrl);
         const ros = searchResponse.data;
         see.result.data = ros;

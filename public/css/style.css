@@ -111,12 +111,18 @@ body .container {
 .search-body .search .search-2 {
   column-gap: 10px;
 }
-
+.search-1{
+  width: fit-content;
+}
+.search-input{
+  width: 450px;
+}
 .search-2 {
   position: absolute;
-  left: 76%;
+  left: 80%;
   right: 0;
   transform: translateX(-50%);
+  margin-bottom: -5px;
 }
 
 .imga {

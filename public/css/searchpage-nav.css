@@ -52,3 +52,9 @@
 .link:hover{
     color: black;
 }
+.fa-solid:hover{
+   cursor: pointer;
+}
+.language:hover{
+    cursor: pointer;
+}

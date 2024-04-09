@@ -1,11 +1,18 @@
 document.addEventListener('DOMContentLoaded', function () {
+    let icon1 = document.querySelector('.icon1');
     let imageContainer = document.querySelector('.image-container');
     let dropdownContent = document.querySelector('.dropdown-content');
     let pinnedIcon = document.querySelector('.pinned-icon');
     let image = document.querySelector('.image-container img');
+    let closeIcon = document.querySelector('.fa-times');
 
-    if (imageContainer && dropdownContent && pinnedIcon) {
-        imageContainer.addEventListener('click', function (event) {
+    if (icon1 && imageContainer && dropdownContent && pinnedIcon && image && closeIcon) {
+        icon1.addEventListener('click', toggleDropdown);
+        imageContainer.addEventListener('click', toggleDropdown);
+        closeIcon.addEventListener('click', closeDropdown);
+
+        function toggleDropdown(event) {
+            event.stopPropagation(); // Prevents event bubbling
             dropdownContent.classList.toggle('show-dropdown');
             pinnedIcon.classList.toggle('pinned-icon-open');
             image.classList.toggle('fade-out-image');
@@ -15,21 +22,29 @@ document.addEventListener('DOMContentLoaded', function () {
             } else {
                 image.style.display = 'block';
             }
-        });
+        }
 
-        let closeIcon = document.querySelector('.fa-times');
-        closeIcon.addEventListener('click', () => {
-            let menu = document.querySelector('show-dropdown');
-            menu.style.display = 'none';
+        function closeDropdown(event) {
+            event.stopPropagation(); // Prevents event bubbling
+            dropdownContent.classList.remove('show-dropdown');
             pinnedIcon.classList.remove('pinned-icon-open');
             image.classList.remove('fade-out-image');
             image.style.display = 'block';
+        }
+
+        document.addEventListener('click', function (event) {
+            if (!event.target.closest('.menu-drop') && dropdownContent.classList.contains('show-dropdown')) {
+                closeDropdown(event);
+            }
         });
 
     } else {
         console.log("One or more elements not found");
     }
 });
+
+
+
 
 document.addEventListener('DOMContentLoaded', function () {
     function setInitialMode() {
@@ -145,61 +160,19 @@ function getCurrentTime() {
     return `${formattedHours}:${formattedMinutes} ${amOrPm}`;
 }
 
-document.querySelector('.fa-microphone').addEventListener('click', function () {
-    startMicrophoneInput();
-});
-
 document.querySelector('.fa-paperclip').addEventListener('click', function () {
     document.querySelector('.file-input').click();
 });
 document.addEventListener('DOMContentLoaded', function () {
     const paperclipIcon = document.querySelector('.fa-paperclip');
-    const fileInput = document.querySelector('.file-input');
-
-    if (paperclipIcon && fileInput) {
-        paperclipIcon.addEventListener('click', function () {
-            fileInput.click();
-        });
-
-        fileInput.addEventListener('change', function (event) {
-            handleFileUpload(event);
-        });
-    } else {
-        console.error('Paperclip icon or file input element not found');
-    }
-});
-
-document.querySelector('.file-input').addEventListener('change', function (event) {
-    handleFileUpload(event);
-});
-
-document.querySelector('.fa-a').addEventListener('click', function () {
-    const textarea = document.querySelector('.text-space');
-    const currentValue = textarea.value;
-    const selectionStart = textarea.selectionStart;
-    const selectionEnd = textarea.selectionEnd;
-    const before = currentValue.substring(0, selectionStart);
-    const selected = currentValue.substring(selectionStart, selectionEnd);
-    const after = currentValue.substring(selectionEnd);
-    textarea.value = `${before}<strong>${selected}</strong>${after}`;
-});
-
-document.querySelector('.fa-link').addEventListener('click', function () {
-    const link = prompt('Enter the URL:');
-    if (link) {
-        const textarea = document.querySelector('.text-space');
-        const currentValue = textarea.value;
-        textarea.value = `${currentValue}<a href="${link}" target="_blank">${link}</a>`;
-    }
+    const fileInput = document.querySelector('.file-input'); 
 });
 
 document.querySelector('.send-btn').addEventListener('click', function () {
     submitMessage();
 });
 
-function startMicrophoneInput() {
-    console.log('Microphone input started');
-}
+
 
 function handleFileUpload(event) {
     const file = event.target.files[0];
@@ -219,3 +192,60 @@ const timestampElement = document.querySelector('.timestamp');
 if (timestampElement) {
     timestampElement.textContent = getCurrentTime();
 }
+
+let mediaRecorder;
+let recordedChunks = [];
+
+function startMicrophoneInput() {
+    navigator.mediaDevices.getUserMedia({ audio: true })
+        .then(function (stream) {
+            console.log('Microphone access granted');
+
+            mediaRecorder = new MediaRecorder(stream);
+
+            mediaRecorder.ondataavailable = function (event) {
+                if (event.data.size > 0) {
+                    recordedChunks.push(event.data);
+                }
+            };
+
+            mediaRecorder.onstop = function () {
+                let blob = new Blob(recordedChunks, { type: 'audio/webm' });
+                let audioUrl = URL.createObjectURL(blob);
+                console.log('Recording stopped, audio URL:', audioUrl);
+            };
+
+            mediaRecorder.start();
+
+            setTimeout(function () {
+                mediaRecorder.stop();
+                stream.getTracks().forEach(track => track.stop());
+                console.log('Recording stopped after 5 seconds');
+            }, 5000);
+        })
+        .catch(function (err) {
+            console.error('Error accessing microphone:', err);
+        });
+}
+
+document.querySelector('.fa-microphone').addEventListener('click', startMicrophoneInput);
+
+document.querySelector('.fa-link').addEventListener('click', function () {
+    const textarea = document.querySelector('.text-space');
+    const urlInput = document.querySelector('.url-input');
+
+    urlInput.style.display = 'flex';
+
+});
+document.querySelector('.send-btn').addEventListener('click', function () {
+    const link = document.querySelector('.url-space').value;
+    if (link) {
+        const textarea = document.querySelector('.text-space');
+        const currentValue = textarea.value;
+        textarea.value = `${currentValue}<a href="${link}" target="_blank">${link}</a>`;
+
+        textarea.value = '';
+        document.querySelector('.url-space').value = '';
+        document.querySelector('.url-input').style.display = 'none';
+    }
+});

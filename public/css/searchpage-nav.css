@@ -10,7 +10,7 @@
     padding: 0px;
 }
 .navbar-brand{
-    margin-left: -90px;
+    margin-left: -65px;
     z-index:1000 ;
 }
 .d-flex{
@@ -27,19 +27,19 @@
     margin-left: -5%;
 }
 .fa-camera{
-    margin-left: -42% !important;
+    margin-left: -45% !important;
 }
 .fa-microphone{
-    margin-left: -22% !important;
+    margin-left: -25% !important;
 }
 .language{
-    margin-right: -20% !important;
+    margin-right: -25% !important;
 }
 .fa-user{
-    margin-right: -20% !important;
+    margin-right: -24% !important;
 }
 .fa-bars{
-    margin-right: -7% !important;
+    margin-right: -2% !important;
 }
 .navbar-nav{
     margin-left: 11%;

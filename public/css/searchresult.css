@@ -13,7 +13,7 @@ body {
 }
 .main-container {
   margin-top: 10px;
-  height: 53%;
+  height: fit-content;
   background-color: rgb(227, 227, 227);
   border-radius: 20px !important;
   width: 110% !important;
@@ -40,13 +40,13 @@ body {
   margin-top: 35px;
 }
 .card__image {
-  height: 100%;
+  height:100%;
   max-height: 100%;
   width: 100%;
   display: flex;
 }
 .card__image img {
-  height: 100%;
+  height: fit-content;
   border-radius: 20px !important;
   min-height: 100%;
   max-height: 100%;
@@ -87,7 +87,9 @@ body {
   text-decoration: 4px underline !important;
   cursor: pointer;
 }
-
+.paragraph{
+  max-width: 800px;
+}
 .chat-container {
   position: relative;
   width: 350px;
@@ -139,7 +141,10 @@ body {
   color: #999999;
   margin-top: -5px;
 }
-
+.img-search{
+  width: 7% !important;
+  height: 7% !important;
+}
 .chat-footer {
   padding: 15px !important;
   display: flex;

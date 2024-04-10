@@ -105,6 +105,7 @@
 
         </div>
       </div>
+      <div class="chatbox" id="chatbox">
         <% if (chatHs && chatHs.history && chatHs.history.length>= 2) { %>
           <% for (let i=0; i < chatHs.history[0].parts.length; i++) { %>
             <div class="chat-area">
@@ -140,6 +141,7 @@
           <% } %>
         <% } %>
       </div>
+    </div>
       <form method="POST" action="/ai" enctype="multipart/form-data">
       <div class="aifooter">
         <div class="chat-footer">
@@ -154,7 +156,7 @@
             <i class="fas fa-a"></i>
             <i class="fas fa-paperclip" id="paperclip-icon">
               <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
-              <input type="file" class="file-input" id="fileInput" style="display: none;" />
+              <input type="file" class="file-input" name="file" id="fileInput" style="display: none;" />
             </i>
 
 
@@ -166,4 +168,12 @@
         </div>
       </div>
       </form>
+      <script>
+        // JavaScript code to scroll down to the bottom of the chatbox
+        // This code will execute after the chat messages are loaded
+        document.addEventListener("DOMContentLoaded", function() {
+          var chatbox = document.getElementById("chatbox");
+          chatbox.scrollTop = chatbox.scrollHeight;
+        });
+      </script>
   </body>

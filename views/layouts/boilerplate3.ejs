@@ -2,32 +2,58 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8">
-    <link rel="stylesheet" href="/css/skynetAI.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <meta charset="UTF-8">
+  <link rel="stylesheet" href="/css/skynetAI.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
   <link rel="stylesheet"
     href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@24,400,0,0" />
+  <style>
+    .popup {
+      position: fixed !important;
+      top: 50% !important;
+      left: 50% !important;
+      transform: translate(-50%, -50%) !important;
+      z-index: 1000 !important;
+      display: none !important;
+      width: 400px !important;
+      /* Adjust width as needed */
+      height: 400px !important;
+      /* Adjust height as needed */
+      padding: 20px !important;
+      /* Adjust padding as needed */
+      background-color: #fff !important;
+      border: 1px solid #ccc !important;
+      border-radius: 10px !important;
+      /* Adjust border-radius for squaring or rounding corners */
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2) !important;
+      /* Optional: Add shadow for depth effect */
+    }
 
-    <script type="importmap">
+    .popup.show {
+      display: block !important;
+    }
+  </style>
+  <script type="importmap">
             {
               "imports": {
                 "@google/generative-ai": "https://esm.run/@google/generative-ai"
               }
             }
     </script>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skynet</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Skynet</title>
 </head>
 
 <body>
 
-    <%- include('../includes/flash.ejs')%>
+  <%- include('../includes/flash.ejs')%>
 
-        <div class="body">
-            <%-body%>
-        </div>
+    <div class="body">
+      <%-body%>
+    </div>
 
-            <script src="/js/skynetAI.js"></script>
-        <!-- <script type="module" src="/js/ai.js"></script> -->
+    <script src="/js/skynetAI.js"></script>
+    <!-- <script type="module" src="/js/ai.js"></script> -->
 </body>
+
 </html>

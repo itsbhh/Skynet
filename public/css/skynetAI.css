@@ -232,6 +232,38 @@ body {
   /* Adjust this value as needed */
 }
 
+.chatbox {
+  height: calc(94vh - 200px); /* Adjust the height as needed */
+  overflow-y: auto; /* Enable vertical scrolling */
+}
+
+/* Customize scrollbar */
+.chatbox::-webkit-scrollbar {
+  width: 10px; /* Set the width of the scrollbar */
+}
+
+.chatbox::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Set the background color of the scrollbar track */
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+  background: #888; /* Set the color of the scrollbar thumb */
+  border-radius: 5px; /* Add border radius to the scrollbar thumb */
+}
+
+.chatbox::-webkit-scrollbar-thumb:hover {
+  background: #555; /* Change the color of the scrollbar thumb on hover */
+}
+
+/* Firefox scrollbar */
+.chatbox {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+
+.chatbox::-webkit-scrollbar-corner {
+  background: transparent; /* Hide the scrollbar corner */
+}
 
 /* Chat area styles */
 .chat-area {

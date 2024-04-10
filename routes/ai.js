@@ -3,6 +3,7 @@ const router = express.Router();
 const wrapAsync = require("../utils/wrapAsync.js");
 const multer = require("multer");
 const path = require('path');
+const { isLoggedIn } = require("../middleware.js");
 
 
 const aiController = require("../controller/ai.js");
@@ -31,7 +32,7 @@ const upload = multer({ storage: storage, fileFilter: fileFilter });
 
 
 router.route('/')
-    .get(wrapAsync(aiController.index))
+    .get(isLoggedIn, wrapAsync(aiController.index))
     .post(upload.single('file'), wrapAsync(aiController.answer));
 
 

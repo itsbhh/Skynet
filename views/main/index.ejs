@@ -9,10 +9,17 @@
                 <a class="navbar-brand" href="#">
                     <img src="/assets/language.png" alt="" width="50" height="49">
                 </a>
-                <a href="/user/login" style="text-decoration: none;">
-                    <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
-
-                </a>
+                <% if(!currUser){ %>
+                    <a href="/user/login" style="text-decoration: none;">
+                        <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
+                    </a>
+                    <% } %>
+                    <% if(currUser){ %>
+                        <a href="/user/logout" style="text-decoration: none;">
+                            <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Logout</button>
+                        </a>
+                    <% } %>
+                
                 <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="toggleMenu()" style="color: #ffffff;"></i>
 
 
@@ -74,12 +81,9 @@
                             <span class="img material-symbols-outlined"> center_focus_weak</span>
                         </div>
                     </div>
-
-
                     &nbsp; &nbsp; &nbsp; &nbsp; <a href="/ai"><div class="imga"></div></a>
                     </div>
                 </div>
-
             </form>
         </div>
         <div class="custom-btn">
@@ -106,7 +110,7 @@
                     <li><a href="/about">About</a></li>
                     <li><a href="/advertising">Advertising</a></li>
                     <li><a href="/business">Business</a></li>
-                    <li><a href="/howsearch">How Search Works</a></li>
+                    <li><a href="/howsearch">How Skynet Works</a></li>
                     <li><a href="/privacy">Privacy</a></li>
                     <li><a href="/terms">Terms</a></li>
                     <li><a href="/contact">Contact Us</a></li>

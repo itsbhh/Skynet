@@ -192,7 +192,10 @@ const timestampElement = document.querySelector('.timestamp');
 if (timestampElement) {
     timestampElement.textContent = getCurrentTime();
 }
-
+const timeElement = document.querySelector('.time');
+if (timeElement) {
+    timeElement.textContent = getCurrentTime();
+}
 let mediaRecorder;
 let recordedChunks = [];
 

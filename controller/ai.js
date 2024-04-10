@@ -21,6 +21,7 @@ function fileToGenerativePart(path, mimeType) {
         },
     };
 }
+
 function formatText(text) {
     // Bold text: **text** or __text__
     text = text.replace(/\*\*(.*?)\*\*|__(.*?)__/g, '<strong>$1$2</strong>');
@@ -57,7 +58,7 @@ function formatText(text) {
 
 
 module.exports.index = async (req, res) => {
-    res.render("main/ai.ejs");
+    res.render("main/skynet.ejs");
 }
 
 module.exports.answer = async (req, res) => {
@@ -137,8 +138,9 @@ module.exports.answer = async (req, res) => {
         }
     } else {
         const response = await run(input, _id);
-        const text = response.text;
+        let text = response.text;
         const chatHs = response.chatHs;
-        res.render("aiChat.ejs", { text, input, chatHs, formatText, mime });
+        text = formatText(text);
+        res.render("main/skynetAI.ejs", { text, input, chatHs, mime });
     }
 };

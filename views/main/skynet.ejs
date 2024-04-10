@@ -105,65 +105,39 @@
 
         </div>
       </div>
-        <% if (chatHs && chatHs.history && chatHs.history.length>= 2) { %>
-          <% for (let i=0; i < chatHs.history[0].parts.length; i++) { %>
-            <div class="chat-area">
-            <div class="chat-message">
-              <strong><i class="fas fa-user"></i> User: <span class="timestamp">3:30 PM</span></strong>
-              <div class="icons-right">
-                <i class="fas fa-thumbtack pinned-icon"></i>
-              </div>
-              <div class="text"><%= chatHs.history[0].parts[i].text %></div>
-            </div>
-            <% if (chatHs.history[1].parts[i].text == 'Hello! I am Skynet, a multi-modal AI language model developed by Twoward Technology') { %>
-            <% i = i+1; %>
-              <div class="chat-message">
-                <strong><i class="fas fa-robot"></i> Skynet AI <span class="time">3:30 PM</span></strong>
-                <div class="icons-right">
-                  <i class="fas fa-thumbtack pinned-icon"></i>
-                </div>
-                <div class="text"><%= chatHs.history[1].parts[i].text %></div>
-              </div>
-            <% i = i-1;%>
-            <% } else { %>
-              <% i = i+1; %>
-              <div class="chat-message">
-                <strong><i class="fas fa-robot"></i> Skynet AI <span class="time">3:30 PM</span></strong>
-                <div class="icons-right">
-                  <i class="fas fa-thumbtack pinned-icon"></i>
-                </div>
-                <div class="text"><%= chatHs.history[1].parts[i].text %></div>
-              </div>
-              <% i = i-1;%>
-              <% } %>
-            </div>  
-          <% } %>
-        <% } %>
+
+      <div class="chat-area">
+        <div class="chat-message">
+          <strong><i class="fas fa-robot"></i> Skynet AI <span class="timestamp">3:30 PM</span></strong>
+          <div class="icons-right">
+            <i class="fas fa-thumbtack pinned-icon"></i>
+          </div>
+          <div class="text">Hey Buddy, how can I help you?</div>
+        </div>
+        <!-- Add more chat messages here -->
       </div>
-      <form method="POST" action="/ai" enctype="multipart/form-data">
-      <div class="aifooter">
-        <div class="chat-footer">
-          <div class="input-group">
-            <textarea class="text-space" name="ai[input]" placeholder="Ask me anything..." required></textarea>
-          </div>
-          <div class="url-input" style="display: none;">
-            <input type="text" class="url-space" placeholder="Paste your URL...">
-          </div>
-          <hr class="hr">
-          <div class="iconss">
-            <i class="fas fa-a"></i>
-            <i class="fas fa-paperclip" id="paperclip-icon">
-              <input type="hidden" name="_id" value="<%= chatHs ? chatHs._id : '' %>">
-              <input type="file" class="file-input" id="fileInput" style="display: none;" />
-            </i>
-
-
-            <i class="fas fa-link"></i>
-            <i class="fas fa-microphone"></i>
-            <i class="iconsss"></i>
-            <button class="send-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
-          </div>
+    </div>
+    <form method="POST" action="/ai" enctype="multipart/form-data">
+    <div class="aifooter">
+      <div class="chat-footer">
+        <div class="input-group">
+          <textarea class="text-space" name="ai[input]" placeholder="Ask me anything..." required></textarea>
+        </div>
+        <div class="url-input" style="display: none;">
+          <input type="text" class="url-space" placeholder="Paste your URL...">
+        </div>
+        <hr class="hr">
+        <div class="iconss">
+          <i class="fas fa-a"></i>
+          <i class="fas fa-paperclip" id="paperclip-icon">
+            <input type="file" class="file-input" id="fileInput" style="display: none;" />
+          </i>
+          <i class="fas fa-link"></i>
+          <i class="fas fa-microphone"></i>
+          <i class="iconsss"></i>
+          <button class="send-btn" type="submit"><i class="fas fa-paper-plane"></i></button>
         </div>
       </div>
-      </form>
+    </div>
+    </form>
   </body>

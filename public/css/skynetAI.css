@@ -236,8 +236,12 @@ body {
 /* Chat area styles */
 .chat-area {
   display: flex;
-  justify-content: center;
+  width: 100%;
+  justify-content: center !important;
+  align-items: center;
+  flex-direction: column;
   /* Center chat messages horizontally */
+
 }
 
 .chat-message {
@@ -249,13 +253,13 @@ body {
   margin-top: 1rem;
 }
 
-.chat-message .timestamp {
-  color: #d4d4d4;
+.chat-message .timestamp, .time {
+  color: #5f5e5e;
 }
 
 .chat-message .text {
   font-size: 1rem;
-  color: #d4d4d4;
+  color: #0d0d0d;
 }
 
 .text-space:focus {
@@ -341,7 +345,7 @@ body {
   width: 30px;
   height: 30px;
   display: inline-block;
-  background-image: url("\image.png");
+  background-image: url("/image.png");
   background-size: cover;
   background-position: center;
   filter: invert(5%);
@@ -351,7 +355,6 @@ body {
   display: block;
   position: fixed;
   margin-left: 120px !important;
-  vertical-align: middle;
   color: #000;
 
 }
@@ -611,10 +614,29 @@ margin-top: 10px;
   .navbar {
     background-color: #000000;
   }
+  .aifooter{
+    background-color: #5f5e5e;
+  }
+  .text-space{
+    background-color: #5f5e5e;
+  }
+  .text-space::placeholder{
+    color: #d0d0d0;
+  }
+  .text-space{
+    color: #d0d0d0;
+  }
 
   /* Icon styles */
   .icon {
     color: #ffffff;
+  }
+  .hr{
+    border-top: 2px solid #adadad;
+  }
+
+  .fas{
+    color: rgb(204, 202, 202) !important;
   }
 
   /* Username container styles */
@@ -622,7 +644,9 @@ margin-top: 10px;
     background-color: #333;
     color: #fff;
   }
-
+  .chat-area .text{
+    color:#d0d0d0 
+  }
   /* Pinned icon styles */
   .pinned-icon {
     color: #fff !important;
@@ -660,7 +684,7 @@ margin-top: 10px;
 
 
   /* Chat message styles */
-  .chat-message .timestamp,
+  .chat-message .timestamp, .time,
   .chat-message .text {
     color: #ccc;
   }

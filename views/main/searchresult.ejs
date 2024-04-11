@@ -1,105 +1,106 @@
 <% layout("/layouts/boilerplate2") %>
 
-  <body>
-    <input type="hidden" class="api" id="api" value="<%= process.env.API_KEY %>">
-    <%- include('../includes/searchpage-nav.ejs') %>
-      <div class="container">
-        <div class="row">
-          <div class="col-sm-8">
-            <% if (see && see.result && see.result.data && see.result.data.items && see.result.data.items.length> 0) {%>
-              <% see.result.data.items.forEach(function(sees) { %>
-                <% if (sees.pagemap.hcard) { %>
-                  <div class='main-container'>
-                    <div class='grid-container'>
-                      <div class='card card--2x'>
-                        <div class="card__image">
-                          <img src='https://cdn.britannica.com/05/236505-050-17B6E34A/Elon-Musk-2022.jpg'>
-                        </div>
+
+  <input type="hidden" class="api" id="api" value="<%= process.env.API_KEY %>">
+  <%- include('../includes/searchpage-nav.ejs') %>
+    <div class="container">
+      <div class="row">
+        <div class="col-sm-8">
+          <% if (see && see.result && see.result.data && see.result.data.items && see.result.data.items.length> 0) {%>
+            <% see.result.data.items.forEach(function(sees) { %>
+              <% if (sees.pagemap.hcard) { %>
+                <div class='main-container'>
+                  <div class='grid-container'>
+                    <div class='card card--2x'>
+                      <div class="card__image">
+                        <img src='https://cdn.britannica.com/05/236505-050-17B6E34A/Elon-Musk-2022.jpg'>
                       </div>
-                      <div class='card'>
-                        <div class='card__image'>
-                          <img
-                            src='https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260'>
-                        </div>
+                    </div>
+                    <div class='card'>
+                      <div class='card__image'>
+                        <img
+                          src='https://images.pexels.com/photos/443416/pexels-photo-443416.jpeg?auto=compress&amp;cs=tinysrgb&amp;h=750&amp;w=1260'>
                       </div>
                     </div>
                   </div>
-                  <% } %>
-                    
-                    <% }); %>
-                      <% } %>
-
-                        <% for (sees of see.result.data.items){%>
-                          <div class="search-heading">
-                            <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
-                              class="bi bi-stars" viewBox="0 0 16 16">
-                              <path
-                                d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
-                            </svg>
-                            <a href="<%=sees.link%>" style="text-decoration: none; color: black">
-                              <h4>
-                                <%=sees.title%>
-                              </h4>
-                            </a>
-                          </div>
-                          <div class="demo">
-                            <a href="<%=sees.link%>">
-                              <%=sees.link%>
-                            </a>
-                            <p class="paragraph">
-                              <%=sees.snippet%>
-                            </p>
-                            <%if (sees && sees.pagemap && sees.pagemap.cse_image && sees.pagemap.cse_image.length> 0)
-                              {%>
-                              <img class="img-search" src='<%=sees.pagemap.cse_image[0].src%>'  style=" height: 7%; width: 7%;">
-                              <% } else {%>
-                                <% console.log("No cse_image found for this item");%>
-                                  <% }%>
-                          </div>
-                          <%}%>
-                            <div class="pages">
-                              <ul class="page-link">
-                                <li>1</li>
-                                <li>2</li>
-                                <li>3</li>
-                                <li>4</li>
-                                <li>NEXT...</li>
-                              </ul>
-                            </div>
-          </div>
-          <div class="col-sm-4">
-
-            <div class="chat-container">
-
-              <div class="chat-header">
-                Skynet AI
-                <img class="ai" src="/assets/AI.png" style="height: 80px; width: 80px;">
-              </div>
-              <div class="chat-body">
-                <i class="fas fa-robot"></i>
-                <div>
-                  <p>
-                    You Asked me about <b>
-                      <%=q%>
-                    </b>
-                  </p>
                 </div>
-                <div class="generate">
-                  <p style="margin-left: 25px;" class="generate-text">Generating...</p>
-                  <div class="ai-res"></div>
-                </div>
+                <% } %>
+
+                  <% }); %>
+                    <% } %>
+
+                      <% for (sees of see.result.data.items){%>
+                        <div class="search-heading">
+                          <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor"
+                            class="bi bi-stars" viewBox="0 0 16 16">
+                            <path
+                              d="M7.657 6.247c.11-.33.576-.33.686 0l.645 1.937a2.89 2.89 0 0 0 1.829 1.828l1.936.645c.33.11.33.576 0 .686l-1.937.645a2.89 2.89 0 0 0-1.828 1.829l-.645 1.936a.361.361 0 0 1-.686 0l-.645-1.937a2.89 2.89 0 0 0-1.828-1.828l-1.937-.645a.361.361 0 0 1 0-.686l1.937-.645a2.89 2.89 0 0 0 1.828-1.828zM3.794 1.148a.217.217 0 0 1 .412 0l.387 1.162c.173.518.579.924 1.097 1.097l1.162.387a.217.217 0 0 1 0 .412l-1.162.387A1.73 1.73 0 0 0 4.593 5.69l-.387 1.162a.217.217 0 0 1-.412 0L3.407 5.69A1.73 1.73 0 0 0 2.31 4.593l-1.162-.387a.217.217 0 0 1 0-.412l1.162-.387A1.73 1.73 0 0 0 3.407 2.31zM10.863.099a.145.145 0 0 1 .274 0l.258.774c.115.346.386.617.732.732l.774.258a.145.145 0 0 1 0 .274l-.774.258a1.16 1.16 0 0 0-.732.732l-.258.774a.145.145 0 0 1-.274 0l-.258-.774a1.16 1.16 0 0 0-.732-.732L9.1 2.137a.145.145 0 0 1 0-.274l.774-.258c.346-.115.617-.386.732-.732z" />
+                          </svg>
+                          <a href="<%=sees.link%>" style="text-decoration: none; color: black">
+                            <h4>
+                              <%=sees.title%>
+                            </h4>
+                          </a>
+                        </div>
+                        <div class="demo">
+                          <a href="<%=sees.link%>">
+                            <%=sees.link%>
+                          </a>
+                          <p class="paragraph">
+                            <%=sees.snippet%>
+                          </p>
+                          <%if (sees && sees.pagemap && sees.pagemap.cse_image && sees.pagemap.cse_image.length> 0)
+                            {%>
+                            <img class="img-search" src='<%=sees.pagemap.cse_image[0].src%>'
+                              style=" height: 7%; width: 7%;">
+                            <% } else {%>
+                              <% console.log("No cse_image found for this item");%>
+                                <% }%>
+                        </div>
+                        <%}%>
+                          <div class="pages">
+                            <ul class="page-link">
+                              <li>1</li>
+                              <li>2</li>
+                              <li>3</li>
+                              <li>4</li>
+                              <li>NEXT...</li>
+                            </ul>
+                          </div>
+        </div>
+        <div class="col-sm-4">
+
+          <div class="chat-container">
+
+            <div class="chat-header">
+              Skynet AI
+              <div class="ai" style="height: 80px; width: 80px;"></div>
+            </div>
+            <div class="chat-body">
+              <i class="fas fa-robot"></i>
+              <div>
+                <p>
+                  You Asked me about <b>
+                    <%=q%>
+                  </b>
+                </p>
               </div>
-              <br>
-              <div class="aifooter">
-                <div class="chat-footer">
-                  <div class="input-group">
-                    <textarea class="text-space" name="message" placeholder="SKYNET AI response..." required></textarea>
-                    <div class="expand">
-                      <a href="/ai">
-                        <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
-                          xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180%" viewBox="0 0 512 512"
-                          enable-background="new 0 0 512 512" xml:space="preserve">
-                          <path fill="#000000" opacity="1.000000" stroke="none" d="
+              <div class="generate">
+                <p style="margin-left: 25px;" class="generate-text">Generating...</p>
+                <div class="ai-res"></div>
+              </div>
+            </div>
+            <br>
+            <div class="aifooter">
+              <div class="chat-footer">
+                <div class="input-group">
+                  <textarea class="text-space" name="message" placeholder="SKYNET AI response..." required></textarea>
+                  <div class="expand">
+                    <a href="/ai">
+                      <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg"
+                        xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" width="180%" viewBox="0 0 512 512"
+                        enable-background="new 0 0 512 512" xml:space="preserve">
+                        <path fill="#000000" opacity="1.000000" stroke="none" d="
     M1.229891,407.399658 
         C1.000000,307.312439 1.000000,207.624878 1.000000,107.468658 
         C3.111715,94.417763 8.892592,83.805786 18.226786,75.142952 
@@ -114,7 +115,7 @@
         C34.317318,455.432892 11.240449,439.269958 2.735975,415.169830 
         C1.897492,412.793732 2.118373,410.216492 1.229891,407.399658 
     z" />
-                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M513.000000,108.531342 
         C510.665497,103.494308 509.587708,97.575417 506.746979,92.188385 
         C497.949982,75.505981 484.288239,65.448120 466.164215,60.931053 
@@ -128,7 +129,7 @@
         C512.971619,0.890785 513.058167,1.997037 513.052185,4.625337 
         C512.973755,39.104313 513.000000,73.583527 513.000000,108.531342 
     z" />
-                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M1.000000,407.468658 
         C4.034878,411.354706 4.529537,416.735107 6.957812,421.393860 
         C15.675733,438.119568 29.330160,448.295532 47.378475,453.019714 
@@ -142,7 +143,7 @@
         C1.034186,513.108887 0.941209,512.008545 0.947406,509.376160 
         C1.027013,475.563354 1.000000,441.750305 1.000000,407.468658 
     z" />
-                          <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
+                        <path fill="#FFFFFF" opacity="1.000000" stroke="none" d="
     M235.000000,414.000000 
         C178.177216,414.000000 121.854340,414.050446 65.531731,413.951965 
         C55.777531,413.934906 47.259731,411.009155 43.057037,401.113983 
@@ -158,7 +159,7 @@
         C456.101532,413.459106 452.046204,414.005768 447.959320,414.005341 
         C377.139557,413.997955 306.319763,414.000000 235.000000,414.000000 
     z" />
-                          <path fill="#000000" opacity="1.000000" stroke="none" d="
+                        <path fill="#000000" opacity="1.000000" stroke="none" d="
     M379.991028,181.000000 
         C364.661438,180.999985 349.829498,180.896042 335.001099,181.080811 
         C331.726257,181.121597 330.856171,180.244415 330.919922,176.987381 
@@ -174,7 +175,7 @@
         C393.109802,181.726089 392.253601,180.611237 388.982483,180.941406 
         C386.178223,181.224442 383.322754,181.000000 379.991028,181.000000 
     z" />
-                          <path fill="#000000" opacity="1.000000" stroke="none" d="
+                        <path fill="#000000" opacity="1.000000" stroke="none" d="
     M109.000000,373.000000 
         C100.501480,372.999969 92.500015,372.876007 84.506035,373.066620 
         C81.673767,373.134125 80.928429,372.313110 80.937164,369.492981 
@@ -190,193 +191,58 @@
         C182.149124,372.281830 181.234131,373.098145 177.986862,373.077423 
         C155.158676,372.931427 132.329117,373.000000 109.000000,373.000000 
     z" />
-                        </svg>
-                      </a>
-                    </div>
+                      </svg>
+                    </a>
                   </div>
-                </div>
-                <hr>
-                <div class="footer">
-                  <i class="fas fa-microphone" style="color: black;" onclick="startMicrophoneInput()"></i>
-                  <i class="fas fa-paperclip" style="color: black;">
-                    <input type="file" onchange="handleFileUpload(event)" style="display: none;" class="file-input" />
-                  </i>
-                  <button class="send-btn" onclick="submitMessage()"><i class="fas fa-paper-plane"
-                      style="color: black;"></i></button>
                 </div>
               </div>
+              <hr>
+              <div class="footer">
+                <i class="fas fa-microphone"  onclick="startMicrophoneInput()"></i>
+                <i class="fas fa-paperclip" >
+                  <input type="file" onchange="handleFileUpload(event)" style="display: none;" class="file-input" />
+                </i>
+                <button class="send-btn" onclick="submitMessage()"><i class="fas fa-paper-plane"
+                    ></i></button>
+              </div>
             </div>
-            <div class="search-related">
-              <h5 class="related">Searches related to your search</h5>
-              <div class="search-link">
-                <div class="form-search">
-                  <div class="search-box">
-                    <div class="sug form-control me-2">What is facebook?
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                      </svg>
-                    </div>
+          </div>
+          <div class="search-related">
+            <h5 class="related">Searches related to your search</h5>
+            <div class="search-link">
+              <div class="form-search">
+                <div class="search-box">
+                  <div class="sug form-control me-2">What is facebook?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-search" viewBox="0 0 16 16">
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
                   </div>
-                  <div class="search-box">
-                    <div class="sug form-control me-2">Who invented facebook?
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                      </svg>
-                    </div>
+                </div>
+                <div class="search-box">
+                  <div class="sug form-control me-2">Who invented facebook?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-search" viewBox="0 0 16 16">
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
                   </div>
-                  <div class="search-box">
-                    <div class="sug form-control me-2">When was facebook invented?
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
-                        class="bi bi-search" viewBox="0 0 16 16">
-                        <path
-                          d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
-                      </svg>
-                    </div>
-                    <a class="More" href="#">More..</a>
+                </div>
+                <div class="search-box">
+                  <div class="sug form-control me-2">When was facebook invented?
+                    <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor"
+                      class="bi bi-search" viewBox="0 0 16 16">
+                      <path
+                        d="M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001q.044.06.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1 1 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0" />
+                    </svg>
                   </div>
+                  <a class="More" href="#">More..</a>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-      <%- include('../includes/footer.ejs') %>
-
-      <script>
-         let mediaRecorder;
-let recordedChunks = [];
-
-function startMicrophoneInput() {
-    navigator.mediaDevices.getUserMedia({ audio: true })
-        .then(function (stream) {
-            console.log('Microphone access granted');
-
-            mediaRecorder = new MediaRecorder(stream);
-
-            mediaRecorder.ondataavailable = function (event) {
-                if (event.data.size > 0) {
-                    recordedChunks.push(event.data);
-                }
-            };
-
-            mediaRecorder.onstop = function () {
-                let blob = new Blob(recordedChunks, { type: 'audio/webm' });
-                let audioUrl = URL.createObjectURL(blob);
-                console.log('Recording stopped, audio URL:', audioUrl);
-            };
-
-            mediaRecorder.start();
-
-            setTimeout(function () {
-                mediaRecorder.stop();
-                stream.getTracks().forEach(track => track.stop());
-                console.log('Recording stopped after 5 seconds');
-            }, 5000);
-        })
-        .catch(function (err) {
-            console.error('Error accessing microphone:', err);
-        });
-}
-
-document.querySelector('.fa-microphone').addEventListener('click', startMicrophoneInput);
-
-
-          function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-              console.log('Uploaded file:', file);
-
-            }
-          }
-
-          function submitMessage() {
-            var message = document.querySelector('.text-space').value.trim();
-            if (message !== '') {
-              console.log('Submitted message:', message);
-            }
-          }
-
-          function generateOutput() {
-            document.querySelector('.generate-text').style.display = 'block';
-            setTimeout(function () {
-              document.querySelector('.generate-text').style.display = 'none';
-              console.log('Generated output displayed');
-            }, 2000);
-          }
-
-          generateOutput();
-          document.querySelector('.text-space').addEventListener('keypress', function (e) {
-            if (e.key === 'Enter') {
-              e.preventDefault(); 
-              submitMessage();
-            }
-          });
-
-          document.querySelector('.fa-paperclip').addEventListener('click', function () {
-            document.querySelector('.file-input').click();
-          });
-          document.querySelector('.file-input').addEventListener('change', function (event) {
-            handleFileUpload(event);
-          });
-function recordAudio() {
-    if (navigator.mediaDevices && navigator.mediaDevices.getUserMedia) {
-        navigator.mediaDevices.getUserMedia({ audio: true })
-            .then(function (stream) {
-                const audioRecorder = new MediaRecorder(stream);
-                const chunks = [];
-
-                audioRecorder.ondataavailable = function (event) {
-                    chunks.push(event.data);
-                };
-
-                audioRecorder.onstop = function () {
-                    const audioBlob = new Blob(chunks, { type: 'audio/wav' });
-                    const audioElement = document.createElement('audio');
-                    audioElement.src = audioUrl;
-                    audioElement.controls = true;
-                    document.body.appendChild(audioElement); 
-                };
-
-                
-                audioRecorder.start();
-                setTimeout(function () {
-                    audioRecorder.stop();
-                    stream.getAudioTracks()[0].stop();
-                }, 5000);
-            })
-            .catch(function (error) {
-                console.error('Error accessing microphone:', error);
-            });
-    } else {
-        console.error('MediaDevices API not supported');
-    }
-}
-const microphoneIcon = document.querySelector('.fa-microphone');
-microphoneIcon.addEventListener('click', recordAudio);
-
-function selectImageFromGallery() {
-    const input = document.createElement('input');
-    input.type = 'file';
-    input.accept = 'image/*';
-    input.capture = 'environment';
-    input.onchange = function (event) {
-        const file = event.target.files[0];
-        const reader = new FileReader();
-        reader.onload = function () {
-            const image = new Image();
-            image.src = reader.result;
-            document.body.appendChild(image);
-        };
-        reader.readAsDataURL(file);
-    };
-    input.click();
-}
-
-const cameraIcon = document.querySelector('.fa-camera');
-cameraIcon.addEventListener('click', selectImageFromGallery);
-</script>
-  </body>
+    </div>
+    <%- include('../includes/footer.ejs') %>

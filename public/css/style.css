@@ -134,7 +134,7 @@ body .container {
   margin-left: 2px;
   border-radius: 50px;
   background: url('../assets/AI.png') no-repeat center center/cover;
-  background-color: transparent;
+  background-color: white;
 }
 
 .container {

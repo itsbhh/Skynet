@@ -43,52 +43,52 @@ body {
   max-height: 200px; 
 }
 .textarea .text-space:focus{
-  outline: none important;
+  outline: none !important;
 }
 .text-space {
-  flex: 1;
-  margin-right: 10px; 
-  resize: none;
-  outline: none;
-  border: none;
-  margin-top: 10px;
-  max-height: 200px; 
-  overflow-y: auto;
-  padding: 10px;
-  box-sizing: border-box; 
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1;
+  flex: 1 !important;
+  margin-right: 10px !important; 
+  resize: none !important;
+  outline: none !important;
+  border: none !important;
+  margin-top: 10px !important;
+  max-height: 200px !important; 
+  overflow-y: auto !important;
+  padding: 10px !important;
+  box-sizing: border-box !important; 
+  scrollbar-width: thin !important; 
+  scrollbar-color: #888 #f1f1f1 !important;
 }
 .textarea{
-  height: 20px;
+  height: 20px !important;
 }
 :root {
-  --scrollbar-width: 10px;
+  --scrollbar-width: 10px !important;
 }
 .text-space::-webkit-scrollbar {
-  width: var(--scrollbar-width); 
+  width: var(--scrollbar-width) !important; 
 }
 
 .text-space::-webkit-scrollbar-track {
-  background: #f1f1f1; 
+  background: #f1f1f1 !important; 
 }
 
 .text-space::-webkit-scrollbar-thumb {
-  background: #888; 
-  border-radius: 5px;
+  background: #888 !important; 
+  border-radius: 5px !important;
 }
 
 .text-space::-webkit-scrollbar-thumb:hover {
-  background: #555; 
+  background: #555 !important; 
 }
 
 .text-space {
-  scrollbar-width: thin;
-  scrollbar-color: #888 #f1f1f1; 
+  scrollbar-width: thin !important;
+  scrollbar-color: #888 #f1f1f1 !important; 
 }
 
 .text-space::-webkit-scrollbar-corner {
-  background: transparent;
+  background: transparent !important;
 }
 
 

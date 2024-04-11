@@ -1,3 +1,5 @@
+/* LIGHT MODE */
+
 *{
     padding: 0;
     margin: 0;
@@ -9,9 +11,14 @@
     margin: 0px;
     padding: 0px;
 }
+.navbar{
+    background-color: rgb(243, 243, 243);
+    color: #a1a1a1;
+}
 .navbar-brand{
     margin-left: -65px;
     z-index:1000 ;
+    background-color: rgb(243, 243, 243);
 }
 .d-flex{
     width: 75% !important;
@@ -22,24 +29,29 @@
 .fa-magnifying-glass{
     margin-top: 30px;
     margin-left: -10%;
+    color: #a1a1a1;
 }
 .mag-glass{
     margin-left: -5%;
 }
 .fa-camera{
     margin-left: -45% !important;
+    color: black;
 }
 .fa-microphone{
     margin-left: -25% !important;
+    color: black;
 }
 .language{
     margin-right: -25% !important;
 }
 .fa-user{
     margin-right: -24% !important;
+    color: black;
 }
 .fa-bars{
     margin-right: -2% !important;
+    color: black;
 }
 .navbar-nav{
     margin-left: 11%;
@@ -57,4 +69,64 @@
 }
 .language:hover{
     cursor: pointer;
+}
+
+@media (prefers-color-scheme: dark) {
+    .navbar{
+        background-color: #363535 !important;
+    }
+    .navbar-brand{
+        background-color: transparent !important;
+        filter: invert(100%);
+    }
+    .fa-camera{
+        color: white;
+    }
+    .fa-bars{
+        color: white;
+    }
+    .fa-microphone{
+        color: white;
+    }
+    .fa-user{
+        color: white;
+    }
+    .fa-magnifying-glass{
+        color: white;
+    }
+    .d-flex input{
+        background-color: #656565;
+    }
+    .language{
+        filter: invert(100%);
+    }
+    .s-box::placeholder{
+        box-shadow: none !important;
+    }
+    .s-box{
+        background-color: rgb(105, 105, 105);
+        color: #ffffff !important;
+    }
+    .s-box::placeholder{
+        color: #ffffff;
+    }
+    .s-box:focus{
+        background-color: rgb(105, 105, 105) !important;
+        outline: none !important;
+        border: 1px solid white;
+        box-shadow: none !important;
+    }
+    .container-fluid{
+        background-color: #363535 !important;
+    }
+    .navbar-nav a{
+        color: #ffffff !important;
+    }
+    .link{
+        color: #ffffff;
+    }
+    .link:hover{
+        color: rgb(236, 236, 236);
+    }
+    
 }

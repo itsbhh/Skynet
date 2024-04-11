@@ -34,6 +34,73 @@ body {
 .hidden {
   display: none;
 }
+.contain {
+  height:20px;
+  width: 650px;
+  display: flex;
+  align-items: center;
+  margin: 0;
+  max-height: 200px; 
+}
+.textarea .text-space:focus{
+  outline: none important;
+}
+.text-space {
+  flex: 1;
+  margin-right: 10px; 
+  resize: none;
+  outline: none;
+  border: none;
+  margin-top: 10px;
+  max-height: 200px; 
+  overflow-y: auto;
+  padding: 10px;
+  box-sizing: border-box; 
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1;
+}
+.textarea{
+  height: 20px;
+}
+:root {
+  --scrollbar-width: 10px;
+}
+.text-space::-webkit-scrollbar {
+  width: var(--scrollbar-width); 
+}
+
+.text-space::-webkit-scrollbar-track {
+  background: #f1f1f1; 
+}
+
+.text-space::-webkit-scrollbar-thumb {
+  background: #888; 
+  border-radius: 5px;
+}
+
+.text-space::-webkit-scrollbar-thumb:hover {
+  background: #555; 
+}
+
+.text-space {
+  scrollbar-width: thin;
+  scrollbar-color: #888 #f1f1f1; 
+}
+
+.text-space::-webkit-scrollbar-corner {
+  background: transparent;
+}
+
+
+
+.icons-container {
+  display: flex;
+  align-items: center;
+}
+
+.iconss {
+  margin-right: 5px; 
+}
 
 .url-input {
   display: none;
@@ -54,8 +121,26 @@ body {
 .image-container img:hover{
   cursor: pointer;
 }
+.header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 100;
+  /* Add necessary styles */
+}
+.username-container {
+  transition: transform 0.3s ease;
+}
+.skynet-dropdown.open + .username-container {
+  transform: translateX(-100%);
+}
 
-/* Adjust padding for the header to accommodate the Skynet AI dropdown */
+.username-container {
+  position: fixed;
+  top: 0px;
+  left:0px;
+}
 .header {
  padding-bottom: 30px; /* Adjust padding as needed */
 }
@@ -63,11 +148,6 @@ body {
 /* Adjust search bar width */
 .search-bar input {
  width: calc(100% - 40px); /* Adjust width based on the total header width */
-}
-
-/* Username container styles */
-.username-container {
- position: relative;
 }
 
 /* Updated Skynet AI icon styles */
@@ -226,7 +306,9 @@ body {
   margin-right: 10px;
   /* Adjust this value as needed */
 }
-
+.text-open{
+  width: 78%;
+}
 .pinned-icon-open {
   margin-right: 22%;
   /* Adjust this value as needed */
@@ -276,6 +358,7 @@ body {
 
 }
 
+
 .chat-message {
   width: 1000px;
   /* Set the width of the chat message */
@@ -304,43 +387,27 @@ body {
   background-color: #eceaea;
   border-radius: 28px;
   padding: 10px;
-  position: fixed;
+  position: absolute;
   bottom: 20px;
 }
 
 .chat-footer {
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  flex-direction: row;
 }
 
 .input-group {
   margin-bottom: 10px;
 }
 
-.hr {
-  border: none;
-  border-top: 2px solid #727272;
-  margin-bottom: 10px;
-}
-
-.iconss {
-  display: flex;
-  align-items: center;
+.chat-footer .iconss{
   font-size: 12px;
   padding-left: 10px;
   padding-top: 0;
   padding-bottom: 0;
 }
 
-.text-space {
-  width: 95%;
-  background-color: #eceaea;
-  resize: none;
-  border: none;
-  margin-bottom: 15px;
-  margin-left: 10px;
-  margin-top: 5px;
-}
 
 .send-btn {
   background-color: transparent;
@@ -349,13 +416,12 @@ body {
   padding-bottom: 5px;
   border: none;
   border-radius: 25px;
-  margin-left: 75%;
 
 }
 
 
 .iconss i {
-  margin-right: 10px;
+  margin-right: 5px;
   /* Add spacing between icons */
   color: #000;
   /* Change icon color */
@@ -368,7 +434,6 @@ body {
 
 .send-btn:hover {
   cursor: pointer;
-  background-color: #ccc;
   /* Change button background color on hover */
 }
 
@@ -658,13 +723,13 @@ margin-top: 10px;
   .text-space{
     color: #d0d0d0;
   }
-
+.text-space:focus{
+  outline: none;
+  border:none;
+}
   /* Icon styles */
   .icon {
     color: #ffffff;
-  }
-  .hr{
-    border-top: 2px solid #adadad;
   }
 
   .fas{
@@ -720,7 +785,13 @@ margin-top: 10px;
   .chat-message .text {
     color: #ccc;
   }
-
+  .url-input{
+    background-color:  #5f5e5e;
+  }
+  .url-input input{
+    background-color: #5f5e5e ;
+    color: #ccc;
+  }
 
 }
 .light-mode-icon,

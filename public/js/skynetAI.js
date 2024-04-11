@@ -2,11 +2,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let icon1 = document.querySelector('.icon1');
     let imageContainer = document.querySelector('.image-container');
     let dropdownContent = document.querySelector('.dropdown-content');
-    let pinnedIcon = document.querySelector('.pinned-icon');
+    let chatArea = document.querySelector('.chatbox');
     let image = document.querySelector('.image-container img');
     let closeIcon = document.querySelector('.fa-times');
 
-    if (icon1 && imageContainer && dropdownContent && pinnedIcon && image && closeIcon) {
+    if (icon1 && imageContainer && dropdownContent && chatArea && image && closeIcon) {
         icon1.addEventListener('click', toggleDropdown);
         imageContainer.addEventListener('click', toggleDropdown);
         closeIcon.addEventListener('click', closeDropdown);
@@ -14,7 +14,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function toggleDropdown(event) {
             event.stopPropagation(); // Prevents event bubbling
             dropdownContent.classList.toggle('show-dropdown');
-            pinnedIcon.classList.toggle('pinned-icon-open');
+            chatArea.classList.toggle('text-open');
             image.classList.toggle('fade-out-image');
 
             if (dropdownContent.classList.contains('show-dropdown')) {
@@ -27,7 +27,7 @@ document.addEventListener('DOMContentLoaded', function () {
         function closeDropdown(event) {
             event.stopPropagation(); // Prevents event bubbling
             dropdownContent.classList.remove('show-dropdown');
-            pinnedIcon.classList.remove('pinned-icon-open');
+            chatArea.classList.remove('text-open');
             image.classList.remove('fade-out-image');
             image.style.display = 'block';
         }
@@ -165,7 +165,7 @@ document.querySelector('.fa-paperclip').addEventListener('click', function () {
 });
 document.addEventListener('DOMContentLoaded', function () {
     const paperclipIcon = document.querySelector('.fa-paperclip');
-    const fileInput = document.querySelector('.file-input'); 
+    const fileInput = document.querySelector('.file-input');
 });
 
 document.querySelector('.send-btn').addEventListener('click', function () {
@@ -195,6 +195,24 @@ if (timestampElement) {
 const timeElement = document.querySelector('.time');
 if (timeElement) {
     timeElement.textContent = getCurrentTime();
+}
+function updateTimestamp() {
+    const timestampElement = document.querySelector('.timestamp');
+    if (timestampElement) {
+        timestampElement.textContent = getCurrentTime();
+    }
+}
+function submitMessage() {
+    updateTimestamp();
+}
+function updateTime() {
+    const timeElement = document.querySelector('.time');
+    if (timeElement) {
+        timeElement.textContent = getCurrentTime();
+    }
+}
+function submitMessage() {
+    updateTime();
 }
 let mediaRecorder;
 let recordedChunks = [];
@@ -233,22 +251,71 @@ function startMicrophoneInput() {
 
 document.querySelector('.fa-microphone').addEventListener('click', startMicrophoneInput);
 
-document.querySelector('.fa-link').addEventListener('click', function () {
-    const textarea = document.querySelector('.text-space');
-    const urlInput = document.querySelector('.url-input');
 
-    urlInput.style.display = 'flex';
+document.addEventListener('DOMContentLoaded', function () {
+    const linkIcon = document.querySelector('.fa-link');
+    const textSpace = document.querySelector('.text-space');
+    const inputGroup = document.querySelector('.input-group');
+    const urlInput = document.createElement('input');
+    urlInput.type = 'url';
+    urlInput.placeholder = 'Enter URL';
+    urlInput.classList.add('url-input');
+    urlInput.style.display = 'none';
 
+    linkIcon.addEventListener('click', function () {
+        // Check if the URL input is already inserted
+        if (!inputGroup.contains(urlInput)) {
+            urlInput.style.display = 'inline-block';
+            inputGroup.appendChild(urlInput); // Append urlInput as a child of inputGroup
+        
+            // Move the text area below the URL input
+            textSpace.style.display = 'block';
+            textSpace.placeholder = 'Ask me anything';
+        }
+        
+    });
+
+    document.addEventListener('click', function (event) {
+        if (!event.target.closest('.url-input') && event.target !== linkIcon) {
+            urlInput.style.display = 'none';
+
+            // Move the text area back to its original position
+            textSpace.style.display = 'inline-block';
+            inputGroup.insertBefore(textSpace, urlInput);
+            textSpace.placeholder = 'Ask me anything...';
+        }
+    });
 });
-document.querySelector('.send-btn').addEventListener('click', function () {
-    const link = document.querySelector('.url-space').value;
-    if (link) {
-        const textarea = document.querySelector('.text-space');
-        const currentValue = textarea.value;
-        textarea.value = `${currentValue}<a href="${link}" target="_blank">${link}</a>`;
 
-        textarea.value = '';
-        document.querySelector('.url-space').value = '';
-        document.querySelector('.url-input').style.display = 'none';
+document.querySelector('.text-space').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        submitMessage();
+    }
+});
+
+function submitMessage() {
+    var message = document.querySelector('.text-space').value.trim();
+    if (message !== '') {
+        console.log('Submitted message:', message);
+        // Perform your form submission or other actions here
+    }
+}
+document.addEventListener('DOMContentLoaded', function () {
+    const textArea = document.querySelector('.text-space');
+    const container = document.querySelector('.contain');
+
+    textArea.addEventListener('input', function () {
+        this.style.height = 'auto'; // Reset textarea height to auto
+        this.style.height = (this.scrollHeight) + 'px'; // Set new textarea height based on content
+
+        container.style.height = 'auto'; // Reset container height to auto
+        container.style.height = (this.scrollHeight + 20) + 'px'; // Set new container height based on textarea content + padding
+    });
+
+    // Custom scrollbar styles for Firefox
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+        document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
     }
 });

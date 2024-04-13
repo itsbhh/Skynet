@@ -52,8 +52,9 @@ body {
   outline: none !important;
   border: none !important;
   margin-top: 10px !important;
-  max-height: 200px !important; 
+  max-height: 44px !important; 
   overflow-y: auto !important;
+  margin-left: 10px;
   padding: 10px !important;
   box-sizing: border-box !important; 
   scrollbar-width: thin !important; 
@@ -315,7 +316,7 @@ body {
 }
 
 .chatbox {
-  height: calc(94vh - 200px); /* Adjust the height as needed */
+  height: calc(104vh - 200px); /* Adjust the height as needed */
   overflow-y: auto; /* Enable vertical scrolling */
 }
 

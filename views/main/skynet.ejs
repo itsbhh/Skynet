@@ -1,7 +1,7 @@
 <% layout("/layouts/boilerplate3") %>
 
   <body>
-    <div class="navbar">
+    <div class="navai">
       <div class="icon"><a href="/home"><img src="/assets/skynetsmall.png"
             style="width: 80px;height: 80px; margin-left: 5px;"></i></a></div>
       <div class="icon icon1"><i class="fa-solid fa-user fa-sm" style="color: #ffffff;"></i></div>
@@ -105,9 +105,15 @@
 
         </div>
       </div>
-
+      <div class="chatbox" id="chatbox">
+        <div class="chat-area" id="default-text-container">
+          <div class="default-text">
+              <img src="/assets/skynetsmall.png" alt="Skynet Logo">
+              <h1>Welcome to Skynet AI</h1>
+              <p>Type your issue and explore the power of AI.</p>
+          </div>
       <div class="chat-area">
-        <div class="chat-message">
+        <div class="chat-message" id="chat-messages-container">
           <strong><i class="fas fa-robot"></i> Skynet AI <span class="timestamp">3:30 PM</span></strong>
           <div class="icons-right">
             <i class="fas fa-thumbtack pinned-icon"></i>
@@ -121,23 +127,23 @@
       <div class="aifooter">
         <div class="chat-footer">
           <div class="input-group">
-            <div class="contain">
-              <textarea class="text-space" name="ai[input]" placeholder="Ask me anything..." required></textarea>
-              <span class="icons-container">
-                <i class="fas fa-a iconss"></i>
-              <i class="fas fa-paperclip iconss" id="paperclip-icon">
-                <input type="file" class="file-input" name="file" id="fileInput" style="display: none;" />
-              </i>
-              <i class="fas fa-link iconss"></i>
-              <i class="fas fa-microphone iconss"></i>
-              <i class="iconsss"></i>
-              <button class="send-btn iconss" type="submit"><i class="fas fa-paper-plane"></i></button>
-              </span>
+              <div class="url-input" style="display: none;">
+                <input type="text" class="url-space" placeholder="Paste your URL...">
+              </div>
+              <div class="contain">
+                <textarea class="text-space" name="ai[input]" placeholder="Ask me anything..." required></textarea>
+                <span class="icons-container">
+                  <i class="fas fa-a iconss"></i>
+                  <i class="fas fa-paperclip iconss" id="paperclip-icon">
+                    <input type="file" class="file-input" name="file" id="fileInput" style="display: none;" />
+                  </i>
+                  <!---<i class="fas fa-link iconss"></i>--->
+                  <i class="fas fa-microphone iconss"></i>
+                  <i class="iconsss"></i>
+                  <button class="send-btn iconss" type="submit"><i class="fas fa-paper-plane"></i></button>
+                </span>
+              </div>
             </div>
-            <div class="url-input" style="display: none;">
-              <input type="text" class="url-space" placeholder="Paste your URL...">            
           </div>
-        </div>
-      </div>
-      </form>
+    </form>
   </body>

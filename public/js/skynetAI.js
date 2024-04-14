@@ -43,9 +43,6 @@ document.addEventListener('DOMContentLoaded', function () {
     }
 });
 
-
-
-
 document.addEventListener('DOMContentLoaded', function () {
     function setInitialMode() {
         const moonIcon = document.querySelector('.moon-icon');
@@ -85,16 +82,16 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function toggleDropdown(id, icon) {
-    const dropdownContent = document.getElementById(id);
-    const angleIcon = icon.querySelector('.angle-icon');
+function toggleDropdown(event) {
+    const dropdownContent = document.querySelector('.dropdown-content');
+    const angleIcon = document.querySelector('.angle-icon');
 
-    if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
-        dropdownContent.style.display = 'block';
-        angleIcon.style.transform = 'rotate(180deg)';
-    } else {
-        dropdownContent.style.display = 'none';
+    if (dropdownContent.classList.contains('show-dropdown')) {
+        dropdownContent.classList.remove('show-dropdown');
         angleIcon.style.transform = 'rotate(0deg)';
+    } else {
+        dropdownContent.classList.add('show-dropdown');
+        angleIcon.style.transform = 'rotate(180deg)';
     }
 }
 
@@ -121,35 +118,6 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function toggleDropdown(id, icon) {
-    const dropdownContent = document.getElementById(id);
-    const angleIcon = icon.querySelector('.angle-icon');
-
-    if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
-        dropdownContent.style.display = 'block';
-        angleIcon.style.transform = 'rotate(180deg)';
-    } else {
-        dropdownContent.style.display = 'none';
-        angleIcon.style.transform = 'rotate(0deg)';
-    }
-}
-
-document.addEventListener('DOMContentLoaded', function () {
-    const dropdownText = document.querySelector('.dropdown-text');
-    const angleDownIcon = dropdownText.querySelector('.fa-angle-down');
-    const dropdownContent = document.getElementById('skynet-dropdown');
-    const usernameContainer = document.querySelector('.username-container');
-
-    dropdownText.addEventListener('click', function () {
-        dropdownContent.classList.toggle('show-dropdown');
-        angleDownIcon.classList.toggle('rotate');
-        usernameContainer.classList.toggle('show-dropdown');
-    });
-
-    dropdownContent.classList.remove('show-dropdown');
-    angleDownIcon.classList.remove('rotate');
-});
-
 function getCurrentTime() {
     const now = new Date();
     const hours = now.getHours();
@@ -163,57 +131,41 @@ function getCurrentTime() {
 document.querySelector('.fa-paperclip').addEventListener('click', function () {
     document.querySelector('.file-input').click();
 });
+
 document.addEventListener('DOMContentLoaded', function () {
-    const paperclipIcon = document.querySelector('.fa-paperclip');
-    const fileInput = document.querySelector('.file-input');
-});
+    const textArea = document.querySelector('.text-space');
+    const container = document.querySelector('.contain');
 
-document.querySelector('.send-btn').addEventListener('click', function () {
-    submitMessage();
-});
+    textArea.addEventListener('input', function () {
+        this.style.height = 'auto'; // Reset textarea height to auto
+        this.style.height = (this.scrollHeight) + 'px'; // Set new textarea height based on content
 
+        container.style.height = 'auto'; // Reset container height to auto
+        container.style.height = (this.scrollHeight + 20) + 'px'; // Set new container height based on textarea content + padding
+    });
 
-
-function handleFileUpload(event) {
-    const file = event.target.files[0];
-    if (file) {
-        console.log('Uploaded file:', file);
+    // Custom scrollbar styles for Firefox
+    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
+    if (scrollbarWidth > 0) {
+        document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
     }
-}
+});
+
+document.querySelector('.text-space').addEventListener('keydown', function (event) {
+    if (event.key === 'Enter') {
+        event.preventDefault();
+        submitMessage();
+    }
+});
 
 function submitMessage() {
     var message = document.querySelector('.text-space').value.trim();
     if (message !== '') {
         console.log('Submitted message:', message);
+        // Perform your form submission or other actions here
     }
 }
 
-const timestampElement = document.querySelector('.timestamp');
-if (timestampElement) {
-    timestampElement.textContent = getCurrentTime();
-}
-const timeElement = document.querySelector('.time');
-if (timeElement) {
-    timeElement.textContent = getCurrentTime();
-}
-function updateTimestamp() {
-    const timestampElement = document.querySelector('.timestamp');
-    if (timestampElement) {
-        timestampElement.textContent = getCurrentTime();
-    }
-}
-function submitMessage() {
-    updateTimestamp();
-}
-function updateTime() {
-    const timeElement = document.querySelector('.time');
-    if (timeElement) {
-        timeElement.textContent = getCurrentTime();
-    }
-}
-function submitMessage() {
-    updateTime();
-}
 let mediaRecorder;
 let recordedChunks = [];
 
@@ -249,10 +201,7 @@ function startMicrophoneInput() {
         });
 }
 
-document.querySelector('.fa-microphone').addEventListener('click', startMicrophoneInput);
-
-
-document.addEventListener('DOMContentLoaded', function () {
+/*document.addEventListener('DOMContentLoaded', function () {
     const linkIcon = document.querySelector('.fa-link');
     const textSpace = document.querySelector('.text-space');
     const inputGroup = document.querySelector('.input-group');
@@ -265,14 +214,14 @@ document.addEventListener('DOMContentLoaded', function () {
     linkIcon.addEventListener('click', function () {
         // Check if the URL input is already inserted
         if (!inputGroup.contains(urlInput)) {
-            urlInput.style.display = 'inline-block';
+            urlInput.style.display = 'block';
             inputGroup.appendChild(urlInput); // Append urlInput as a child of inputGroup
-        
+
             // Move the text area below the URL input
-            textSpace.style.display = 'block';
+            textSpace.style.display = 'none';
             textSpace.placeholder = 'Ask me anything';
         }
-        
+
     });
 
     document.addEventListener('click', function (event) {
@@ -285,37 +234,38 @@ document.addEventListener('DOMContentLoaded', function () {
             textSpace.placeholder = 'Ask me anything...';
         }
     });
-});
+});*/
 
-document.querySelector('.text-space').addEventListener('keydown', function (event) {
-    if (event.key === 'Enter') {
-        event.preventDefault();
-        submitMessage();
-    }
-});
+document.querySelector('.fa-microphone').addEventListener('click', startMicrophoneInput);
 
-function submitMessage() {
-    var message = document.querySelector('.text-space').value.trim();
-    if (message !== '') {
-        console.log('Submitted message:', message);
-        // Perform your form submission or other actions here
-    }
+const timestampElement = document.querySelector('.timestamp');
+if (timestampElement) {
+    timestampElement.textContent = getCurrentTime();
+}
+const timeElement = document.querySelector('.time');
+if (timeElement) {
+    timeElement.textContent = getCurrentTime();
 }
 document.addEventListener('DOMContentLoaded', function () {
-    const textArea = document.querySelector('.text-space');
-    const container = document.querySelector('.contain');
+    const defaultTextContainer = document.getElementById('default-text-container');
+    const chatMessagesContainer = document.getElementById('chat-messages-container');
 
-    textArea.addEventListener('input', function () {
-        this.style.height = 'auto'; // Reset textarea height to auto
-        this.style.height = (this.scrollHeight) + 'px'; // Set new textarea height based on content
+    console.log('defaultTextContainer:', defaultTextContainer);
+    console.log('chatMessagesContainer:', chatMessagesContainer);
 
-        container.style.height = 'auto'; // Reset container height to auto
-        container.style.height = (this.scrollHeight + 20) + 'px'; // Set new container height based on textarea content + padding
-    });
-
-    // Custom scrollbar styles for Firefox
-    const scrollbarWidth = window.innerWidth - document.documentElement.clientWidth;
-    if (scrollbarWidth > 0) {
-        document.documentElement.style.setProperty('--scrollbar-width', scrollbarWidth + 'px');
+    if (defaultTextContainer && chatMessagesContainer) {
+        defaultTextContainer.style.display = 'block';
+        chatMessagesContainer.style.display = 'none'; // Hide the chat messages initially
     }
 });
+
+
+
+
+    document.querySelector('.send-btn').addEventListener('click', submitMessage);
+    document.querySelector('.text-space').addEventListener('keydown', function (event) {
+        if (event.key === 'Enter') {
+            event.preventDefault();
+            submitMessage();
+        }
+    });

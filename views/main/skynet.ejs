@@ -20,41 +20,38 @@
             </div>
             <hr>
             <div class="section1 dropdown-section">
-              <div class="important dropdown-toggle" onclick="toggleDropdown('recent-chats', this)">
+              <div  class="rec-chats"  onclick="toggleDropdown('recent-chats', this)">
                 <i class="fa-solid fa-location-dot fa-2xs" style="color: #000000;"></i>
                 <h6>Recent chats</h6> <i class="fa-solid fa-angle-up fa-sm angle-icon" style="color: #000000;"></i>
               </div>
-              <ul id="recent-chats" class="chat-list dropdown-conten" style="display: none;">
-                <div class="alice">
-                  <h6>Alice</h6><i class="fa-solid fa-share-nodes" style="color: #000000;"></i> <i
-                    class="fas fa-thumbtack"></i>
-                </div>
-                <div class="name">Bob</div>
-                <div class="name">Carol</div>
-                <div class="name"><i class="fas fa-thumbtack"></i> Carol</div>
-                <div class="name">Eve</div>
-                <div class="name">Frank</div>
-                <div class="name">Grace</div>
-                <div class="name">Grace</div>
-                <div class="name">Ivy</div>
-              </ul>
-            </div>
-            <hr class="hell">
-            <div class="section2 dropdown-section">
-              <div class="important dropdown-toggle" onclick="toggleDropdown('trending-questions', this)">
-                <i class="fa-solid fa-droplet fa-2xs" style="color: #000000;"></i>
-                <h6>Trending Questions</h6> <i class="fa-solid fa-angle-up fa-sm angle-icon"
-                  style="color: #000000;"></i>
-              </div>
-              <ul id="trending-questions" class="trending-list dropdown-conten" style="display: none;">
-                <div class="name2">Alice, David</div>
-                <div class="name2">David, Grace</div>
-                <div class="name2">Boby,Lily,Kevin</div>
-                <div class="name3">
-                  <h6>Kevin, Alice</h6><button class="more-btn">More</button>
-                </div>
-                <div class="name2">Eve,Nora,Mike</div>
-              </ul>
+              <div id="recent-chats" class="chat-list dropdown-conten" style="display: block;">
+                          <div class="chat-item" onmouseover="highlightItem(this)" onmouseout="removeHighlight(this)">
+                              <h6>Alice</h6>
+                              <i class="fa-solid fa-share-nodes share-icon" style="color: #000000;"></i>
+                              <i class="fas fa-thumbtack pin-icon" onclick="togglePin(this)"></i>
+                          </div>
+                          <div class="chat-item" onmouseover="highlightItem(this)" onmouseout="removeHighlight(this)">
+                              <h6>Bob</h6>
+                              <i class="fa-solid fa-share-nodes share-icon" style="color: #000000;"></i>
+                              <i class="fas fa-thumbtack pin-icon" onclick="togglePin(this)"></i>
+                          </div>
+                          <div class="chat-item" onmouseover="highlightItem(this)" onmouseout="removeHighlight(this)">
+                            <h6>Frank</h6>
+                            <i class="fa-solid fa-share-nodes share-icon" style="color: #000000;"></i>
+                            <i class="fas fa-thumbtack pin-icon" onclick="togglePin(this)"></i>
+                        </div>
+                        <div class="chat-item" onmouseover="highlightItem(this)" onmouseout="removeHighlight(this)">
+                          <h6>Eve</h6>
+                          <i class="fa-solid fa-share-nodes share-icon" style="color: #000000;"></i>
+                          <i class="fas fa-thumbtack pin-icon" onclick="togglePin(this)"></i>
+                      </div>
+                      <div class="chat-item" onmouseover="highlightItem(this)" onmouseout="removeHighlight(this)">
+                        <h6>Grave</h6>
+                        <i class="fa-solid fa-share-nodes share-icon" style="color: #000000;"></i>
+                        <i class="fas fa-thumbtack pin-icon" onclick="togglePin(this)"></i>
+                    </div>
+                    
+               </div>           
             </div>
             <div class="btn">
               <button class="start-chat-btn"> <i class="fas fa-pen"></i>Start New Chat</button>
@@ -146,4 +143,18 @@
             </div>
           </div>
     </form>
+    <script>
+    function toggleDropdown(id, icon) {
+      const dropdownContent = document.getElementById(id);
+      const angleIcon = icon.querySelector('.angle-icon');
+  
+      if (dropdownContent.style.display === 'block' || dropdownContent.style.display === '') {
+          dropdownContent.style.display = 'none';
+          angleIcon.style.transform = 'rotate(180deg)';
+      } else {
+          dropdownContent.style.display = 'block';
+          angleIcon.style.transform = 'rotate(0deg)';
+      }
+  }
+  </script>
   </body>

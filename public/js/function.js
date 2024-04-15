@@ -129,3 +129,101 @@ function selectImageFromGallery() {
 
 const cameraIcon = document.querySelector('.fa-camera');
 cameraIcon.addEventListener('click', selectImageFromGallery);
+
+function toggleMenu() {
+    console.log('Toggle menu clicked');
+    let menuDropdown = document.getElementById('menuDropdown');
+    if (menuDropdown) {
+        console.log('Menu dropdown found');
+        if (menuDropdown.style.display == "block") {
+            menuDropdown.style.display = 'none';
+        }
+        else {
+            menuDropdown.style.display = "block"
+        }
+    } else {
+        console.error('Error: Menu dropdown element not found.');
+    }
+}
+let drop = document.querySelector('.dropdown-arrow');
+let closeIcon = document.querySelector('.close-icon');
+
+drop.addEventListener('click', () => {
+    let menu = document.querySelector('.theme-options');
+    menu.style.display = (menu.style.display == 'block') ? 'none' : 'block';
+    drop.style.transform = (menu.style.display == 'none') ? 'rotate(0deg)' : 'rotate(180deg)';
+    drop.style.marginTop = '-8px';
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownArrow = document.querySelector('.dropdown-arrow');
+    const menu = document.querySelector('.menu-drop');
+    let isOpen = false;
+
+    dropdownArrow.addEventListener('click', function () {
+        if (!isOpen) {
+            menu.style.display = 'block';
+            menu.style.height = '300px';
+            isOpen = true;
+            console.log('Menu opened.');
+        } else {
+            menu.style.display = 'block';
+            menu.style.height = '200px';
+            isOpen = false;
+            console.log('Menu closed.');
+        }
+    });
+
+    const closeIcon = document.querySelector('.close-icon');
+    closeIcon.addEventListener('click', function () {
+        menu.style.display = 'none';
+    });
+});
+function toggleMen() {
+    console.log('Toggle menu clicked');
+    let menuDropdown = document.getElementById('menuDropdown');
+    if (menuDropdown) {
+        console.log('Menu dropdown found');
+        if (menuDropdown.style.display == "block") {
+            menuDropdown.style.display = 'none';
+        }
+        else {
+            menuDropdown.style.display = "block"
+        }
+    } else {
+        console.error('Error: Menu dropdown element not found.');
+    }
+}
+let drops = document.querySelector('.dropdown-arrow');
+let closIcon = document.querySelector('.close-icon');
+
+drop.addEventListener('click', () => {
+    let menu = document.querySelector('.theme-options');
+    menu.style.display = (menu.style.display == 'block') ? 'none' : 'block';
+    drops.style.transform = (menu.style.display == 'none') ? 'rotate(0deg)' : 'rotate(180deg)';
+    drops.style.marginTop = '-8px';
+});
+document.addEventListener('DOMContentLoaded', function () {
+    const dropdownArrows = document.querySelector('.dropdown-arrow');
+    const menu = document.querySelector('.menu-drop');
+    let isOpen = false;
+
+    dropdownArrows.addEventListener('click', function () {
+        if (!isOpen) {
+            menu.style.display = 'block';
+            menu.style.height = '340px';
+            isOpen = true;
+            console.log('Menu opened.');
+            dropdownArrows.style.marginTop = '-8px';
+        } else {
+            menu.style.display = 'block';
+            menu.style.height = '265px';
+            isOpen = false;
+            console.log('Menu closed.');
+        }
+    });
+
+    const closIcon = document.querySelector('.close-icon');
+    closIcon.addEventListener('click', function () {
+        menu.style.display = 'none';
+    });
+});

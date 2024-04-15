@@ -1,141 +1,348 @@
 <% layout("/layouts/boilerplate") %>
 
 
-        <nav class="navbar bg-body-tertiary ">
-            <div class="navb">
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/camera.png" alt="" width="50" height="49">
+    <nav class="navbar bg-body-tertiary ">
+        <div class="navb">
+            <a class="navbar-brand" href="#">
+                <img src="/assets/camera.png" alt="" width="50" height="49">
+            </a>
+            <a class="navbar-brand" href="#">
+                <img src="/assets/language.png" alt="" width="50" height="49">
+            </a>
+            <% if(!currUser){ %>
+                <a href="/user/login" style="text-decoration: none;">
+                    <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
                 </a>
-                <a class="navbar-brand" href="#">
-                    <img src="/assets/language.png" alt="" width="50" height="49">
-                </a>
-                <% if(!currUser){ %>
-                    <a href="/user/login" style="text-decoration: none;">
-                        <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
-                    </a>
-                    <% } %>
+                <% } %>
                     <% if(currUser){ %>
                         <a href="/user/logout" style="text-decoration: none;">
                             <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Logout</button>
                         </a>
-                    <% } %>
-                
-                <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="toggleMenu()" style="color: #ffffff;"></i>
+                        <% } %>
+
+                            <i class="menu mt-4 fa-solid fa-bars fa-2xl" onclick="toggleMenu()"
+                                style="color: #ffffff;"></i>
 
 
-                <!-- on click it will appear -->
+                            <!-- on click it will appear -->
 
 
+        </div>
+        <div class="menu-drop" id="menuDropdown">
+            <i class="fa-solid fa-xmark close-icon"></i>
+            <div class="menu-item">
+                <i class="fa-solid fa-circle-user fa-sm icon"></i>
+                <span>Account</span>
             </div>
-            <div class="menu-drop" id="menuDropdown">
-                <i class="fa-solid fa-xmark close-icon"></i>
-                <div class="menu-item">
-                    <i class="fa-solid fa-circle-user fa-sm icon"></i>
-                    <span>Account</span>
+            <div class="menu-item">
+                <i class="fa-solid fa-gear fa-sm icon" style="color: #ffffff;"></i>
+                <span>Settings</span>
+            </div>
+            <div class="menu-item">
+                <i class="fa-solid fa-lock fa-sm icon"></i>
+                <span>Safe search</span>
+            </div>
+            <div class="menu-item">
+                <i class="fa-regular fa-clock fa-sm icon"></i>
+                <span>Search History</span>
+            </div>
+            <div class="menu-item">
+                <i class="fa-solid fa-circle-half-stroke fa-sm icon"></i>
+                <span>Theme</span>
+                <i class="bi bi-chevron-down dropdown-arrow"></i>
+            </div>
+            <div class="theme-options" id="theme-options">
+                <div class="radio-option">
+                    <input type="radio" id="light" name="theme" value="light">
+                    <label for="light">Light</label>
                 </div>
-                <div class="menu-item">
-                    <i class="fa-solid fa-gear fa-sm icon" style="color: #ffffff;"></i>
-                    <span>Settings</span>
+                <div class="radio-option">
+                    <input type="radio" id="dark" name="theme" value="dark" checked>
+                    <label for="dark">Dark</label>
                 </div>
-                <div class="menu-item">
-                    <i class="fa-solid fa-lock fa-sm icon"></i>
-                    <span>Safe search</span>
-                </div>
-                <div class="menu-item">
-                    <i class="fa-regular fa-clock fa-sm icon"></i>
-                    <span>Search History</span>
-                </div>
-                <div class="menu-item">
-                    <i class="fa-solid fa-circle-half-stroke fa-sm icon"></i>
-                    <span>Theme</span>
-                    <i class="bi bi-chevron-down dropdown-arrow"></i>
-                </div>
-                <div class="theme-options" id="theme-options">
-                    <div class="radio-option">
-                        <input type="radio" id="light" name="theme" value="light">
-                        <label for="light">Light</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="dark" name="theme" value="dark" checked>
-                        <label for="dark">Dark</label>
-                    </div>
-                    <div class="radio-option">
-                        <input type="radio" id="system" name="theme" value="system">
-                        <label for="system">System Default</label>
-                    </div>
+                <div class="radio-option">
+                    <input type="radio" id="system" name="theme" value="system">
+                    <label for="system">System Default</label>
                 </div>
             </div>
-        </nav>
-        <div class="container">
-            <img class="card-img-top show-img" src="/assets/logo2.png">
-            <form method="post" action="/home/search" enctype="multipart/form-data">
-                <div class="search-body">
-                    <div class="search">                        
-                        <span class="search-icon material-symbols-outlined">search</span>
-                        <div class="search-1">
-                            <input class="search-input" type="search" name="search[q]" placeholder="Search"
+        </div>
+    </nav>
+    <div class="container">
+        <img class="card-img-top show-img" src="/assets/logo2.png">
+        <form method="post" action="/home/search" enctype="multipart/form-data">
+            <div class="search-body">
+                <div class="search">
+                    <span class="search-icon material-symbols-outlined">search</span>
+                    <div class="search-1">
+                        <input class="search-input" type="search" name="search[q]" placeholder="Search"
                             autocomplete="off">
-                        </div>
-                        <div class="search-2">
-                            <span class=" mic material-symbols-outlined"> mic</span>
-                            <span class="img material-symbols-outlined"> center_focus_weak</span>
-                        </div>
                     </div>
-                    &nbsp; &nbsp; &nbsp; &nbsp; <a href="/ai"><div class="imga"></div></a>
+                    <div class="search-2">
+                        <span class=" mic material-symbols-outlined"> mic</span>
+                        <span class="img material-symbols-outlined"> center_focus_weak</span>
                     </div>
                 </div>
-            </form>
-        </div>
-        <div class="custom-btn">
-            <button class="custom-button">
-              <i class="fa-solid fa-pen" style="color: #000000;"></i>&nbsp; Customize
-            </button>
-          </div>
-        </div>
-        </div>
-        <footer id="footer">
-            <div class="footer-container">
-                <div class="branding-container">
-                    <hr class="horizontal-line"> &nbsp;&nbsp;&nbsp;&nbsp;
-                    <div class="branding-text">
-                        <h3 class="skynet">SKYNET</h3> <!-- SKYNET text with gradient -->
-                        <h4 class="made-in">Made in <span class="bharat">BHARAT</span></h4>
-                        <!-- Made in Bharat text with gradient on Bharat -->
-                    </div>
-                    &nbsp;&nbsp;&nbsp;&nbsp;
-                    <hr class="horizontal-line">
-                </div>
-                <ul class="footer-links">
-                    <!-- Footer links with reduced size -->
-                    <li><a href="/about">About</a></li>
-                    <li><a href="/advertising">Advertising</a></li>
-                    <li><a href="/business">Business</a></li>
-                    <li><a href="/howsearch">How Skynet Works</a></li>
-                    <li><a href="/privacy">Privacy</a></li>
-                    <li><a href="/terms">Terms</a></li>
-                    <li><a href="/contact">Contact Us</a></li>
-                </ul>
+                &nbsp; &nbsp; &nbsp; &nbsp; <a href="/ai">
+                    <div class="imga"></div>
+                </a>
             </div>
-        </footer>
-        <script>
-            function toggleMenu() {
-                console.log('Toggle menu clicked');
-                let menuDropdown = document.getElementById('menuDropdown');
-                if (menuDropdown) {
-                    console.log('Menu dropdown found');
-                    if (menuDropdown.style.display == "block") {
-                        menuDropdown.style.display = 'none';
-                    }
-                    else {
-                        menuDropdown.style.display = "block"
-                    }
-                } else {
-                    console.error('Error: Menu dropdown element not found.');
-                }
-            }
 
-        </script>
-        
-        <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
+    </div>
+    </form>
+    </div>
+    <div id="uploadDialog" class="hidden">
+        <div class="dialog-container">
+            <div id="closeButton" class="icon-clear" title="Close">×</div>
+            <div id="title">Upload Image</div>
+            <div id="dragDropArea" class="drag-drop-area">
+                <div class="drag-text">Drag your image here</div>
+                <!-- Progress bar for uploading -->
+                <div class="progress-bar-container hidden">
+                    <div class="progress-bar"></div>
+                    <div class="progress-text">Uploading...</div>
+                </div>
+            </div>
+            <input type="file" id="fileUpload" class="file-upload" style="display: none;">
+            <label for="fileUpload" class="file-upload-label">Or click here to upload file</label>
+            <input type="text" id="imageLink" class="image-link" placeholder="Paste image link">
+            <button id="searchButton" class="search-button">Search</button>
+        </div>
+    </div>
+    
+    <div class="custom-btn">
+        <button class="custom-button">
+            <i class="fa-solid fa-pen" style="color: #000000;"></i>&nbsp; Customize
+        </button>
+    </div>
+    </div>
+    </div>
+    <footer id="footer">
+        <div class="footer-container">
+            <div class="branding-container">
+                <hr class="horizontal-line"> &nbsp;&nbsp;&nbsp;&nbsp;
+                <div class="branding-text">
+                    <h3 class="skynet">SKYNET</h3> <!-- SKYNET text with gradient -->
+                    <h4 class="made-in">Made in <span class="bharat">BHARAT</span></h4>
+                    <!-- Made in Bharat text with gradient on Bharat -->
+                </div>
+                &nbsp;&nbsp;&nbsp;&nbsp;
+                <hr class="horizontal-line">
+            </div>
+            <ul class="footer-links">
+                <!-- Footer links with reduced size -->
+                <li><a href="/about">About</a></li>
+                <li><a href="/advertising">Advertising</a></li>
+                <li><a href="/business">Business</a></li>
+                <li><a href="/howsearch">How Skynet Works</a></li>
+                <li><a href="/privacy">Privacy</a></li>
+                <li><a href="/terms">Terms</a></li>
+                <li><a href="/contact">Contact Us</a></li>
+            </ul>
+        </div>
+    </footer>
+    <script>
+        function toggleMenu() {
+            console.log('Toggle menu clicked');
+            let menuDropdown = document.getElementById('menuDropdown');
+            if (menuDropdown) {
+                console.log('Menu dropdown found');
+                if (menuDropdown.style.display == "block") {
+                    menuDropdown.style.display = 'none';
+                }
+                else {
+                    menuDropdown.style.display = "block"
+                }
+            } else {
+                console.error('Error: Menu dropdown element not found.');
+            }
+        }
+        let drop = document.querySelector('.dropdown-arrow');
+        let closeIcon = document.querySelector('.close-icon');
+
+        drop.addEventListener('click', () => {
+            let menu = document.querySelector('.theme-options');
+            menu.style.display = (menu.style.display == 'block') ? 'none' : 'block';
+            drop.style.transform = (menu.style.display == 'none') ? 'rotate(0deg)' : 'rotate(180deg)';
+            drop.style.marginTop = '-8px';
+        });
+        document.addEventListener('DOMContentLoaded', function () {
+            const dropdownArrow = document.querySelector('.dropdown-arrow');
+            const menu = document.querySelector('.menu-drop');
+            let isOpen = false;
+
+            dropdownArrow.addEventListener('click', function () {
+                if (!isOpen) {
+                    menu.style.display = 'block';
+                    menu.style.height = '340px';
+                    isOpen = true;
+                    console.log('Menu opened.');
+                    dropdownArrow.style.marginTop = '-8px';
+                } else {
+                    menu.style.display = 'block';
+                    menu.style.height = '265px';
+                    isOpen = false;
+                    console.log('Menu closed.');
+                }
+            });
+
+            const closeIcon = document.querySelector('.close-icon');
+            closeIcon.addEventListener('click', function () {
+                menu.style.display = 'none';
+            });
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const micIcon = document.querySelector('.mic');
+
+            micIcon.addEventListener('click', function () {
+                startMicrophoneInput();
+                console.log('Microphone icon clicked.');
+            });
+
+            let mediaRecorder;
+            let recordedChunks = [];
+
+            function startMicrophoneInput() {
+                navigator.mediaDevices.getUserMedia({ audio: true })
+                    .then(function (stream) {
+                        console.log('Microphone access granted');
+
+                        mediaRecorder = new MediaRecorder(stream);
+
+                        mediaRecorder.ondataavailable = function (event) {
+                            if (event.data.size > 0) {
+                                recordedChunks.push(event.data);
+                            }
+                        };
+
+                        mediaRecorder.onstop = function () {
+                            let blob = new Blob(recordedChunks, { type: 'audio/webm' });
+                            let audioUrl = URL.createObjectURL(blob);
+                            console.log('Recording stopped, audio URL:', audioUrl);
+                            // Here, you can further process the recorded audio URL
+                        };
+
+                        mediaRecorder.start();
+
+                        setTimeout(function () {
+                            mediaRecorder.stop();
+                            stream.getTracks().forEach(track => track.stop());
+                            console.log('Recording stopped after 5 seconds');
+                        }, 5000);
+                    })
+                    .catch(function (err) {
+                        console.error('Error accessing microphone:', err);
+                    });
+            }
+        });
+
+        document.addEventListener('DOMContentLoaded', function () {
+            const imga = document.querySelector('.img');
+            const uploadDialog = document.getElementById('uploadDialog');
+            const closeButton = document.getElementById('closeButton');
+            const uploadImageBtn = document.querySelector('.upload-image-btn');
+            const fileUpload = document.getElementById('fileUpload');
+            const imageLink = document.getElementById('imageLink');
+            const searchButton = document.getElementById('searchButton');
+
+            imga.addEventListener('click', function () {
+                uploadDialog.classList.add('show');
+                console.log('Image clicked, upload dialog opened.');
+            });
+
+            // Close upload dialog
+            closeButton.addEventListener('click', function () {
+                uploadDialog.classList.remove('show');
+                console.log('Upload dialog closed.');
+            });
+
+            // Open upload dialog on button click
+            uploadImageBtn.addEventListener('click', function () {
+                uploadDialog.classList.add('show');
+                console.log('Upload dialog opened.');
+            });
+
+            // Handle file upload
+            fileUpload.addEventListener('change', function (event) {
+                console.log('File uploaded:', event.target.files);
+                // Handle file upload
+            });
+
+            // Handle image link search
+            searchButton.addEventListener('click', function () {
+                const imageURL = imageLink.value.trim();
+                if (imageURL !== '') {
+                    // Perform search based on image link
+                    console.log('Searching with image link:', imageURL);
+                } else {
+                    alert('Please enter an image link.');
+                }
+            });
+        });
+            document.addEventListener('DOMContentLoaded', function () {
+    const uploadDialog = document.getElementById('uploadDialog');
+    const closeButton = document.getElementById('closeButton');
+    const dragDropArea = document.getElementById('dragDropArea');
+    const progressBarContainer = document.querySelector('.progress-bar-container');
+    const progressBar = document.querySelector('.progress-bar');
+
+    closeButton.addEventListener('click', function () {
+        uploadDialog.classList.add('hidden');
+    });
+
+    dragDropArea.addEventListener('dragover', function (event) {
+        event.preventDefault();
+        dragDropArea.classList.add('drag-over');
+    });
+
+    dragDropArea.addEventListener('dragleave', function () {
+        dragDropArea.classList.remove('drag-over');
+    });
+
+    dragDropArea.addEventListener('drop', function (event) {
+        event.preventDefault();
+        dragDropArea.classList.remove('drag-over');
+        const files = event.dataTransfer.files;
+        handleFiles(files);
+    });
+
+    function handleFiles(files) {
+        if (files.length === 0) return;
+
+        const file = files[0];
+        const reader = new FileReader();
+
+        reader.onload = function (event) {
+            // Simulate uploading progress
+            uploadDialog.classList.remove('hidden');
+            progressBarContainer.classList.remove('hidden');
+            progressBar.style.width = '0%';
+
+            let progress = 0;
+            const interval = setInterval(function () {
+                progress += Math.random() * 5;
+                progressBar.style.width = `${progress}%`;
+
+                if (progress >= 100) {
+                    clearInterval(interval);
+                    setTimeout(function () {
+                        uploadDialog.classList.add('hidden');
+                        progressBarContainer.classList.add('hidden');
+                        progressBar.style.width = '0%';
+                    }, 1000);
+                }
+            }, 300);
+        };
+
+        reader.readAsDataURL(file);
+    }
+});
+
+
+
+
+    </script>
+
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
         crossorigin="anonymous"></script>

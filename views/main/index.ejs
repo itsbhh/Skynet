@@ -1,19 +1,16 @@
 <% layout("/layouts/boilerplate") %>
 
 
-    <nav class="navbar bg-body-tertiary ">
-        <div class="navb">
-            <a class="navbar-brand" href="#">
-                <img src="/assets/camera.png" alt="" width="50" height="49">
-            </a>
-            <a class="navbar-brand" href="#">
-                <img src="/assets/language.png" alt="" width="50" height="49">
-            </a>
-            <% if(!currUser){ %>
-                <a href="/user/login" style="text-decoration: none;">
-                    <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
+        <nav class="navbar bg-body-tertiary ">
+            <div class="navb">
+                <a class="navbar-brand" href="#">
+                    <img src="/assets/language.png" alt="" width="50" height="49">
                 </a>
-                <% } %>
+                <% if(!currUser){ %>
+                    <a href="/user/login" style="text-decoration: none;">
+                        <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Sign In</button>
+                    </a>
+                    <% } %>
                     <% if(currUser){ %>
                         <a href="/user/logout" style="text-decoration: none;">
                             <button class="btn mt-2 btn-outline-light bg-dark d-flex button-x ">Logout</button>

@@ -444,9 +444,6 @@ footer {
 .menu-drop{
   animation: fadeIn 200ms;
 }
-
-
-
 .menu-item {
   display: flex;
   align-items: center;
@@ -470,7 +467,6 @@ footer {
   top: 50%;
   transform: translateY(-50%);
   margin-right: 20px;
-  vertical-align: middle;
 }
 .menu-item span:hover {
   cursor: pointer;

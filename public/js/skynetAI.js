@@ -82,40 +82,31 @@ document.addEventListener('DOMContentLoaded', function () {
     });
 });
 
-function toggleDropdown(event) {
-    const dropdownContent = document.querySelector('.dropdown-content');
-    const angleIcon = document.querySelector('.angle-icon');
-
-    if (dropdownContent.classList.contains('show-dropdown')) {
-        dropdownContent.classList.remove('show-dropdown');
-        angleIcon.style.transform = 'rotate(0deg)';
-    } else {
-        dropdownContent.classList.add('show-dropdown');
-        angleIcon.style.transform = 'rotate(180deg)';
-    }
-}
-
 document.addEventListener('DOMContentLoaded', function () {
     const dropdownText = document.querySelector('.dropdown-text');
     const angleUpIcon = dropdownText.querySelector('.fa-angle-up');
-    const usernameContainer = document.querySelector('.username');
+    const usernameContainer = document.querySelector('.username-container');
+    const searchInput = document.querySelector('.search-bar');
 
     dropdownText.addEventListener('click', function () {
-        const dropdownContent = document.getElementById('skynet-dropdown');
+        const dropdownContent = document.querySelector('.dropdown-cont');
         const dropdownIcon = dropdownText.querySelector('.dropdown-icon');
 
         if (dropdownContent.style.display === 'none' || dropdownContent.style.display === '') {
             dropdownContent.style.display = 'block';
             dropdownIcon.style.transform = 'rotate(180deg)';
             angleUpIcon.style.transform = 'rotate(180deg)';
-            usernameContainer.style.marginRight = '30px';
+            usernameContainer.classList.add('username-container-shifted');
+            searchInput.classList.add('search-shifted');
         } else {
             dropdownContent.style.display = 'none';
             dropdownIcon.style.transform = 'rotate(0deg)';
             angleUpIcon.style.transform = 'rotate(0deg)';
-            usernameContainer.style.marginRight = '0';
+            usernameContainer.classList.remove('username-container-shifted');
+            searchInput.classList.remove('search-shifted');
         }
     });
+
 });
 
 function getCurrentTime() {
@@ -269,3 +260,45 @@ document.addEventListener('DOMContentLoaded', function () {
             submitMessage();
         }
     });
+    let pinnedItem = null;
+
+// Function to highlight item on hover
+function highlightItem(item) {
+    item.classList.add('highlighted');
+}
+
+// Function to remove highlight on mouseout
+function removeHighlight(item) {
+    item.classList.remove('highlighted');
+}
+
+// Function to toggle pin icon
+function togglePin(icon) {
+    const item = icon.parentElement;
+
+    if (item.classList.contains('pinned')) {
+        // Unpin the clicked item
+        item.classList.remove('pinned');
+        return;
+    }
+
+    if (pinnedItem) {
+        // Unpin the previously pinned item
+        pinnedItem.classList.remove('pinned');
+    }
+
+    // Pin the clicked item
+    item.classList.add('pinned');
+    pinnedItem = item;
+}
+
+    
+
+// Event listener for clicking on the share icon
+document.querySelectorAll('.share-icon').forEach(icon => {
+    icon.addEventListener('click', function() {
+        const chatName = this.parentElement.querySelector('h6').textContent;
+        const shareURL = `mailto:?subject=Check%20out%20${encodeURIComponent(chatName)}&body=Share%20this%20link%20with%20${encodeURIComponent(chatName)}%3A%20${window.location.href}`;
+        window.open(shareURL);
+    });
+});
